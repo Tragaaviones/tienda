@@ -4,18 +4,49 @@
 
 <head>
     <!--Titulo del documento-->
-    <title>Niki`s</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="image/png" rel="icon" href="../../recursos/imagenes/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link type="text/css" rel="stylesheet" href="../../recursos/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/recursos/css/privado.css">
 </head>
-
 <body>
-    <main>
 
+    <main>
+        <div class="col bg-white p-5 rounded-end ">
+            <div class="text-end">
+                <img src="/recursos/imagenes/usuario-de-perfil.png" class="mx-auto d-block" width="80">
+            </div>
+            <h2 class="fw-bold text-center py-5 titulo">Inicio de sesión</h2>
+    
+            <!--LOGIN-->
+            <div class="contenedor">
+                <div action="#">
+                    <div class="mb-4"></div>
+                    <div class="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4"></div>
+                    <input type="email" class="form-control" name="email" placeholder="Correo Electronico">
+    
+                    <div class="conte"></div>
+                    <div class="mb-4"></div>
+                    <div class="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4"></div>
+                    <input type="password" class="form-control" name="password" placeholder="Contraseña">
+    
+                    <div class="mb-4" h></div>
+                    <div class="d-grip">
+                        <button type="submit" class="btn boton">Iniciar Sesión</button>
+                    </div>
+    
+                    <div class="my-3">
+                        <span><a href="#">Olvide mi contraseña</a></span>
+    
+                    </div>
+    
+                </div>
+            </div>
+        </div> 
     </main>
+
         <!-- IMPORTACIÓN DE ARCHIVOS JAVASCRIPT -->
     <!-- Llamada al framework y librería de mensajes -->
     <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
@@ -27,5 +58,4 @@
     <!-- Llamada al controlador de la página web -->
     <script type="text/javascript" src="../../controladores/administrador/index.js"></script>
 </body>
-
 </html>

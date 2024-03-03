@@ -52,38 +52,38 @@ MAIN.insertAdjacentHTML('beforebegin', `
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-archive-fill"></i>
+                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/producto.html"><i class="bi bi-archive-fill"></i>
                                 Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#"><i class="bi bi-people-fill"></i> Usuarios</a>
+                            <a class="nav-link active" href="/vistas/administrador/usuarios.html"><i class="bi bi-people-fill"></i> Usuarios</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bookmark-fill"></i>
                                 Marcas y Tallas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bookmarks-fill"></i>
+                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/categoria.html"><i class="bi bi-bookmarks-fill"></i>
                                 Categorias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-chat-text-fill"></i>
+                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/comentarios.html"><i class="bi bi-chat-text-fill"></i>
                                 Comentarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-list-task"></i>
+                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/inventario.html"><i class="bi bi-list-task"></i>
                                 Inventario</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-cart-fill"></i>
+                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/pedidos.html"><i class="bi bi-cart-fill"></i>
                                 Pedidos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-people-fill"></i>
+                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/clientes.html"><i class="bi bi-people-fill"></i>
                                 Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i
+                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/tiposUsuarios.html"><i
                                     class="bi bi-person-vcard-fill"></i> Tipos de usuarios</a>
                         </li>
                     </ul>
@@ -99,7 +99,7 @@ MAIN.insertAdjacentHTML('beforebegin', `
 
 `);
 MAIN.insertAdjacentHTML('afterend', `
-<footer class="py-3 bg-body-tertiary">
+<footer class="py-3 bg-body-tertiary bottom">
     <div class="container-fluid clear">
         <ul class="nav justify-content-evenly border-bottom pb-3 mb-3">
             <li class="nav-item">

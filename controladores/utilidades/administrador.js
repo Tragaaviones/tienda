@@ -23,8 +23,8 @@ MAIN_TITLE.classList.add('text-center', 'py-3');
 const loadTemplate = async () => {
 MAIN.insertAdjacentHTML('beforebegin', `
 <header>
-    <nav class="navbar bg-body-tertiary fixed-top">
-        <div class="container-fluid" class="offcanvas offcanvas-start">
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid" class="offcanvas offcanvas-start ">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <a class="navbar-brand">
@@ -99,7 +99,7 @@ MAIN.insertAdjacentHTML('beforebegin', `
 
 `);
 MAIN.insertAdjacentHTML('afterend', `
-<footer class="py-3 bg-body-tertiary sticky-bottom">
+<footer class="py-3 bg-body-tertiary fixed-bottom">
     <div class="container-fluid clear">
         <ul class="nav justify-content-evenly border-bottom pb-3 mb-3">
             <li class="nav-item">

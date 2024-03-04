@@ -13,7 +13,143 @@
 
 <body>
     <main>
-
+        <!-- Título del contenido principal -->
+        <h3 id="mainTitle"></h3>
+        <div class="row">
+            <!-- Formulario de búsqueda -->
+            <form class="col-sm-12 col-md-6" id="searchForm">
+                <div class="row">
+                    <div class="col-6">
+                        <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+                    </div>
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-search"></i>
+                        </button>
+                        <button type="reset" class="btn btn-secondary" onclick="fillTable()">
+                            <i class="bi bi-x-square-fill"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Tabla para mostrar los registros existentes -->
+        <table class="table table-hover">
+            <!-- Cabeza de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
+            <thead>
+                <tr>
+                    <td colspan="6" id="rowsFound"></td>
+                </tr>
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>FECHA DE VENTA</th>
+                    <th>TOTAL</th>
+                    <th>ESTADO</th>
+                    <th>DIRECCIÓN</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Lorem Ipsum</th>
+                    <th>12/02/2024</th>
+                    <th>Lorem Ipsum</th>
+                    <th>Lorem Ipsum</th>
+                    <th>Lorem Ipsum</th>
+                    <th><button button type="submit" class="btn btn-success">detalles</button></th>
+                </tr>
+                <tr>
+                    <th>Lorem Ipsum</th>
+                    <th>12/02/2024</th>
+                    <th>Lorem Ipsum</th>
+                    <th>Lorem Ipsum</th>
+                    <th>Lorem Ipsum</th>
+                    <th><button button type="submit" class="btn btn-success">detalles</button></th>
+                </tr>
+                <tr>
+                    <th>Lorem Ipsum</th>
+                    <th>12/02/2024</th>
+                    <th>Lorem Ipsum</th>
+                    <th>Lorem Ipsum</th>
+                    <th>Lorem Ipsum</th>
+                    <th><button button type="submit" class="btn btn-success">detalles</button></th>
+                </tr>
+                <tr>
+                    <th>Lorem Ipsum</th>
+                    <th>12/02/2024</th>
+                    <th>Lorem Ipsum</th>
+                    <th>Lorem Ipsum</th>
+                    <th>Lorem Ipsum</th>
+                    <th><button button type="submit" class="btn btn-success">detalles</button></th>
+                </tr>
+                <tr>
+                    <th>Lorem Ipsum</th>
+                    <th>12/02/2024</th>
+                    <th>Lorem Ipsum</th>
+                    <th>Lorem Ipsum</th>
+                    <th>Lorem Ipsum</th>
+                    <th><button button type="submit" class="btn btn-success">detalles</button></th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla para mostrar un registro por fila -->
+            <tbody id="tableBody"></tbody>
+        </table>
+        <!-- Componente Modal para guardar un registro -->
+        <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalTitle"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Formulario para crear o actualizar un registro -->
+                    <form id="saveForm">
+                        <div class="modal-body row g-3">
+                            <!-- Campo oculto para asignar el id del registro al momento de modificar -->
+                            <input type="hidden" id="idProducto" name="idProducto">
+                            <div class="col-sm-12 col-md-6">
+                                <label for="nombreProducto" class="form-label"><i class="bi bi-file-earmark-text"></i>
+                                    Nombre</label>
+                                <input id="nombreProducto" type="text" name="nombreProducto" class="form-control"
+                                    required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="precioProducto" class="form-label"><i class="bi bi-currency-dollar"></i>
+                                    Precio (US$)</label>
+                                <input id="precioProducto" type="number" name="precioProducto" min="0.01" step="0.01"
+                                    class="form-control" required>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="marcaProducto" class="form-label"><i class="bi bi-bookmark-fill"></i>
+                                    Marca</label>
+                                <select id="marcaProducto" name="marcaProducto" class="form-select" required>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="categoriaProducto" class="form-label"><i class="bi bi-bookmarks-fill"></i>
+                                    Categoría</label>
+                                <select id="categoriaProducto" name="categoriaProducto" class="form-select" required>
+                                </select>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="imagenProducto" class="form-label"><i class="bi bi-card-image"></i>
+                                    Imagen</label>
+                                <input id="imagenProducto" type="file" name="imagenProducto" class="form-control"
+                                    accept=".png, .jpg">
+                            </div>
+                            <div class="col-sm-12 col-md-12">
+                                <label for="descripcionProducto" class="form-label"><i
+                                        class="bi bi-file-earmark-text"></i> Descripción</label>
+                                <input id="descripcionProducto" type="text" name="descripcionProducto"
+                                    class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer container justify-content-center">
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-floppy2"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
     <!-- IMPORTACIÓN DE ARCHIVOS JAVASCRIPT -->
     <!-- Llamada al framework y librería de mensajes -->
@@ -23,6 +159,8 @@
     <script type="text/javascript" src="../../controladores/utilidades/componentes.js"></script>
     <!-- Llamada al controlador del sitio privado -->
     <script type="text/javascript" src="../../controladores/utilidades/administrador.js"></script>
+    <!-- Llamada al controlador de la página web -->
+    <script type="text/javascript" src="../../controladores/administrador/pedidos.js"></script>
 </body>
 
 </html>

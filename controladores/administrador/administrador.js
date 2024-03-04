@@ -14,7 +14,7 @@ const SAVE_FORM = document.getElementById('saveForm'),
     NOMBRE_ADMINISTRADOR = document.getElementById('nombreAdministrador'),
     APELLIDO_ADMINISTRADOR = document.getElementById('apellidoAdministrador'),
     CORREO_ADMINISTRADOR = document.getElementById('correoAdministrador'),
-    ALIAS_ADMINISTRADOR = document.getElementById('aliasAdministrador'),
+    TIPO_USUARIO = document.getElementById('tipoUsuario'),
     CLAVE_ADMINISTRADOR = document.getElementById('claveAdministrador'),
     CONFIRMAR_CLAVE = document.getElementById('confirmarClave');
 
@@ -108,16 +108,26 @@ const fillTable = async (form = null) => {
 *   Parámetros: ninguno.
 *   Retorno: ninguno.
 */
+// const openCreate = () => {
+//     // Se muestra la caja de diálogo con su título.
+//     SAVE_MODAL.show();
+//     MODAL_TITLE.textContent = 'Crear administrador';
+//     // Se prepara el formulario.
+//     SAVE_FORM.reset();
+//     ALIAS_ADMINISTRADOR.disabled = false;
+//     CLAVE_ADMINISTRADOR.disabled = false;
+//     CONFIRMAR_CLAVE.disabled = false;
+// }
 const openCreate = () => {
     // Se muestra la caja de diálogo con su título.
     SAVE_MODAL.show();
-    MODAL_TITLE.textContent = 'Crear administrador';
+    MODAL_TITLE.textContent = 'Crear usuario';
     // Se prepara el formulario.
     SAVE_FORM.reset();
-    ALIAS_ADMINISTRADOR.disabled = false;
-    CLAVE_ADMINISTRADOR.disabled = false;
-    CONFIRMAR_CLAVE.disabled = false;
+    TIPO_USUARIO.disabled = true;
+    fillSelect(ADMINISTRADOR_API, 'readAll', 'tipoUsuario');
 }
+
 
 /*
 *   Función asíncrona para preparar el formulario al momento de actualizar un registro.

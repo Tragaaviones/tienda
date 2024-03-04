@@ -99,7 +99,7 @@ MAIN.insertAdjacentHTML('beforebegin', `
 
 `);
 MAIN.insertAdjacentHTML('afterend', `
-<footer class="py-3 bg-body-tertiary bottom">
+<footer class="py-3 bg-body-tertiary fixed-bottom">
     <div class="container-fluid clear">
         <ul class="nav justify-content-evenly border-bottom pb-3 mb-3">
             <li class="nav-item">

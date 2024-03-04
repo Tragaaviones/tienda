@@ -130,43 +130,43 @@
                             <!-- Campo oculto para asignar el id del registro al momento de modificar -->
                             <input type="hidden" id="idProducto" name="idProducto">
                             <div class="col-sm-12 col-md-6">
-                                <label for="nombreProducto" class="form-label">Nombre</label>
+                                <label for="nombreProducto" class="form-label"><i class="bi bi-file-earmark-text"></i> Nombre</label>
                                 <input id="nombreProducto" type="text" name="nombreProducto" class="form-control"
                                     required>
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <label for="precioProducto" class="form-label">Precio (US$)</label>
+                                <label for="precioProducto" class="form-label"><i class="bi bi-currency-dollar"></i> Precio (US$)</label>
                                 <input id="precioProducto" type="number" name="precioProducto" min="0.01" step="0.01"
                                     class="form-control" required>
                             </div>
-                            <div class="col-sm-12 col-md-6">
+                            <!-- <div class="col-sm-12 col-md-6">
                                 <label for="existenciasProducto" class="form-label">Existencias</label>
                                 <input id="existenciasProducto" type="number" name="existenciasProducto" min="1"
                                     step="1" class="form-control" required>
-                            </div>
+                            </div> -->
                             <div class="col-sm-12 col-md-6">
-                                <label for="marcaProducto" class="form-label">Marca</label>
+                                <label for="marcaProducto" class="form-label"><i class="bi bi-bookmark-fill"></i> Marca</label>
                                 <select id="marcaProducto" name="marcaProducto" class="form-select" required>
                                 </select>
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <label for="categoriaProducto" class="form-label">Categoría</label>
+                                <label for="categoriaProducto" class="form-label"><i class="bi bi-bookmarks-fill"></i> Categoría</label>
                                 <select id="categoriaProducto" name="categoriaProducto" class="form-select" required>
                                 </select>
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <label for="imagenProducto" class="form-label">Imagen</label>
+                                <label for="imagenProducto" class="form-label"><i class="bi bi-card-image"></i> Imagen</label>
                                 <input id="imagenProducto" type="file" name="imagenProducto" class="form-control"
                                     accept=".png, .jpg">
                             </div>
                             <div class="col-sm-12 col-md-12">
-                                <label for="descripcionProducto" class="form-label">Descripción</label>
+                                <label for="descripcionProducto" class="form-label"><i class="bi bi-file-earmark-text"></i> Descripción</label>
                                 <input id="descripcionProducto" type="text" name="descripcionProducto"
                                     class="form-control" required>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        <div class="modal-footer container justify-content-center" >
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-floppy2"></i></button>
                         </div>
                     </form>
                 </div>

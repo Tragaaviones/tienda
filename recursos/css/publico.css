@@ -6,16 +6,11 @@ header {
     padding: 20px;
 }
 
-header .logo {
-    margin-right: 50px;
-}
 
-header .logo img {
-    width: 150px;
-}
 
 header nav {
-    margin-left: auto;
+
+    width: 100rem;
 }
 
 header nav a {

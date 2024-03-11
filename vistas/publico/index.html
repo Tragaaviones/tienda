@@ -12,27 +12,36 @@
 </head>
 
 <body>
-
-    <header class="header fixed-top">
-
-
-        <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
-            <div class="bg-dark p-4">
-                <h5 class="text-body-emphasis h4">Collapsed content</h5>
-                <span class="text-body-secondary">Toggleable via the navbar brand.</span>
-            </div>
-        </div>
-        <nav class="navegacion navbar bg-body-tertiary fixed-top">
+    <header class="header">
+        <nav class="navbar bg-body-tertiary ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"></a>
-                <div class="logo">
-                    <img src="/recursos/imagenes/logo.png" alt="Niki's">
-                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <img src="/recursos/imagenes/logo.png" alt="Niki's class=" rounded" alt="Nikis" width="125"
+                        height="75">
+                    <span class=" navbar-toggler-icon"></span>
                     <label for="navbar-toggler"> Menú</label>
                 </button>
+
+                <form class="d-flex" role="Buscar articulo">
+                    <input class="form-control me-3" type="search" placeholder="Buscar articulo"
+                        aria-label="Buscar articulo">
+                    <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+
+                <div class="button">
+                    <button class="btn btn-light" type="button" 
+                        aria-expanded="false">
+                        <img src="/recursos/imagenes/usuario.png" alt="" width="40"
+                        height="40">
+                    </button>
+                    <button class="btn btn-light" type="button" 
+                    aria-expanded="false">
+                    <img src="/recursos/imagenes/carrito-de-compras.png" alt="" width="40"
+                    height="40">
+                </button>
+                </div>
+
                 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
@@ -49,23 +58,83 @@
                             </li>
                     </div>
                 </div>
-                <nav class="navbar">
-                    <nav class="navbar bg-body-tertiary">
-                        <div class="container-fluid">
-                            <form class="d-flex" role="Buscar articulo">
-                                <input class="form-control me-2" type="search" placeholder="Buscar articulo"
-                                    aria-label="Buscar articulo">
-                                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i>
-                                    Search</button> <img src="" alt="">
-                            </form>
-                        </div>
-                    </nav>
-                </nav>
-
+            </div>
         </nav>
 
     </header>
+    <main>
+        <div class="col bg-white py-4 rounded-end ">
+            <div class="text-end">
+            </div>
+            <h5 class="fw-bold text-center py-2 titulo">Ingresa tu correo electrónico</h5>
+            <!--LOGIN-->
+            <div class="contenedor">
+                <div action="#" >
+                    <form id="loginForm"> 
+                        <div class="mb-3"></div>
+                        <div class="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                            <input type="email" class="form-control" name="email" placeholder="ej: usuario@gmail.com">
+                        </div>
 
+                        <h5 class="fw-bold text-center py-2 titulo">Ingresa tu contraseña</h5>
+                        <div class="conte"></div>
+                        <div class="mb-3"></div>
+                        <div class="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                            <input type="password" class="form-control" name="password" placeholder="*********">
+                        </div>
+
+                        <div class="mb-4" h></div>
+                    
+                        <div class="d-grip text-center">
+                            <button type="submit" class="btn btn-light"><a
+                                    href="">Crea una cuanta nueva</a></button>
+                        </div>
+                    </form>
+                    <div class="mb-4" h></div>
+                    <div class="d-grip text-center">
+                        <button type="submit" class="btn btn-light"><a
+                                href="">Iniciar sessión</a></button>
+                    </div> 
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+    </main>
+
+    <footer class="bg-body-tertiary fixed-bottom">
+        <div class="container-fluid clear">
+            <ul class="nav justify-content-evenly ">
+                <li class="nav-item">
+                    <a href="https://www.instagram.com/" target="_blank" class="nav-link px-2 text-muted">
+                        <h4><i class="bi bi-instagram"></i></h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.facebook.com/" target="_blank" class="nav-link px-2 text-muted">
+                        <h4><i class="bi bi-facebook"></i></h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand">
+                        <img src="../../recursos/imagenes/logo.png" class="rounded" alt="Nikis" width="80" height="60">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://twitter.com/" target="_blank" class="nav-link px-2 text-muted">
+                        <h4><i class="bi bi-twitter"></i></h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.tiktok.com/" target="_blank" class="nav-link px-2 text-muted">
+                        <h4><i class="bi bi-tiktok"></i></h4>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 
 
     <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>

@@ -1,17 +1,75 @@
 <!DOCTYPE html>
-<!--Declaramos el idioma para el documento-->>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <!--Titulo del documento-->
-    <title>Niki`s</title>
-    <!--Metadatos de la pagina web-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>NIKI´S</title>
+    <link rel="stylesheet" href="/recursos/css/publico.css">
+    <link rel="website icon" type="png" href="/recursos/imagenes/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link type="text/css" rel="stylesheet" href="../../recursos/css/bootstrap.min.css">
 </head>
 
 <body>
+
+    <header class="header fixed-top">
+
+
+        <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
+            <div class="bg-dark p-4">
+                <h5 class="text-body-emphasis h4">Collapsed content</h5>
+                <span class="text-body-secondary">Toggleable via the navbar brand.</span>
+            </div>
+        </div>
+        <nav class="navegacion navbar bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"></a>
+                <div class="logo">
+                    <img src="/recursos/imagenes/logo.png" alt="Niki's">
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <label for="navbar-toggler"> Menú</label>
+                </button>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Quienes somos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Misión</a>
+                            </li>
+                    </div>
+                </div>
+                <nav class="navbar">
+                    <nav class="navbar bg-body-tertiary">
+                        <div class="container-fluid">
+                            <form class="d-flex" role="Buscar articulo">
+                                <input class="form-control me-2" type="search" placeholder="Buscar articulo"
+                                    aria-label="Buscar articulo">
+                                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i>
+                                    Search</button> <img src="" alt="">
+                            </form>
+                        </div>
+                    </nav>
+                </nav>
+
+        </nav>
+
+    </header>
+
+
+
+    <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 

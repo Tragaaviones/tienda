@@ -1,0 +1,38 @@
+header {
+    background-color: #D9D9D9;
+    color: #000;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+header .logo {
+    margin-right: 50px;
+}
+
+header .logo img {
+    width: 150px;
+}
+
+header nav {
+    margin-left: auto;
+}
+
+header nav a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+header nav a:hover {
+    color: #ccc;
+}
+
+.header {
+    padding: 0;
+}
+
+.navegacion{
+    
+}
+

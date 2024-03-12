@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/recursos/css/publico.css">
+    <link rel="stylesheet" href="../../recursos/css/pantallainicio.css">
+    <link rel="website icon" type="png" href="/recursos/imagenes/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link type="text/css" rel="stylesheet" href="../../recursos/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar bg-body-tertiary ">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <img src="/recursos/imagenes/logo.png" alt="Niki's class=" rounded" alt="Nikis" width="125"
+                        height="75">
+                    <span class=" navbar-toggler-icon"></span>
+                    <label for="navbar-toggler"> Menú</label>
+                </button>
+
+                <form class="d-flex buscador" role="Buscar articulo">
+                    <input class="form-control me-3" type="search" placeholder="Buscar articulo"
+                        aria-label="Buscar articulo">
+                    <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+
+                <div class="button">
+                    <button class="btn btn-light" type="button" aria-expanded="false">
+                        <img src="/recursos/imagenes/usuario.png" alt="" width="40" height="40">
+                    </button>
+                    <button class="btn btn-light" type="button" aria-expanded="false">
+                        <img src="/recursos/imagenes/carrito-de-compras.png" alt="" width="40" height="40">
+                    </button>
+                </div>
+
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Quienes somos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Misión</a>
+                            </li>
+                    </div>
+                </div>
+            </div>
+
+            <div class="botones">
+                <a href="">
+                    <button class="botines">
+                        <img src="../../recursos/imagenes/botas-de-futbol 1.svg" alt="">
+                        <span>Botines deportivos</span>
+                    </button>
+                </a>
+                <a href="">
+                    <button class="botines">
+                        <img src="../../recursos/imagenes/zapatos 6.svg" alt="">
+                        <span>Zapatos deportivos</span>
+                    </button>
+                </a>
+                <a href="">
+                    <button class="botines">
+                        <img src="../../recursos/imagenes/ropa-deportiva 6.svg" alt="">
+                        <span>Ropa deportivos</span>
+                    </button>
+                </a>
+                <a href="">
+                    <button class="botines">
+                        <img src="../../recursos/imagenes/camiseta-de-futbol 6.svg" alt="">
+                        <span>Camisas coleccionables</span>
+                    </button>
+                </a>
+            </div>
+
+
+            <div id="carouselExample" class="carousel slide car">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../../recursos/imagenes/anuncio1.svg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../recursos/imagenes/anuncio2.svg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../recursos/imagenes/anuncio3.svg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </nav>
+
+        <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+/* Estilo base del contenedor del botón */
+.botines {
+    display: inline-block;
+    background-color: #fff; /* Color de fondo del contenedor */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+    margin-top: 1rem;
+}
+
+/* Estilo del icono dentro del botón */
+.botines img {
+    width: 24px; /* Tamaño del icono */
+    vertical-align: middle; /* Alinear verticalmente con el texto */
+    margin-right: 5px; /* Espacio a la derecha del icono */
+}
+
+/* Estilo del texto dentro del botón */
+.botines span {
+    color: #000; /* Color del texto */
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilo cuando el cursor pasa por encima del botón */
+.botines:hover {
+    background-color: #EDEAEA; /* Cambiar el color de fondo */
+}
+
+/* Estilo de los botones en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .botones {
+        flex-direction: column; /* Cambiar a una disposición de columna */
+        align-items: center; /* Centrar los botones */
+    }
+
+    .buscador {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+  .botones{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+.car {
+    width: 100%;
+}

@@ -7,7 +7,7 @@
 const USER_API = 'servicios/administrador/administrador.php';
 // Constante para establecer el elemento del contenido principal.
 const MAIN = document.querySelector('main');
-MAIN.style.paddingTop = '95px';
+MAIN.style.paddingTop = '20px';
 MAIN.style.paddingBottom = '100px';
 MAIN.classList.add('container');
 // Se establece el título de la página web.
@@ -52,39 +52,52 @@ MAIN.insertAdjacentHTML('beforebegin', `
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/producto.html"><i class="bi bi-archive-fill"></i>
+                            <a class="nav-link active" aria-current="page"
+                                href="/vistas/administrador/dashboard.html"><i class="bi bi-house-fill"></i>
+                                Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/producto.html"><i
+                                    class="bi bi-archive-fill"></i>
                                 Productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/vistas/administrador/usuarios.html"><i class="bi bi-people-fill"></i> Usuarios</a>
+                            <a class="nav-link active" href="/vistas/administrador/usuarios.html"><i
+                                    class="bi bi-people-fill"></i> Usuarios</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bookmark-fill"></i>
                                 Marcas y Tallas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/categoria.html"><i class="bi bi-bookmarks-fill"></i>
+                            <a class="nav-link active" aria-current="page"
+                                href="/vistas/administrador/categoria.html"><i class="bi bi-bookmarks-fill"></i>
                                 Categorias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/comentarios.html"><i class="bi bi-chat-text-fill"></i>
+                            <a class="nav-link active" aria-current="page"
+                                href="/vistas/administrador/comentarios.html"><i class="bi bi-chat-text-fill"></i>
                                 Comentarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/inventario.html"><i class="bi bi-list-task"></i>
+                            <a class="nav-link active" aria-current="page"
+                                href="/vistas/administrador/inventario.html"><i class="bi bi-list-task"></i>
                                 Inventario</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/pedidos.html"><i class="bi bi-cart-fill"></i>
+                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/pedidos.html"><i
+                                    class="bi bi-cart-fill"></i>
                                 Pedidos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/clientes.html"><i class="bi bi-people-fill"></i>
+                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/clientes.html"><i
+                                    class="bi bi-people-fill"></i>
                                 Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/tiposUsuarios.html"><i
-                                    class="bi bi-person-vcard-fill"></i> Tipos de usuarios</a>
+                            <a class="nav-link active" aria-current="page"
+                                href="/vistas/administrador/tiposUsuarios.html"><i class="bi bi-person-vcard-fill"></i>
+                                Tipos de usuarios</a>
                         </li>
                     </ul>
                 </div>
@@ -167,7 +180,7 @@ MAIN.insertAdjacentHTML('afterend', `
 // <footer>
     // <nav class="navbar fixed-bottom bg-body-tertiary">
         // <div class="container">
-            // <p><a class="nav-link" href="https://github.com/dacasoft/coffeeshop" target="_blank"><i // 
+            // <p><a class="nav-link" href="https://github.com/dacasoft/coffeeshop" target="_blank"><i //
                         //class="bi bi-github"></i> CoffeeShop</a></p>
             // <p><i class="bi bi-envelope-fill"></i> dacasoft@outlook.com</p>
             // </div>

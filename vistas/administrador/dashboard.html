@@ -14,8 +14,8 @@
 <body>
 
     <main>
+        <h3 id="mainTitle"></h3>
         <div class="centro container px-4 text-center">
-            <h5 class="fw-bold text-center py-2">Bienvenido Administrador</h5>
             <div class=" centro2 row gx-5">
                 <div class="col-sm-6 col-lg-6 col-md-6 col-12">
                     <div class="p-3 d-flex justify-content-center">
@@ -36,16 +36,17 @@
     </main>
 
     <!-- IMPORTACIÓN DE ARCHIVOS JAVASCRIPT -->
+    <!-- Llamada al framework y librería de mensajes -->
+    <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
     <!-- Llamada al controlador general de la aplicación -->
-    <script type="text/javascript" src="../../controladores/utilidades/componentes.js"></script>
+    <!-- <script type="text/javascript" src="../../controladores/utilidades/componentes.js"></script> -->
     <!-- Llamada al controlador del sitio privado -->
     <script type="text/javascript" src="../../controladores/utilidades/administrador.js"></script>
     <!-- Llamada al controlodor para las graficas -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Llamada al controlador de grafica de barras -->
     <script src="../../controladores/administrador/dashboard.js"></script>
-        <!-- Llamada al controlador de grafica de pastel -->
-    <script src="../../controladores/administrador/dashboard2.js"></script>
 </body>
 
 </html>

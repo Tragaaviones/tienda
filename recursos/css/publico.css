@@ -27,7 +27,11 @@ header nav a:hover {
     padding: 0;
 }
 
-.navegacion{
+/* .navegacion{
     
+} */
+
+#loginForm{
+padding: 50px;
 }
 

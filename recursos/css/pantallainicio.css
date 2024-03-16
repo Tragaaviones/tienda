@@ -54,3 +54,73 @@
 .navegacion {
     width: 100%;
 }
+
+.boton{
+    background-color: #fff;
+    border-style: none;
+    font-weight: bold;
+}
+
+.boton:hover{
+    background-color: #EDEAEA;
+}
+
+/* Estilos para el carrusel y sus elementos */
+#carousel {
+    margin-top: 50px; /* Espacio superior */
+}
+
+.carousel-item {
+    padding: 0 15px; /* Espacio a los lados */
+}
+
+.card {
+    margin-bottom: 30px; /* Espacio entre tarjetas */
+}
+
+/* Ajuste de tamaño para dispositivos más pequeños */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 15px; /* Reducir espacio entre tarjetas en dispositivos pequeños */
+    }
+}
+
+.card {
+    border: none; /* Eliminar el borde */
+    margin: 0; /* Eliminar el margen */
+    box-shadow: none; /* Opcional: eliminar la sombra si la tarjeta tiene */
+}
+
+.letra2{
+    color: #2522AF;
+}
+
+.letra1{
+    font-weight: bold;
+}
+.card-title{
+    font-weight:bolder;
+}
+.imagen1{
+    display: flex; /* Utilizar flexbox */
+    flex-direction: column; /* Colocar la imagen arriba del texto */
+    align-items: center; /* Centrar horizontalmente */
+}
+
+.trg{
+    background: #dcdcdc;
+}
+
+.redondo{
+    max-width: 50px;
+    margin-top: 200px;
+    border-radius: 100px;
+    height: 50px;
+}
+
+.container-fluid clear{
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    margin-top: 20px; /* Espaciado hacia arriba */
+  }

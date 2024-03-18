@@ -14,11 +14,12 @@
 
 <body>
     <main>
-        }<!-- contenido principal del documento -->
+        <!-- Esta sección contiene el encabezado de la página, incluyendo la barra de navegación y el formulario de búsqueda. -->
         <header class="header">
-            <!-- barra de navegación -->
+            <!-- Barra de navegación -->
             <nav class="navbar bg-body-tertiary navegacion">
                 <div class="container-fluid">
+                    <!-- Botón del menú desplegable -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
                         aria-label="Toggle navigation">
@@ -28,14 +29,14 @@
                         <label for="navbar-toggler"> Menú</label>
                     </button>
 
-                    <!-- barra de busqueda -->
+                    <!-- Barra de búsqueda -->
                     <form class="d-flex buscador" role="Buscar articulo">
                         <input class="form-control me-3" type="search" placeholder="Buscar articulo"
                             aria-label="Buscar articulo">
                         <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                     </form>
 
-                    <!-- contenido de carrito de compras -->
+                    <!-- Botones de usuario y carrito -->
                     <div class="button">
                         <button class="btn btn-light" type="button" aria-expanded="false">
                             <img src="/recursos/imagenes/usuario.png" alt="" width="40" height="40">
@@ -46,6 +47,7 @@
                         </button>
                     </div>
 
+                    <!-- Menú desplegable lateral -->
                     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
@@ -54,6 +56,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
+                            <!-- Lista de elementos de navegación -->
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="pantallainicioindex.html"><i
@@ -72,11 +75,12 @@
                                     <a class="nav-link active" href="quienes_somos.html"><i class="bi bi-eye-fill"></i>
                                         Visión</a>
                                 </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
-                <!-- secciones de la tienda -->
+                <!-- Botones de categorías -->
                 <div class="botones">
                     <a href="">
                         <button class="botines">
@@ -105,14 +109,18 @@
                 </div>
             </nav>
         </header>
+
+        <!-- Esta sección contiene el cuerpo principal de la página, con el historial de compras. -->
         <section class="container margen">
             <div class="container">
                 <div class="row">
+                    <!-- Botón para recargar la página -->
                     <div class="col-2">
                         <button type="button" onclick="location.reload();" class="p-0">
                             <img src="../../recursos/imagenes/actualizar 1.svg" height="40" alt="Recargar página">
                         </button>
                     </div>
+                    <!-- Título de la sección -->
                     <div class="col-10 text-center">
                         <h1>
                             Historial de compras
@@ -121,18 +129,21 @@
                 </div>
             </div>
 
-            <!-- Aqui la primera carta -->
+            <!-- Primera carta de producto en el historial -->
             <div class="card mb-3 d-flex">
                 <div class="row g-0">
+                    <!-- Imagen del producto -->
                     <div class="col-md-5">
                         <img src="/recursos/imagenes/camisazidane.svg" class="d-block w-100" height="200"
                             data-bs-toggle="modal" data-bs-target="#imageModal" alt="Imagen 1">
                     </div>
+                    <!-- Detalles del producto -->
                     <div class="col-md-7">
                         <div class="card-body">
                             <h5 class="letra2 text-center">Descripción del producto</h5>
                             <p class="letra1 text-center">Camisa de la selección Francesa de 1998 ortgada al jugador
                                 Zinedine Zidane campeón del mundo </p>
+                            <!-- Fecha y hora de entrega -->
                             <div>
                                 <p class="text-primary text-center">Fecha y hora de la entrega</p>
                                 <p class=" text-center">13-2-2024/ 3:55 pm</p>
@@ -141,21 +152,23 @@
                     </div>
                 </div>
             </div>
-            <!-- Aqui acaba la primera carta -->
 
-            <!-- Aqui inicia la segunda carta -->
+            <!-- Segunda carta de producto en el historial -->
             <div class="card mb-3 d-flex">
                 <div class="row g-0">
+                    <!-- Imagen del producto -->
                     <div class="col-md-5">
                         <img src="/recursos/imagenes/camisanazario.svg" class="d-block w-100" height="200"
                             data-bs-toggle="modal" data-bs-target="#imageModal" alt="Imagen 1">
                     </div>
+                    <!-- Detalles del producto -->
                     <div class="col-md-7">
                         <div class="card-body">
                             <h5 class="letra2 text-center">Descripción del producto</h5>
                             <p class="letra1 text-center">
                                 Camisa del inter de milan de 1996, ganador de la UEFA Champions League
                                 y ortogada por el jugador Ronaldo Nazario (El Fenmeno)</p>
+                            <!-- Fecha y hora de entrega -->
                             <div>
                                 <p class="text-primary text-center">Fecha y hora de la entrega</p>
                                 <p class=" text-center">9-1-2024/ 12:00 pm</p>
@@ -164,9 +177,8 @@
                     </div>
                 </div>
             </div>
-            <!-- Aqui acaba la segunda carta -->
-
         </section>
+
 
         <footer class="bg-body-tertiary fixed-bottom">
             <div class="container-fluid clear">

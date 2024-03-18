@@ -14,24 +14,31 @@
 
 <body>
     <main>
+        <!-- Sección de la barra de navegación -->
         <header class="header">
+            <!-- Barra de navegación -->
             <nav class="navbar bg-body-tertiary navegacion">
                 <div class="container-fluid">
+                    <!-- Botón para desplegar menú en dispositivos móviles -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
                         aria-label="Toggle navigation">
+                        <!-- Logo de la marca -->
                         <img src="/recursos/imagenes/logo.png" alt="Niki's" class=" rounded" alt="Nikis" width="125"
                             height="75">
                         <span class=" navbar-toggler-icon"></span>
+                        <!-- Etiqueta para el botón de menú -->
                         <label for="navbar-toggler"> Menú</label>
                     </button>
 
+                    <!-- Formulario de búsqueda -->
                     <form class="d-flex buscador" role="Buscar articulo">
                         <input class="form-control me-3" type="search" placeholder="Buscar articulo"
                             aria-label="Buscar articulo">
                         <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                     </form>
 
+                    <!-- Botones para el usuario y el carrito -->
                     <div class="button">
                         <button class="btn btn-light" type="button" aria-expanded="false">
                             <img src="/recursos/imagenes/usuario.png" alt="" width="40" height="40">
@@ -42,6 +49,7 @@
                         </button>
                     </div>
 
+                    <!-- Menú lateral desplegable -->
                     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
@@ -50,6 +58,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
+                            <!-- Lista de enlaces de navegación -->
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="pantallainicioindex.html"><i
@@ -68,10 +77,12 @@
                                     <a class="nav-link active" href="quienes_somos.html"><i class="bi bi-eye-fill"></i>
                                         Visión</a>
                                 </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
+                <!-- Botones de categorías -->
                 <div class="botones">
                     <a href="">
                         <button class="botines">
@@ -101,56 +112,73 @@
             </nav>
         </header>
 
+        <!-- Sección de presentación del producto -->
         <section class="container">
             <div class="row">
+                <!-- Imagen del producto -->
                 <div class="col-lg-5 col-md-5 col-sm-10">
                     <img src="/recursos/imagenes/deportivacompra1.svg" class="d-block w-100" data-bs-toggle="modal"
                         data-bs-target="#imageModal" alt="Imagen 1">
                 </div>
+                <!-- Detalles del producto -->
                 <div class="col-lg-5 col-md-5 col-sm-8">
                     <div class="text-start mt-5 mb-5">
+                        <!-- Nombre del producto -->
                         <h5 class="mt-5">Panst Adidas color negro </h5>
                     </div>
                     <div class="text-start">
+                        <!-- Precio del producto -->
                         <h5>AHORA</h5>
                         <strong class="letra2"> $29.99</strong>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Sección para seleccionar la talla y cantidad del producto -->
         <article class="row container-fluid">
             <div class="col-12 d-flex justify-content-between text-center mt-5">
                 <div class="col d-flex text-center">
+                    <!-- Texto para seleccionar la talla -->
                     <strong class="me-5">Elige tu talla de panst </strong>
+                    <!-- Texto para seleccionar la cantidad -->
                     <p class="ms-5">Elige un número</p>
                 </div>
             </div>
             <div class="col-12 d-flex justify-content-between text-center mt-5">
                 <div class="col-8 d-flex text-center">
+                    <!-- Selector de cantidad -->
                     <strong class="me-5">Cantidad de panst </strong>
                     <input class="col-3 me-5" type="number" class="form-control text-center" value="1" min="1" step="1"
                         id="quantityInput" oninput="validarCantidad(this)"
                         onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                 </div>
                 <div>
+                    <!-- Botón para agregar al carrito -->
                     <button class="botines text-primary">
                         Agregar al carrito
                     </button>
                 </div>
             </div>
         </article>
+
+        <!-- Sección de descripción del producto -->
         <article class="row container-fluid mt-5 mb-5">
             <div class="text-center">
+                <!-- Título de la descripción -->
                 <h3>
                     Descripción del producto
                 </h3>
+                <!-- Texto descriptivo del producto -->
                 <p class="">
-                    Panst Adidas color negro y con frangas color blanco por parte de la rodiila, hecho de algodón
-                    bolsillos en las orillas, una muy buena opción para salir a correr, hacer ejercico o también para
-                    una salida.
+                    Panst Adidas color negro y con frangas color blanco por parte de la rodilla, hecho de algodón con
+                    bolsillos en las orillas, una muy buena opción para salir a correr, hacer ejercicio o también para
+                    una
+                    salida.
                 </p>
             </div>
         </article>
+
 
         <footer class="bg-body-tertiary fixed-bottom">
             <div class="container-fluid clear">

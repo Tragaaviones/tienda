@@ -14,9 +14,13 @@
 
 <body>
     <main>
+        <!-- Encabezado de la página -->
         <header class="header">
+            <!-- Barra de navegación -->
             <nav class="navbar bg-body-tertiary navegacion">
+                <!-- Contenedor del navbar -->
                 <div class="container-fluid">
+                    <!-- Botón para abrir el menú en dispositivos móviles -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
                         aria-label="Toggle navigation">
@@ -26,12 +30,14 @@
                         <label for="navbar-toggler"> Menú</label>
                     </button>
 
+                    <!-- Formulario de búsqueda -->
                     <form class="d-flex buscador" role="Buscar articulo">
                         <input class="form-control me-3" type="search" placeholder="Buscar articulo"
                             aria-label="Buscar articulo">
                         <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                     </form>
 
+                    <!-- Botones de usuario y carrito -->
                     <div class="button">
                         <button class="btn btn-light" type="button" aria-expanded="false">
                             <img src="/recursos/imagenes/usuario.png" alt="" width="40" height="40">
@@ -42,6 +48,7 @@
                         </button>
                     </div>
 
+                    <!-- Menú lateral desplegable -->
                     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
@@ -49,8 +56,10 @@
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
+                        <!-- Cuerpo del menú lateral -->
                         <div class="offcanvas-body">
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <!-- Enlaces de navegación -->
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="pantallainicioindex.html"><i
                                             class="bi bi-house-door-fill"></i> Home</a>
@@ -68,29 +77,35 @@
                                     <a class="nav-link active" href="quienes_somos.html"><i class="bi bi-eye-fill"></i>
                                         Visión</a>
                                 </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
+                <!-- Botones de categorías -->
                 <div class="botones">
+                    <!-- Botón de botines deportivos -->
                     <a href="">
                         <button class="botines">
                             <img src="../../recursos/imagenes/botas-de-futbol 1.svg" alt="">
                             <span><a href="pantallavermas.html">Botines deportivos</a></span>
                         </button>
                     </a>
+                    <!-- Botón de zapatos deportivos -->
                     <a href="">
                         <button class="botines">
                             <img src="../../recursos/imagenes/zapatos 6.svg" alt="">
                             <span>Zapatos deportivos</span>
                         </button>
                     </a>
+                    <!-- Botón de ropa deportiva -->
                     <a href="">
                         <button class="botines">
                             <img src="../../recursos/imagenes/ropa-deportiva 6.svg" alt="">
                             <span>Ropa deportivos</span>
                         </button>
                     </a>
+                    <!-- Botón de camisas coleccionables -->
                     <a href="">
                         <button class="botines">
                             <img src="../../recursos/imagenes/camiseta-de-futbol 6.svg" alt="">
@@ -101,37 +116,48 @@
             </nav>
         </header>
 
+        <!-- Sección del producto -->
         <section class="container">
             <div class="row">
+                <!-- Columna de imagen del producto -->
                 <div class="col-lg-5 col-md-5 col-sm-10">
                     <img src="/recursos/imagenes/teniscompra1.svg" class="d-block w-100" data-bs-toggle="modal"
                         data-bs-target="#imageModal" alt="Imagen 1">
                 </div>
+                <!-- Columna de detalles del producto -->
                 <div class="col-lg-5 col-md-5 col-sm-8">
                     <div class="text-start mt-5 mb-5">
                         <h5 class="mt-5">Tenis Nike color mandela </h5>
                     </div>
                     <div class="text-start">
+                        <!-- Precio actual del producto -->
                         <h5>AHORA</h5>
                         <strong class="letra2"> $79.99</strong>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Sección de selección de talla y cantidad -->
         <article class="row container-fluid">
             <div class="col-12 d-flex justify-content-between text-center mt-5">
                 <div class="col d-flex text-center">
+                    <!-- Título de la selección -->
                     <strong class="me-5">Elige tu talla de Tenis </strong>
+                    <!-- Instrucción para seleccionar número -->
                     <p class="ms-5">Elige un número</p>
                 </div>
             </div>
             <div class="col-12 d-flex justify-content-between text-center mt-5">
                 <div class="col-8 d-flex text-center">
+                    <!-- Título de cantidad -->
                     <strong class="me-5">Cantidad de Tenis </strong>
+                    <!-- Input de cantidad -->
                     <input class="col-3 me-5" type="number" class="form-control text-center" value="1" min="1" step="1"
                         id="quantityInput" oninput="validarCantidad(this)"
                         onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                 </div>
+                <!-- Botón para agregar al carrito -->
                 <div>
                     <button class="botines text-primary">
                         Agregar al carrito
@@ -139,11 +165,15 @@
                 </div>
             </div>
         </article>
+
+        <!-- Sección de descripción del producto -->
         <article class="row container-fluid mt-5 mb-5">
             <div class="text-center">
+                <!-- Título de la descripción -->
                 <h3>
                     Descripción del producto
                 </h3>
+                <!-- Cuerpo de la descripción -->
                 <p class="">
                     Tenis marca Nike para mujer, zapato color mandela, y una zuela de goma y una suave plantilla
                     recomendado para poder hacer cualquier tipo de actividad, tanto para correr,
@@ -151,6 +181,7 @@
                 </p>
             </div>
         </article>
+
 
         <footer class="bg-body-tertiary fixed-bottom">
             <div class="container-fluid clear">

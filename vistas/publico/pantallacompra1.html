@@ -15,8 +15,10 @@
 <body>
 
     <main>
+        <!-- Encabezado de la página que contiene la barra de navegación y el formulario de búsqueda -->
         <header class="header">
             <nav class="navbar bg-body-tertiary navegacion">
+                <!-- Barra de navegación con el logotipo y el botón de menú -->
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
@@ -27,12 +29,14 @@
                         <label for="navbar-toggler"> Menú</label>
                     </button>
 
+                    <!-- Formulario de búsqueda -->
                     <form class="d-flex buscador" role="Buscar articulo">
                         <input class="form-control me-3" type="search" placeholder="Buscar articulo"
                             aria-label="Buscar articulo">
                         <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
                     </form>
 
+                    <!-- Botones de usuario y carrito -->
                     <div class="button">
                         <button class="btn btn-light" type="button" aria-expanded="false">
                             <img src="/recursos/imagenes/usuario.png" alt="" width="40" height="40">
@@ -43,6 +47,7 @@
                         </button>
                     </div>
 
+                    <!-- Menú lateral desplegable -->
                     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
                         aria-labelledby="offcanvasNavbarLabel">
                         <div class="offcanvas-header">
@@ -51,6 +56,7 @@
                                 aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
+                            <!-- Enlaces del menú -->
                             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="pantallainicioindex.html"><i
@@ -73,25 +79,30 @@
                     </div>
                 </div>
 
+                <!-- Botones de categorías de productos -->
                 <div class="botones">
+                    <!-- Botón para botines deportivos -->
                     <a href="">
                         <button class="botines">
                             <img src="../../recursos/imagenes/botas-de-futbol 1.svg" alt="">
                             <span><a href="pantallavermas.html">Botines deportivos</a></span>
                         </button>
                     </a>
+                    <!-- Botón para zapatos deportivos -->
                     <a href="">
                         <button class="botines">
                             <img src="../../recursos/imagenes/zapatos 6.svg" alt="">
                             <span>Zapatos deportivos</span>
                         </button>
                     </a>
+                    <!-- Botón para ropa deportiva -->
                     <a href="">
                         <button class="botines">
                             <img src="../../recursos/imagenes/ropa-deportiva 6.svg" alt="">
-                            <span>Ropa deportivos</span>
+                            <span>Ropa deportiva</span>
                         </button>
                     </a>
+                    <!-- Botón para camisas coleccionables -->
                     <a href="">
                         <button class="botines">
                             <img src="../../recursos/imagenes/camiseta-de-futbol 6.svg" alt="">
@@ -102,13 +113,15 @@
             </nav>
         </header>
 
-
+        <!-- Sección de visualización del producto -->
         <section class="container">
             <div class="row">
+                <!-- Imagen del producto -->
                 <div class="col-lg-5 col-md-5 col-sm-10">
                     <img src="/recursos/imagenes/botincompra1.svg" class="d-block w-100" data-bs-toggle="modal"
                         data-bs-target="#imageModal" alt="Imagen 1">
                 </div>
+                <!-- Información del producto -->
                 <div class="col-lg-5 col-md-5 col-sm-8">
                     <div class="text-start mt-5 mb-5">
                         <h5 class="mt-5">Tacos Nike color negro </h5>
@@ -120,9 +133,12 @@
                 </div>
             </div>
         </section>
+
+        <!-- Artículo con opciones de selección y botón para agregar al carrito -->
         <article class="row container-fluid">
             <div class="col-lg-3 d-flex justify-content-between text-center mt-5">
                 <div class="col-lg-12 d-flex text-center">
+                    <!-- Selección de talla -->
                     <strong class="me-5">Elige tu talla de botines </strong>
                     <select class="form-select" required>
                     </select>
@@ -130,11 +146,13 @@
             </div>
             <div class="col-12 d-flex justify-content-between text-center mt-5">
                 <div class="col-8 d-flex text-center">
+                    <!-- Selección de cantidad -->
                     <strong class="me-5">Cantidad de botines </strong>
                     <input class="col-3 me-5" type="number" class="form-control text-center" value="1" min="1" step="1"
                         id="quantityInput" oninput="validarCantidad(this)"
                         onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                 </div>
+                <!-- Botón para agregar al carrito -->
                 <div>
                     <button class="botines text-primary">
                         Agregar al carrito
@@ -142,21 +160,9 @@
                 </div>
             </div>
         </article>
-        <article class="row container-fluid mt-5 mb-5">
-            <div class="text-center">
-                <h3>
-                    Descripción del producto
-                </h3>
-                <p class="">
-                    Tacos marca Nike color negro con dorado (marcas), pueden ser ocupados en cancha sintetica y
-                    engramada,
-                    hay tallas tanto como para niños y adultos, una muy buena opción para jugar cómodo y hacer magia.
-                </p>
-            </div>
-        </article>
 
-
-        <footer class="bg-body-tertiary">
+        <!-- Descripción del producto -->
+        <footer class="bg-body-tertiary fixed-bottom">
             <div class="container-fluid clear">
                 <ul class="nav justify-content-evenly ">
                     <li class="nav-item">

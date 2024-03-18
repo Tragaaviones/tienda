@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/recursos/css/publico.css">
-  <link rel="stylesheet" href="../../recursos/css/pantallainicio.css">
+  <!-- <link rel="stylesheet" href="../../recursos/css/pantallainicio.css"> -->
   <link rel="website icon" type="png" href="/recursos/imagenes/logo.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link type="text/css" rel="stylesheet" href="../../recursos/css/bootstrap.min.css">
@@ -18,7 +18,7 @@
         <div class="container-fluid">
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-            <img src="/recursos/imagenes/logo.png" alt="Niki's class=" rounded" alt="Nikis" width="125" height="75">
+            <img src="/recursos/imagenes/logo.png" alt="Niki's" class=" rounded" alt="Nikis" width="125" height="75">
             <span class=" navbar-toggler-icon"></span>
             <label for="navbar-toggler"> Menú</label>
           </button>
@@ -32,7 +32,8 @@
             <button class="btn btn-light" type="button" aria-expanded="false">
               <img src="/recursos/imagenes/usuario.png" alt="" width="40" height="40">
             </button>
-            <button class="btn btn-light" type="button" aria-expanded="false">
+            <button class="btn btn-light" type="button" aria-expanded="false" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
               <img src="/recursos/imagenes/carrito-de-compras.png" alt="" width="40" height="40">
             </button>
           </div>
@@ -59,7 +60,7 @@
           <a href="">
             <button class="botines">
               <img src="../../recursos/imagenes/botas-de-futbol 1.svg" alt="">
-              <span>Botines deportivos</span>
+              <span><a href="pantallavermas.html">Botines deportivos</a></span>
             </button>
           </a>
           <a href="">
@@ -84,7 +85,6 @@
       </nav>
     </header>
 
-    <main>
       <div id="carouselExample" class="carousel slide car">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -110,10 +110,10 @@
 
       <div class="col m-4 justify-content-between d-flex">
         <strong class="text-start">Busca tus botines favoritos aquí</strong>
-        <a href="#" class="text-end">Ver más</a>
+        <a href="pantallavermas.html" class="text-end">Ver más</a>
       </div>
 
-      <!-- Aquí inicia el primer carrusel -->
+      <!-- Aquí inicia el primer carrusel de tacos -->
       <div class="col-md-12">
         <div id="carouselExampleControls" class="carousel slide imagenes" data-bs-ride="carousel">
           <div class="carousel-inner">
@@ -132,7 +132,7 @@
                           <p class="letra1">Botines Mercury para...</p>
                           <h6 class="card-title">En venta solo en Niki´s</h6>
                           <p class="letra2">$199.99</p>
-                          <button class="botines">Comprar producto</button>
+                          <button class="botines"><a href="pantallacompra1.html">Comprar producto</a></button>
                         </div>
                       </div>
                     </div>
@@ -148,11 +148,11 @@
                       </div>
                       <div class="col-md-15">
                         <div class="card-body">
-                          <h5 class="card-title">Pele</h5>
-                          <p class="letra1">Botines Pele para...</p>
+                          <h5 class="card-title">Pelé</h5>
+                          <p class="letra1">Botines Pelé para...</p>
                           <h6 class="card-title">En venta solo en Niki´s</h6>
                           <p class="letra2">$99.99</p>
-                          <button class="botines">Comprar producto</button>
+                          <button class="botines"><a href="pantallacompra1.html">Comprar producto</a></button>
                         </div>
                       </div>
                     </div>
@@ -172,7 +172,7 @@
                           <p class="letra1">Botines Nike para...</p>
                           <h6 class="card-title">En venta solo en Niki´s</h6>
                           <p class="letra2">$85.99</p>
-                          <button class="botines">Comprar producto</button>
+                          <button class="botines"><a href="pantallacompra1.html">Comprar producto</a></button>
                         </div>
                       </div>
                     </div>
@@ -197,7 +197,7 @@
                             <p class="letra1">Botines Nike para...</p>
                             <h6 class="card-title">En venta solo en Niki´s</h6>
                             <p class="letra2">$180.99</p>
-                            <button class="botines">Comprar producto</button>
+                            <button class="botines"><a href="pantallacompra1.html">Comprar producto</a></button>
                           </div>
                         </div>
                       </div>
@@ -217,7 +217,7 @@
                             <p class="letra1">Botines Nike para...</p>
                             <h6 class="card-title">En venta solo en Niki´s</h6>
                             <p class="letra2">$150.40</p>
-                            <button class="botines">Comprar producto</button>
+                            <button class="botines"><a href="pantallacompra1.html">Comprar producto</a></button>
                           </div>
                         </div>
                       </div>
@@ -237,7 +237,7 @@
                             <p class="letra1">Botines Nike para...</p>
                             <h6 class="card-title">En venta solo en Niki´s</h6>
                             <p class="letra2">$120.95</p>
-                            <button class="botines">Comprar producto</button>
+                            <button class="botines"><a href="pantallacompra1.html">Comprar producto</a></button>
                           </div>
                         </div>
                       </div>
@@ -267,7 +267,7 @@
         <a href="#" class="text-end">Ver más</a>
       </div>
 
-      <!-- Aquí inicia el segundo carrusel -->
+      <!-- Aquí inicia el segundo carrusel de botines-->
       <div class="col-md-12">
         <div id="carouselExampleControls1" class="carousel slide imagenes" data-bs-ride="carousel">
           <div class="carousel-inner">
@@ -286,7 +286,7 @@
                           <p class="letra1">Tenis Nike para...</p>
                           <h6 class="card-title">En venta solo en Niki´s</h6>
                           <p class="letra2">$85.99</p>
-                          <button class="botines">Comprar producto</button>
+                          <button class="botines"><a href="pantallacompra2.html">Comprar producto</a></button>
                         </div>
                       </div>
                     </div>
@@ -306,7 +306,7 @@
                           <p class="letra1">Tenis Nike para...</p>
                           <h6 class="card-title">En venta solo en Niki´s</h6>
                           <p class="letra2">$79.99</p>
-                          <button class="botines">Comprar producto</button>
+                          <button class="botines"><a href="pantallacompra2.html">Comprar producto</a></button>
                         </div>
                       </div>
                     </div>
@@ -326,7 +326,7 @@
                           <p class="letra1">Tenis Nike para...</p>
                           <h6 class="card-title">En venta solo en Niki´s</h6>
                           <p class="letra2">$65.99</p>
-                          <button class="botines">Comprar producto</button>
+                          <button class="botines"><a href="pantallacompra2.html">Comprar producto</a></button>
                         </div>
                       </div>
                     </div>
@@ -351,7 +351,7 @@
                             <p class="letra1">Botines mercury para...</p>
                             <h6 class="card-title">En venta solo en Niki´s</h6>
                             <p class="letra2">$199.99</p>
-                            <button class="botines">Comprar producto</button>
+                            <button class="botines"><a href="pantallacompra2.html">Comprar producto</a></button>
                           </div>
                         </div>
                       </div>
@@ -371,7 +371,7 @@
                             <p class="letra1">Botines mercury para...</p>
                             <h6 class="card-title">En venta solo en Niki´s</h6>
                             <p class="letra2">$199.99</p>
-                            <button class="botines">Comprar producto</button>
+                            <button class="botines"><a href="pantallacompra2.html">Comprar producto</a></button>
                           </div>
                         </div>
                       </div>
@@ -391,7 +391,7 @@
                             <p class="letra1">Botines mercury para...</p>
                             <h6 class="card-title">En venta solo en Niki´s</h6>
                             <p class="letra2">$199.99</p>
-                            <button class="botines">Comprar producto</button>
+                            <button class="botines"><a href="pantallacompra2.html">Comprar producto</a></button>
                           </div>
                         </div>
                       </div>
@@ -446,7 +446,7 @@
       </div>
 
 
-      <!-- Aquí inicia el tecer carrusel -->
+      <!-- Aquí inicia el tecer carrusel de ropa deportiva -->
       <div class="col-md-12">
         <div id="carouselExampleControls3" class="carousel slide imagenes" data-bs-ride="carousel">
           <div class="carousel-inner">
@@ -465,7 +465,7 @@
                           <p class="letra1">Panst para salir a...</p>
                           <h6 class="card-title">En venta solo en Niki´s</h6>
                           <p class="letra2">$28.99</p>
-                          <button class="botines">Comprar producto</button>
+                          <button class="botines"><a href="pantallacompra3.html">Comprar producto</a></button>
                         </div>
                       </div>
                     </div>
@@ -485,7 +485,7 @@
                           <p class="letra1">Panst para salir a...</p>
                           <h6 class="card-title">En venta solo en Niki´s</h6>
                           <p class="letra2">$34.99</p>
-                          <button class="botines">Comprar producto</button>
+                          <button class="botines"><a href="pantallacompra3.html">Comprar producto</a></button>
                         </div>
                       </div>
                     </div>
@@ -505,7 +505,7 @@
                           <p class="letra1"></p>Panst para salir a...
                           <h6 class="card-title">En venta solo en Niki´s</h6>
                           <p class="letra2">$19.99</p>
-                          <button class="botines">Comprar producto</button>
+                          <button class="botines"><a href="pantallacompra3.html">Comprar producto</a></button>
                         </div>
                       </div>
                     </div>
@@ -530,7 +530,7 @@
                             <p class="letra1">Panst para salir a...</p>
                             <h6 class="card-title">En venta solo en Niki´s</h6>
                             <p class="letra2">$34.99</p>
-                            <button class="botines">Comprar producto</button>
+                            <button class="botines"><a href="pantallacompra3.html">Comprar producto</a></button>
                           </div>
                         </div>
                       </div>
@@ -550,7 +550,7 @@
                             <p class="letra1">Panst para salir a...</p>
                             <h6 class="card-title">En venta solo en Niki´s</h6>
                             <p class="letra2">$24.99</p>
-                            <button class="botines">Comprar producto</button>
+                            <button class="botines"><a href="pantallacompra3.html">Comprar producto</a></button>
                           </div>
                         </div>
                       </div>
@@ -570,7 +570,7 @@
                             <p class="letra1">Panst para salir a...</p>
                             <h6 class="card-title">En venta solo en Niki´s</h6>
                             <p class="letra2">$29.99</p>
-                            <button class="botines">Comprar producto</button>
+                            <button class="botines"><a href="pantallacompra3.html">Comprar producto</a></button>
                           </div>
                         </div>
                       </div>
@@ -601,7 +601,7 @@
       </div>
 
 
-      <!-- Aquí inicia el cuarto carrusel -->
+      <!-- Aquí inicia el cuarto carrusel de camisas coleccionables-->
       <div class="col-md-12">
         <div id="carouselExampleControls2" class="carousel slide imagenes" data-bs-ride="carousel">
           <div class="carousel-inner">
@@ -620,7 +620,7 @@
                           <p class="letra1">Panst para salir a...</p>
                           <h6 class="card-title">En venta solo en Niki´s</h6>
                           <p class="letra2">$28.99</p>
-                          <button class="botines">Comprar producto</button>
+                          <button class="botines"><a href="pantallacompra4.html">Comprar producto</a></button>
                         </div>
                       </div>
                     </div>
@@ -640,7 +640,7 @@
                           <p class="letra1">Panst para salir a...</p>
                           <h6 class="card-title">En venta solo en Niki´s</h6>
                           <p class="letra2">$34.99</p>
-                          <button class="botines">Comprar producto</button>
+                          <button class="botines"><a href="pantallacompra4.html">Comprar producto</a></button>
                         </div>
                       </div>
                     </div>
@@ -660,7 +660,7 @@
                           <p class="letra1"></p>Panst para salir a...
                           <h6 class="card-title">En venta solo en Niki´s</h6>
                           <p class="letra2">$19.99</p>
-                          <button class="botines">Comprar producto</button>
+                          <button class="botines"><a href="pantallacompra4.html">Comprar producto</a></button>
                         </div>
                       </div>
                     </div>
@@ -685,7 +685,7 @@
                             <p class="letra1">Panst para salir a...</p>
                             <h6 class="card-title">En venta solo en Niki´s</h6>
                             <p class="letra2">$34.99</p>
-                            <button class="botines">Comprar producto</button>
+                            <button class="botines"><a href="pantallacompra4.html">Comprar producto</a></button>
                           </div>
                         </div>
                       </div>
@@ -705,7 +705,7 @@
                             <p class="letra1">Panst para salir a...</p>
                             <h6 class="card-title">En venta solo en Niki´s</h6>
                             <p class="letra2">$24.99</p>
-                            <button class="botines">Comprar producto</button>
+                            <button class="botines"><a href="pantallacompra4.html">Comprar producto</a></button>
                           </div>
                         </div>
                       </div>
@@ -725,7 +725,7 @@
                             <p class="letra1">Panst para salir a...</p>
                             <h6 class="card-title">En venta solo en Niki´s</h6>
                             <p class="letra2">$29.99</p>
-                            <button class="botines">Comprar producto</button>
+                            <button class="botines"><a href="pantallacompra4.html">Comprar producto</a></button>
                           </div>
                         </div>
                       </div>
@@ -782,7 +782,59 @@
         </ul>
       </div>
     </footer>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="card mb-3 d-flex">
+              <div class="row g-0">
+                <div class="d-flex justify-content-end align-items-center">
+                  <a><img src="/recursos/imagenes/basurero.svg" class="d-block" height="50" alt="Imagen 1"></a>
+                </div>
+                <div class="col-md-5">
+                  <img src="/recursos/imagenes/botas6 1.svg" class="d-block w-100" height="200" alt="Imagen 1">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Nike</h5>
+                    <p class="letra1 text-center">Botines Nike color blanco con tarugos anaranjados</p>
+                    <div class="row">
+                      <div class="col-md-6 text-start">
+                        <p class="card-title text-start">Descripción:</p>
+                        <strong>-Para cancha engramada</strong><br>
+                        <strong>-Para cancha sintetica</strong>
+                      </div>
+                      <div class="col-md-6 text-start">
+                        <p>AHORA</p>
+                        <p class="letra2">$199.99</p>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                      <button class="botines text-primary">Agregar al carrito</button>
+                    </div>
+                    <div class="text-center">
+                      <button class="botines text-primary"><a href="pantallahistorial.html">Historial de compras</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
+
   <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
 
 </body>

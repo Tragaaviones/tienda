@@ -40,3 +40,130 @@ padding: 50px;
 .margen{
     margin-bottom: 6rem;
 }
+
+/* Estilo base del contenedor del botón */
+.botines {
+    display: inline-block;
+    background-color: #fff; /* Color de fondo del contenedor */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+    margin-top: 1rem;
+}
+
+/* Estilo del icono dentro del botón */
+.botines img {
+    width: 24px; /* Tamaño del icono */
+    vertical-align: middle; /* Alinear verticalmente con el texto */
+    margin-right: 5px; /* Espacio a la derecha del icono */
+}
+
+/* Estilo del texto dentro del botón */
+.botines span {
+    color: #000; /* Color del texto */
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilo cuando el cursor pasa por encima del botón */
+.botines:hover {
+    background-color: #EDEAEA; /* Cambiar el color de fondo */
+}
+
+/* Estilo de los botones en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .botones {
+        flex-direction: column; /* Cambiar a una disposición de columna */
+        align-items: center; /* Centrar los botones */
+    }
+
+    .buscador {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+  .botones{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+.car {
+    width: 100%;
+}
+
+.navegacion {
+    width: 100%;
+}
+
+.boton{
+    background-color: #fff;
+    border-style: none;
+    font-weight: bold;
+}
+
+.boton:hover{
+    background-color: #EDEAEA;
+}
+
+/* Estilos para el carrusel y sus elementos */
+#carousel {
+    margin-top: 50px; /* Espacio superior */
+}
+
+.carousel-item {
+    padding: 0 15px; /* Espacio a los lados */
+}
+
+.card {
+    margin-bottom: 30px; /* Espacio entre tarjetas */
+}
+
+/* Ajuste de tamaño para dispositivos más pequeños */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 15px; /* Reducir espacio entre tarjetas en dispositivos pequeños */
+    }
+}
+
+.card {
+    border: none; /* Eliminar el borde */
+    margin: 0; /* Eliminar el margen */
+    box-shadow: none; /* Opcional: eliminar la sombra si la tarjeta tiene */
+}
+
+.letra2{
+    color: #2522AF;
+}
+
+.letra1{
+    font-weight: bold;
+}
+.card-title{
+    font-weight:bolder;
+}
+.imagen1{
+    display: flex; /* Utilizar flexbox */
+    flex-direction: column; /* Colocar la imagen arriba del texto */
+    align-items: center; /* Centrar horizontalmente */
+}
+
+.trg{
+    background: #dcdcdc;
+}
+
+.redondo{
+    max-width: 50px;
+    margin-top: 200px;
+    border-radius: 100px;
+    height: 50px;
+}
+
+.container-fluid clear{
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    margin-top: 20px; /* Espaciado hacia arriba */
+  }

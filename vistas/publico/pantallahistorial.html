@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <main>
         <header class="header">
             <nav class="navbar bg-body-tertiary navegacion">
@@ -21,7 +20,7 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
                         aria-label="Toggle navigation">
-                        <img src="/recursos/imagenes/logo.png" alt="Niki's class=" rounded" alt="Nikis" width="125"
+                        <img src="/recursos/imagenes/logo.png" alt="Niki's " class="rounded" alt="Nikis" width="125"
                             height="75">
                         <span class=" navbar-toggler-icon"></span>
                         <label for="navbar-toggler"> Menú</label>
@@ -37,7 +36,8 @@
                         <button class="btn btn-light" type="button" aria-expanded="false">
                             <img src="/recursos/imagenes/usuario.png" alt="" width="40" height="40">
                         </button>
-                        <button class="btn btn-light" type="button" aria-expanded="false">
+                        <button class="btn btn-light" type="button" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" aria-expanded="false">
                             <img src="/recursos/imagenes/carrito-de-compras.png" alt="" width="40" height="40">
                         </button>
                     </div>
@@ -87,62 +87,70 @@
                         </button>
                     </a>
                 </div>
-
             </nav>
         </header>
-
-
-        <section class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-10">
-                    <img src="/recursos/imagenes/botincompra1.svg" class="d-block w-100" data-bs-toggle="modal"
-                        data-bs-target="#imageModal" alt="Imagen 1">
-                </div>
-                <div class="col-lg-5 col-md-5 col-sm-8">
-                    <div class="text-start mt-5 mb-5">
-                        <h5 class="mt-5">Tacos Nike color negro </h5>
+        <section class="container margen">
+            <div class="container">
+                <div class="row">
+                    <div class="col-2">
+                        <button type="button" onclick="location.reload();" class="p-0">
+                            <img src="../../recursos/imagenes/actualizar 1.svg" height="40" alt="Recargar página">
+                        </button>
                     </div>
-                    <div class="text-start">
-                        <h5>AHORA</h5>
-                        <strong class="letra2"> $120.95</strong>
+                    <div class="col-10 text-center">
+                        <h1>
+                            Historial de compras
+                        </h1>
                     </div>
                 </div>
             </div>
+
+            <!-- Aqui la primera carta -->
+            <div class="card mb-3 d-flex">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img src="/recursos/imagenes/camisazidane.svg" class="d-block w-100" height="200"
+                            data-bs-toggle="modal" data-bs-target="#imageModal" alt="Imagen 1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h5 class="letra2 text-center">Descripción del producto</h5>
+                            <p class="letra1 text-center">Camisa de la selección Francesa de 1998 ortgada al jugador
+                                Zinedine Zidane campeón del mundo </p>
+                            <div>
+                                <p class="text-primary text-center">Fecha y hora de la entrega</p>
+                                <p class=" text-center">13-2-2024/ 3:55 pm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Aqui acaba la primera carta -->
+
+            <!-- Aqui inicia la segunda carta -->
+            <div class="card mb-3 d-flex">
+                <div class="row g-0">
+                    <div class="col-md-5">
+                        <img src="/recursos/imagenes/camisanazario.svg" class="d-block w-100" height="200"
+                            data-bs-toggle="modal" data-bs-target="#imageModal" alt="Imagen 1">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h5 class="letra2 text-center">Descripción del producto</h5>
+                            <p class="letra1 text-center">
+                                Camisa del inter de milan de 1996, ganador de la UEFA Champions League 
+                                y ortogada por el jugador Ronaldo Nazario (El Fenmeno)</p>
+                            <div>
+                                <p class="text-primary text-center">Fecha y hora de la entrega</p>
+                                <p class=" text-center">9-1-2024/ 12:00 pm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Aqui acaba la segunda carta -->
+
         </section>
-        <article class="row container-fluid">
-            <div class="col-12 d-flex justify-content-between text-center mt-5">
-                <div class="col d-flex text-center">
-                    <strong class="me-5">Elige tu talla de botines </strong>
-                    <p class="ms-5">Elige un número</p>
-                </div>
-            </div>
-            <div class="col-12 d-flex justify-content-between text-center mt-5">
-                <div class="col-8 d-flex text-center">
-                    <strong class="me-5">Cantidad de botines </strong>
-                    <input class="col-3 me-5" type="number" class="form-control text-center" value="1" min="1" step="1"
-                        id="quantityInput" oninput="validarCantidad(this)"
-                        onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                </div>
-                <div>
-                    <button class="botines text-primary">
-                        Agregar al carrito
-                    </button>
-                </div>
-            </div>
-        </article>
-        <article class="row container-fluid mt-5 mb-5">
-            <div class="text-center">
-                <h3>
-                    Descripción del producto
-                </h3>
-                <p class="">
-                    Tacos marca Nike color negro con dorado (marcas), pueden ser ocupados en cancha sintetica y
-                    engramada,
-                    hay tallas tanto como para niños y adultos, una muy buena opción para jugar cómodo y hacer magia.
-                </p>
-            </div>
-        </article>
-
 
         <footer class="bg-body-tertiary fixed-bottom">
             <div class="container-fluid clear">
@@ -177,8 +185,8 @@
             </div>
         </footer>
     </main>
-    <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
 
+    <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

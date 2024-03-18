@@ -13,164 +13,167 @@
 </head>
 
 <body>
-
-    <header class="header">
-        <nav class="navbar bg-body-tertiary navegacion">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <img src="/recursos/imagenes/logo.png" alt="Niki's class=" rounded" alt="Nikis" width="125"
-                        height="75">
-                    <span class=" navbar-toggler-icon"></span>
-                    <label for="navbar-toggler"> Menú</label>
-                </button>
-
-                <form class="d-flex buscador" role="Buscar articulo">
-                    <input class="form-control me-3" type="search" placeholder="Buscar articulo"
-                        aria-label="Buscar articulo">
-                    <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-                </form>
-
-                <div class="button">
-                    <button class="btn btn-light" type="button" aria-expanded="false">
-                        <img src="/recursos/imagenes/usuario.png" alt="" width="40" height="40">
+    <main>
+        <header class="header">
+            <nav class="navbar bg-body-tertiary navegacion">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                        aria-label="Toggle navigation">
+                        <img src="/recursos/imagenes/logo.png" alt="Niki's class=" rounded" alt="Nikis" width="125"
+                            height="75">
+                        <span class=" navbar-toggler-icon"></span>
+                        <label for="navbar-toggler"> Menú</label>
                     </button>
-                    <button class="btn btn-light" type="button" aria-expanded="false">
-                        <img src="/recursos/imagenes/carrito-de-compras.png" alt="" width="40" height="40">
-                    </button>
-                </div>
 
-                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <form class="d-flex buscador" role="Buscar articulo">
+                        <input class="form-control me-3" type="search" placeholder="Buscar articulo"
+                            aria-label="Buscar articulo">
+                        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+                    </form>
+
+                    <div class="button">
+                        <button class="btn btn-light" type="button" aria-expanded="false">
+                            <img src="/recursos/imagenes/usuario.png" alt="" width="40" height="40">
+                        </button>
+                        <button class="btn btn-light" type="button" aria-expanded="false">
+                            <img src="/recursos/imagenes/carrito-de-compras.png" alt="" width="40" height="40">
+                        </button>
                     </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Quienes somos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Misión</a>
-                            </li>
+
+                    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                        aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Quienes somos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Misión</a>
+                                </li>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="botones">
+                    <a href="">
+                        <button class="botines">
+                            <img src="../../recursos/imagenes/botas-de-futbol 1.svg" alt="">
+                            <span>Botines deportivos</span>
+                        </button>
+                    </a>
+                    <a href="">
+                        <button class="botines">
+                            <img src="../../recursos/imagenes/zapatos 6.svg" alt="">
+                            <span>Zapatos deportivos</span>
+                        </button>
+                    </a>
+                    <a href="">
+                        <button class="botines">
+                            <img src="../../recursos/imagenes/ropa-deportiva 6.svg" alt="">
+                            <span>Ropa deportivos</span>
+                        </button>
+                    </a>
+                    <a href="">
+                        <button class="botines">
+                            <img src="../../recursos/imagenes/camiseta-de-futbol 6.svg" alt="">
+                            <span>Camisas coleccionables</span>
+                        </button>
+                    </a>
+                </div>
+
+            </nav>
+        </header>
+
+        <section class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-10">
+                    <img src="/recursos/imagenes/teniscompra1.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 1">
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-8">
+                    <div class="text-start mt-5 mb-5">
+                        <h5 class="mt-5">Tenis Nike color mandela </h5>
+                    </div>
+                    <div class="text-start">
+                        <h5>AHORA</h5>
+                        <strong class="letra2"> $79.99</strong>
                     </div>
                 </div>
             </div>
-
-            <div class="botones">
-                <a href="">
-                    <button class="botines">
-                        <img src="../../recursos/imagenes/botas-de-futbol 1.svg" alt="">
-                        <span>Botines deportivos</span>
-                    </button>
-                </a>
-                <a href="">
-                    <button class="botines">
-                        <img src="../../recursos/imagenes/zapatos 6.svg" alt="">
-                        <span>Zapatos deportivos</span>
-                    </button>
-                </a>
-                <a href="">
-                    <button class="botines">
-                        <img src="../../recursos/imagenes/ropa-deportiva 6.svg" alt="">
-                        <span>Ropa deportivos</span>
-                    </button>
-                </a>
-                <a href="">
-                    <button class="botines">
-                        <img src="../../recursos/imagenes/camiseta-de-futbol 6.svg" alt="">
-                        <span>Camisas coleccionables</span>
-                    </button>
-                </a>
-            </div>
-
-        </nav>
-    </header>
-
-    <section class="container">
-        <div class="row">
-            <div class="col-lg-5 col-md-5 col-sm-10">
-                <img src="/recursos/imagenes/teniscompra1.svg" class="d-block w-100" data-bs-toggle="modal"
-                    data-bs-target="#imageModal" alt="Imagen 1">
-            </div>
-            <div class="col-lg-5 col-md-5 col-sm-8">
-                <div class="text-start mt-5 mb-5">
-                    <h5 class="mt-5">Tenis Nike color mandela </h5>
-                </div>
-                <div class="text-start">
-                    <h5>AHORA</h5>
-                    <strong class="letra2"> $79.99</strong>
+        </section>
+        <article class="row container-fluid">
+            <div class="col-12 d-flex justify-content-between text-center mt-5">
+                <div class="col d-flex text-center">
+                    <strong class="me-5">Elige tu talla de Tenis </strong>
+                    <p class="ms-5">Elige un número</p>
                 </div>
             </div>
-        </div>
-    </section>
-    <article class="row container-fluid">
-        <div class="col-12 d-flex justify-content-between text-center mt-5">
-            <div class="col d-flex text-center">
-                <strong class="me-5">Elige tu talla de Tenis </strong>
-                <p class="ms-5">Elige un número</p>
+            <div class="col-12 d-flex justify-content-between text-center mt-5">
+                <div class="col-8 d-flex text-center">
+                    <strong class="me-5">Cantidad de Tenis </strong>
+                    <input class="col-3 me-5" type="number" class="form-control text-center" value="1" min="1" step="1"
+                        id="quantityInput" oninput="validarCantidad(this)"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                </div>
+                <div>
+                    <button class="botines text-primary">
+                        Agregar al carrito
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="col-12 d-flex justify-content-between text-center mt-5">
-            <div class="col-8 d-flex text-center">
-                <strong class="me-5">Cantidad de Tenis </strong>
-                <input class="col-3 me-5" type="number" class="form-control text-center" value="1" min="1" step="1"
-                    id="quantityInput" oninput="validarCantidad(this)"
-                    onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+        </article>
+        <article class="row container-fluid mt-5 mb-5">
+            <div class="text-center">
+                <h3>
+                    Descripción del producto
+                </h3>
+                <p class="">
+                    Tenis marca Nike para mujer, zapato color mandela, y una zuela de goma y una suave plantilla
+                    recomendado para poder hacer cualquier tipo de actividad, tanto para correr,
+                    hacer ejercicio.
+                </p>
             </div>
-            <div>
-                <button class="botines text-primary">
-                    Agregar al carrito
-                </button>
-            </div>
-        </div>
-    </article>
-    <article class="row container-fluid mt-5 mb-5">
-        <div class="text-center">
-            <h3>
-                Descripción del producto
-            </h3>
-            <p class="">
-                Tenis marca Nike para mujer, zapato color mandela, y una zuela de goma y una suave plantilla
-                recomendado para poder hacer cualquier tipo de actividad, tanto para correr,
-                hacer ejercicio.
-            </p>
-        </div>
-    </article>
+        </article>
 
-    <footer class="bg-body-tertiary fixed-bottom">
-        <div class="container-fluid clear">
-            <ul class="nav justify-content-evenly ">
-                <li class="nav-item">
-                    <a href="https://www.instagram.com/" target="_blank" class="nav-link px-2 text-muted">
-                        <h4><i class="bi bi-instagram"></i></h4>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.facebook.com/" target="_blank" class="nav-link px-2 text-muted">
-                        <h4><i class="bi bi-facebook"></i></h4>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="navbar-brand">
-                        <img src="../../recursos/imagenes/logo.png" class="rounded" alt="Nikis" width="80" height="60">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://twitter.com/" target="_blank" class="nav-link px-2 text-muted">
-                        <h4><i class="bi bi-twitter"></i></h4>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.tiktok.com/" target="_blank" class="nav-link px-2 text-muted">
-                        <h4><i class="bi bi-tiktok"></i></h4>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </footer>
-
+        <footer class="bg-body-tertiary fixed-bottom">
+            <div class="container-fluid clear">
+                <ul class="nav justify-content-evenly ">
+                    <li class="nav-item">
+                        <a href="https://www.instagram.com/" target="_blank" class="nav-link px-2 text-muted">
+                            <h4><i class="bi bi-instagram"></i></h4>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.facebook.com/" target="_blank" class="nav-link px-2 text-muted">
+                            <h4><i class="bi bi-facebook"></i></h4>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand">
+                            <img src="../../recursos/imagenes/logo.png" class="rounded" alt="Nikis" width="80"
+                                height="60">
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://twitter.com/" target="_blank" class="nav-link px-2 text-muted">
+                            <h4><i class="bi bi-twitter"></i></h4>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.tiktok.com/" target="_blank" class="nav-link px-2 text-muted">
+                            <h4><i class="bi bi-tiktok"></i></h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </main>
     <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
 
 

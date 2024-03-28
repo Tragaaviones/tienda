@@ -34,14 +34,10 @@ MAIN.insertAdjacentHTML('beforebegin', `
                 <label for="navbar-toggler"> Menú</label>
             </button>
             <div class="dropdown">
-                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <button class="btn btn-light" type="button" aria-expanded="false">
                     Administrador
                     <i class="bi bi-person-circle"></i>
                 </button>
-                <ul class="dropdown-menu">
-                    <li><button class="dropdown-item" type="button">Perfil</button></li>
-                </ul>
             </div>
             <div class="offcanvas offcanvas-start rounded" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
@@ -66,8 +62,12 @@ MAIN.insertAdjacentHTML('beforebegin', `
                                     class="bi bi-people-fill"></i> Usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-bookmark-fill"></i>
-                                Marcas y Tallas</a>
+                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/marcas.html"><i class="bi bi-bookmark-fill"></i>
+                                Marcas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/vistas/administrador/tallas.html"><i class="bi bi-bookmark-fill"></i>
+                                Tallas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"

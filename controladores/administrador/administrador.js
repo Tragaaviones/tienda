@@ -85,10 +85,10 @@ const fillTable = async (form = null) => {
                     <td>${row.apellido_administrador}</td>
                     <td>${row.correo_administrador}</td>
                     <td>
-                        <button type="button" class="btn btn-info" onclick="openUpdate(${row.id_administrador})">
-                            <i class="bi bi-pencil-fill"></i>
+                        <button type="button" class="btn btn-outline-info" onclick="openUpdate(${row.id_administrador})">
+                            <i class="bi bi-pencil-square"></i>
                         </button>
-                        <button type="button" class="btn btn-danger" onclick="openDelete(${row.id_administrador})">
+                        <button type="button" class="btn btn-outline-danger" onclick="openDelete(${row.id_administrador})">
                             <i class="bi bi-trash-fill"></i>
                         </button>
                     </td>
@@ -156,7 +156,6 @@ const openUpdate = async (id) => {
         NOMBRE_ADMINISTRADOR.value = ROW.nombre_administrador;
         APELLIDO_ADMINISTRADOR.value = ROW.apellido_administrador;
         CORREO_ADMINISTRADOR.value = ROW.correo_administrador;
-        ALIAS_ADMINISTRADOR.value = ROW.alias_administrador;
     } else {
         sweetAlert(2, DATA.error, false);
     }

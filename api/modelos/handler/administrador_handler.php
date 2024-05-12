@@ -101,15 +101,15 @@ class AdministradorHandler
 
     public function readAll()
     {
-        $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador
+        $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador, id_tipo
                 FROM tb_administradores
-                ORDER BY apellido_administrador';
+                ORDER BY id_administrador';
         return Database::getRows($sql);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador
+        $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador, id_tipo
                 FROM tb_administradores
                 WHERE id_administrador = ?';
         $params = array($this->id);

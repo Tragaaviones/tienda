@@ -76,7 +76,7 @@ MAIN.insertAdjacentHTML('beforebegin', `
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page"
-                                href="/vistas/administrador/comentarios.html"><i class="bi bi-chat-text-fill"></i>
+                                href="comentarios.html"><i class="bi bi-chat-text-fill"></i>
                                 Comentarios</a>
                         </li>
                         <li class="nav-item">

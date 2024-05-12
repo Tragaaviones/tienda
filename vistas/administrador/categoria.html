@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-6">
                         <button type="submit" class="btn btn-success">
-                            <i class="bi bi-search"></i>
+                            <i class="bi bi-search" id="search"></i>
                         </button>
                         <button type="reset" class="btn btn-secondary" onclick="fillTable()">
                             <i class="bi bi-x-square-fill"></i>
@@ -49,44 +49,20 @@
             <!-- Cabeza de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
             <thead>
                 <tr>
-                    <td colspan="3" id="rowsFound"></td>
+                    <td colspan="4" id="rowsFound"></td>
                 </tr>
                 <tr>
                     <th>CODIGO</th>
+                    <th>NOMBRE</th>
                     <th>IMAGEN</th>
-                    <th>NOMBRE</th>
+                    <th>ACCIONES</th>
                 </tr>
-                <tr>
-                    <th>1</th>
-                    <th><a class="navbar-brand">
-                            <img src="../../recursos/imagenes/logo.png" class="rounded" alt="Nikis" width="75"
-                                height="75">
-                        </a></th>
-                    <th>NOMBRE</th>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <th><a class="navbar-brand">
-                            <img src="../../recursos/imagenes/logo.png" class="rounded" alt="Nikis" width="75"
-                                height="75">
-                        </a></th>
-                    <th>NOMBRE</th>
-                </tr>
-                <tr>
-                    <th>3</th>
-                    <th><a class="navbar-brand">
-                            <img src="../../recursos/imagenes/logo.png" class="rounded" alt="Nikis" width="75"
-                                height="75">
-                        </a></th>
-                    <th>NOMBRE</th>
-                </tr>
-
             </thead>
             <!-- Cuerpo de la tabla para mostrar un registro por fila -->
             <tbody id="tableBody"></tbody>
         </table>
         <!-- Componente Modal para guardar un registro -->
-        <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        <div class="modal fade" id="guardar_categoria" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="modalTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
@@ -98,15 +74,15 @@
                     <form id="saveForm">
                         <div class="modal-body row g-3">
                             <!-- Campo oculto para asignar el id del registro al momento de modificar -->
-                            <input type="hidden" id="idProducto" name="idProducto">
+                            <input type="hidden" id="id_categoria" name="id_categoria">
                             <div class="col-sm-12 col-md-6">
-                                <label for="imagenCodigo" class="form-label"><i class="bi bi-card-image"></i> Imagen</label>
-                                <input id="imagenCodigo" type="file" name="imagenCodigo" class="form-control"
+                                <label for="imagen_categoria" class="form-label"><i class="bi bi-card-image"></i> Imagen</label>
+                                <input id="imagen_categoria" type="file" name="imagen_categoria" class="form-control"
                                     accept=".png, .jpg">
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <label for="nombreCodigo" class="form-label"><i class="bi bi-person"> </i>Nombre</label>
-                                <input id="nombreCodigo" type="text" name="nombreCodigo" class="form-control" required>
+                                <label for="nombre_categoria" class="form-label"><i class="bi bi-person"> </i>Nombre</label>
+                                <input id="nombre_categoria" type="text" name="nombre_categoria" class="form-control" required>
                             </div>
                         </div>
                         <div class="modal-footer container justify-content-center" style="height: 10vh;">

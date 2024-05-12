@@ -50,7 +50,6 @@
                 <tr>
                     <th>NOMBRE</th>
                     <th>APELLIDO</th>
-                    <th>CONTRASEÑA</th>
                     <th>CORREO ELECTRONICO</th>
                     <th>TIPO DE USUARIO</th>
                 </tr>
@@ -60,7 +59,7 @@
         </table>
 
         <!-- Componente Modal para guardar un registro -->
-        <div class="modal fade" id="saveModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        <div class="modal fade" id="guardar_admin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="modalTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
@@ -91,7 +90,7 @@
                             <div class="col-sm-12 col-md-6">
                                 <label for="aliasAdministrador" class="form-label"><i class="bi bi-person"></i> Tipo de usuario</label>
                                 <select id="aliasAdministrador" type="text" name="aliasAdministrador"
-                                    class="form-select" required></select>
+                                    class="form-select" ></select>
                             </div>
                             <div class="col-sm-12 col-md-6">
                                 <label for="claveAdministrador" class="form-label"><i class="bi bi-lock-fill"></i> Contraseña</label>

@@ -1,12 +1,12 @@
 // Constante para completar la ruta de la API.
-const ADMINISTRADOR_API = 'services/admin/administrador.php';
+const ADMINISTRADOR_API = 'servicios/administrador/administrador.php';
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer los elementos de la tabla.
 const TABLE_BODY = document.getElementById('tableBody'),
     ROWS_FOUND = document.getElementById('rowsFound');
 // Constantes para establecer los elementos del componente Modal.
-const SAVE_MODAL = new bootstrap.Modal('#saveModal'),
+const SAVE_MODAL = new bootstrap.Modal('#guardar_admin'),
     MODAL_TITLE = document.getElementById('modalTitle');
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
@@ -81,10 +81,9 @@ const fillTable = async (form = null) => {
             // Se crean y concatenan las filas de la tabla con los datos de cada registro.
             TABLE_BODY.innerHTML += `
                 <tr>
-                    <td>${row.apellido_administrador}</td>
                     <td>${row.nombre_administrador}</td>
+                    <td>${row.apellido_administrador}</td>
                     <td>${row.correo_administrador}</td>
-                    <td>${row.alias_administrador}</td>
                     <td>
                         <button type="button" class="btn btn-info" onclick="openUpdate(${row.id_administrador})">
                             <i class="bi bi-pencil-fill"></i>
@@ -124,7 +123,9 @@ const openCreate = () => {
     MODAL_TITLE.textContent = 'Crear usuario';
     // Se prepara el formulario.
     SAVE_FORM.reset();
-    TIPO_USUARIO.disabled = true;
+    // TIPO_USUARIO.disabled = false;
+    CLAVE_ADMINISTRADOR.disabled = false;
+    CONFIRMAR_CLAVE.disabled = false;
     fillSelect(ADMINISTRADOR_API, 'readAll', 'tipoUsuario');
 }
 
@@ -147,7 +148,6 @@ const openUpdate = async (id) => {
         MODAL_TITLE.textContent = 'Actualizar administrador';
         // Se prepara el formulario.
         SAVE_FORM.reset();
-        ALIAS_ADMINISTRADOR.disabled = true;
         CLAVE_ADMINISTRADOR.disabled = true;
         CONFIRMAR_CLAVE.disabled = true;
         // Se inicializan los campos con los datos.

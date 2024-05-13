@@ -102,7 +102,7 @@ MAIN.insertAdjacentHTML('beforebegin', `
                     </ul>
                 </div>
                 <div class="d-grid gap-2">
-                    <button type="button" class="btn btn-danger">Cerrar sesión <i
+                    <button type="button" class="btn btn-danger" onclick="logOut()">Cerrar sesión <i
                             class="bi bi-box-arrow-left"></i></button>
                 </div>
             </div>

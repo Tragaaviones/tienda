@@ -11,7 +11,7 @@ if (isset($_GET['action'])) {
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'session' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'username' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
-    if (isset($_SESSION['idAdministrador'])or true) {
+    if (isset($_SESSION['id_administrador'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
@@ -177,7 +177,7 @@ if (isset($_GET['action'])) {
                 break;
             case 'logIn':
                 $_POST = Validator::validateForm($_POST);
-                if ($administrador->checkUser($_POST['email'], $_POST['contra'])) {
+                if ($administrador->checkUser($_POST['correo'], $_POST['contra'])) {
                     $result['status'] = 1;
                     $result['message'] = 'Autenticación correcta';
                 } else {

@@ -28,7 +28,7 @@ class AdministradorHandler
         if (!($data = Database::getRow($sql, $params))) {
             return false;
         } elseif (password_verify($password, $data['clave_administrador'])) {
-            $_SESSION['idAdministrador'] = $data['id_administrador'];
+            $_SESSION['id_administrador'] = $data['id_administrador'];
             return true;
         } else {
             return false;
@@ -38,9 +38,9 @@ class AdministradorHandler
     public function checkPassword($password)
     {
         $sql = 'SELECT clave_administrador
-                FROM administrador
+                FROM tb_administradores
                 WHERE id_administrador = ?';
-        $params = array($_SESSION['idAdministrador']);
+        $params = array($_SESSION['id_administrador']);
         $data = Database::getRow($sql, $params);
         // Se verifica si la contraseña coincide con el hash almacenado en la base de datos.
         if (password_verify($password, $data['clave_administrador'])) {
@@ -83,10 +83,10 @@ class AdministradorHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador, alias_administrador
-                FROM administrador
+        $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador
+                FROM tb_administradores
                 WHERE apellido_administrador LIKE ? OR nombre_administrador LIKE ?
-                ORDER BY apellido_administrador';
+                ORDER BY id_administrador';
         $params = array($value, $value);
         return Database::getRows($sql, $params);
     }

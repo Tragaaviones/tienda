@@ -22,10 +22,10 @@ class CategoriaHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id_categoria, nombre, imagen
+        $sql = 'SELECT id_categoria, nombre
                 FROM tb_categorias
                 WHERE nombre LIKE ?
-                ORDER BY nombre';
+                ORDER BY id_categoria';
         $params = array($value, $value);
         return Database::getRows($sql, $params);
     }

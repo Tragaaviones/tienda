@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Llamada a la función para mostrar el encabezado y pie del documento.
     loadTemplate();
     // Se establece el título del contenido principal.
-    MAIN_TITLE.textContent = 'Gestionar Tipo de Usuario';
+    MAIN_TITLE.textContent = 'Gestionar tipo de usuario';
     // Llamada a la función para llenar la tabla con los registros existentes.
     fillTable();
 });

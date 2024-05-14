@@ -21,7 +21,7 @@
             <form class="col-sm-12 col-md-6" id="searchForm">
                 <div class="row">
                     <div class="col-6">
-                        <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+                        <input id="search" type="search" class="form-control" name="search" placeholder="Buscar" required>
                     </div>
                     <div class="col-6">
                         <button type="submit" class="btn btn-success">
@@ -49,25 +49,14 @@
             <!-- Cabeza de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
             <thead>
                 <tr>
-                    <td colspan="3" id="rowsFound"></td>
+                    <td colspan="4" id="rowsFound"></td>
                 </tr>
                 <tr>
                     <th>CLAVE</th>
                     <th>TIPO DE USUARIO</th>
-                    <th>DESCRIPCIóN</th>
+                    <th>DESCRIPCIÓN</th>
+                    <th>ACCIONES</th>
                 </tr>
-                <tr>
-                    <th>1</th>
-                    <th>Administrador</th>
-                    <th>Control total</th>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <th>Empleado</th>
-                    <th>Solo almacenar</th>
-                </tr>
-                
-
             </thead>
             <!-- Cuerpo de la tabla para mostrar un registro por fila -->
             <tbody id="tableBody"></tbody>
@@ -85,14 +74,14 @@
                     <form id="saveForm">
                         <div class="modal-body row g-3">
                             <!-- Campo oculto para asignar el id del registro al momento de modificar -->
-                            <input type="hidden" id="idProducto" name="idProducto">
+                            <input type="number" class="d-none" id="id_tipo" name="id_tipo">
                             <div class="col-sm-12 col-md-6">
-                                <label for="nombreCodigo" class="form-label"><i class="bi bi-person"> </i>Nombre</label>
-                                <input id="nombreCodigo" type="text" name="nombreCodigo" class="form-control" required>
+                                <label for="tipo_nombre" class="form-label"><i class="bi bi-person"> </i>Tipo de usuario</label>
+                                <input id="tipo_nombre" type="text" name="tipo_nombre" class="form-control" required>
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <label for="nombreCodigo" class="form-label"><i class="bi bi-person"> </i>Descripción</label>
-                                <input id="nombreCodigo" type="text" name="nombreCodigo" class="form-control" required>
+                                <label for="descripcion_tipo" class="form-label"><i class="bi bi-person"> </i>Descripción</label>
+                                <input id="descripcion_tipo" type="text" name="descripcion_tipo" class="form-control" required>
                             </div>
                         </div>
                         <div class="modal-footer container justify-content-center" style="height: 10vh;">

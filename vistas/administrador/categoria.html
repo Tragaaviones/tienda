@@ -54,7 +54,7 @@
                 <tr>
                     <th>CODIGO</th>
                     <th>NOMBRE</th>
-                    <th>IMáGEN</th>
+                    <th>IMÁGEN</th>
                     <th>ACCIONES</th>
                 </tr>
             </thead>
@@ -74,7 +74,7 @@
                     <form id="saveForm">
                         <div class="modal-body row g-3">
                             <!-- Campo oculto para asignar el id del registro al momento de modificar -->
-                            <input type="hidden" id="id_categoria" name="id_categoria">
+                            <input type="number" class="d-none" id="id_categoria" name="id_categoria">
                             <div class="col-sm-12 col-md-6">
                                 <label for="imagen_categoria" class="form-label"><i class="bi bi-card-image"></i> Imágen</label>
                                 <input id="imagen_categoria" type="file" name="imagen_categoria" class="form-control"

@@ -85,7 +85,7 @@ class AdministradorHandler
         $value = '%' . Validator::getSearchValue() . '%';
         $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador
                 FROM tb_administradores
-                WHERE apellido_administrador LIKE ? OR nombre_administrador LIKE ?
+                WHERE nombre_administrador LIKE ? OR apellido_administrador LIKE ?
                 ORDER BY id_administrador';
         $params = array($value, $value);
         return Database::getRows($sql, $params);

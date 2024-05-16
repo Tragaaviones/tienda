@@ -77,7 +77,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'deleteRow':
-                if ($_POST['idAdministrador'] == $_SESSION['idAdministrador']) {
+                if ($_POST['idAdministrador'] == $_SESSION['id_administrador']) {
                     $result['error'] = 'No se puede eliminar a sí mismo';
                 } elseif (!$administrador->setId($_POST['idAdministrador'])) {
                     $result['error'] = $administrador->getDataError();

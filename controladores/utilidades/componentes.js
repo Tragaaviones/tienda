@@ -76,10 +76,12 @@ const sweetAlert = async (type, text, timer, url = null) => {
 
 /*
 *   Función asíncrona para cargar las opciones en un select de formulario.
-*   Parámetros: filename (nombre del archivo), action (acción a realizar), select (identificador del select en el formulario) y selected (dato opcional con el valor seleccionado).
+*   Parámetros: filename (nombre del archivo), action (acción a realizar), select (identificador del select en el formulario) y select (identificador del select en el formulario) y filter (dato opcional para seleccionar una opción o filtrar los datos).
 *   Retorno: ninguno.
 */
 const fillSelect = async (filename, action, select, selected = null) => {
+        // Se verifica si el filtro contiene un objeto para enviar a la API.
+        const FORM = (typeof (filter) == 'object') ? filter : null;
     // Petición para obtener los datos.
     const DATA = await fetchData(filename, action);
     let content = '';
@@ -93,7 +95,9 @@ const fillSelect = async (filename, action, select, selected = null) => {
             // Se obtiene el dato del segundo campo.
             text = Object.values(row)[1];
             // Se verifica cada valor para enlistar las opciones.
-            if (value != selected) {
+            // Se verifica el valor del filtro para enlistar las opciones.
+            const SELECTED = (typeof (filter) == 'number') ? filter : null;
+            if (value != SELECTED) {
                 content += `<option value="${value}">${text}</option>`;
             } else {
                 content += `<option value="${value}" selected>${text}</option>`;

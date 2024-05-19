@@ -14,7 +14,7 @@ class CategoriaHandler
     protected $imagen = null;
 
     // Constante para establecer la ruta de las imágenes.
-    const RUTA_IMAGEN = '../../imagenes/categorias';
+    const RUTA_IMAGEN = '../../Imagenes/categorias/';
 
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).

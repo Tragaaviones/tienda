@@ -44,6 +44,9 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al crear el administrador';
                 }
                 break;
+
+
+
             case 'readAll':
                 if ($result['dataset'] = $administrador->readAll()) {
                     $result['status'] = 1;
@@ -170,7 +173,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = $administrador->getDataError();
                 } elseif ($_POST['claveAdministrador'] != $_POST['confirmarClave']) {
                     $result['error'] = 'Contraseñas diferentes';
-                } elseif ($administrador->createRow()) {
+                } elseif ($administrador->firstUser()) {
                     $result['status'] = 1;
                     $result['message'] = 'Administrador registrado correctamente';
                 } else {

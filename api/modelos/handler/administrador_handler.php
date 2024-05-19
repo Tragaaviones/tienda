@@ -102,6 +102,15 @@ class AdministradorHandler
         return Database::executeRow($sql, $params);
     }
 
+    public function firstUser()
+    {
+        $sql = 'INSERT INTO tb_administradores(nombre_administrador, apellido_administrador, correo_administrador, clave_administrador,id_tipo)
+                VALUES(?, ?, ?, ?, 1)';
+        $params = array($this->nombre, $this->apellido, $this->correo, $this->clave);
+        return Database::executeRow($sql, $params);
+    }
+
+
     public function readAll()
     {
         $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador, id_tipo, tipo_usuario

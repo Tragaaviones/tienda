@@ -75,24 +75,24 @@
                         <form id="saveForm">
                             <div class="modal-body row g-3">
                                 <!-- Campo oculto para asignar el id del registro al momento de modificar -->
-                                <input type="hidden" id="idProducto" name="idProducto">
+                                <input type="number" class="d-none" id="id_marca" name="id_marca">
                                 <div class="col-sm-12 col-md-6">
-                                    <label for="imagenProducto" class="form-label"><i class="bi bi-card-image"></i>
+                                    <label for="imagen_marca" class="form-label"><i class="bi bi-card-image"></i>
                                         Imagen</label>
-                                    <input id="imagenProducto" type="file" name="imagenMarca" class="form-control"
+                                    <input id="imagen_marca" type="file" name="imagen_marca" class="form-control"
                                         accept=".png, .jpg">
                                 </div>
                                 <div class="col-sm-12 col-md-6">
-                                    <label for="nombreProducto" class="form-label"><i
+                                    <label for="nombre_marca" class="form-label"><i
                                             class="bi bi-file-earmark-text"></i>
                                         Nombre</label>
-                                    <input id="nombreMarca" type="text" name="nombreMarca" class="form-control"
+                                    <input id="nombre_marca" type="text" name="nombre_marca" class="form-control"
                                         required>
                                 </div>
                                 <div class="col-sm-12 col-md-6">
-                                    <label for="nombreProducto" class="form-label"><i class="bi bi-telephone-fill"></i>
+                                    <label for="telefono_marca" class="form-label"><i class="bi bi-telephone-fill"></i>
                                             Teléfono</label>
-                                    <input id="telefonoMarca" type="text" name="telefonoMarca" class="form-control"
+                                    <input id="telefono_marca" type="text" name="telefono_marca" class="form-control"
                                         required>
                                 </div>
                             </div>

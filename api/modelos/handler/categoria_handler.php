@@ -58,7 +58,7 @@ class CategoriaHandler
     public function readFilename()
     {
         $sql = 'SELECT imagen_categoria
-                FROM categoria
+                FROM tb_categorias
                 WHERE id_categoria = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);

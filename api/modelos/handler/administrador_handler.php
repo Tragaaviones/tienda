@@ -16,6 +16,8 @@ class AdministradorHandler
     protected $alias = null;
     protected $clave = null;
 
+    protected $tipo = null;
+
     /*
      *  Métodos para gestionar la cuenta del administrador.
      */
@@ -83,8 +85,9 @@ class AdministradorHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador
+        $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador, id_tipo, tipo_usuario
                 FROM tb_administradores
+                INNER JOIN tb_tipousuarios USING (id_tipo)
                 WHERE nombre_administrador LIKE ? OR apellido_administrador LIKE ?
                 ORDER BY id_administrador';
         $params = array($value, $value);
@@ -93,24 +96,26 @@ class AdministradorHandler
 
     public function createRow()
     {
-        $sql = 'INSERT INTO tb_administradores(nombre_administrador, apellido_administrador, correo_administrador, clave_administrador)
-                VALUES(?, ?, ?, ?)';
-        $params = array($this->nombre, $this->apellido, $this->correo, $this->clave);
+        $sql = 'INSERT INTO tb_administradores(nombre_administrador, apellido_administrador, correo_administrador, clave_administrador,id_tipo)
+                VALUES(?, ?, ?, ?, ?)';
+        $params = array($this->nombre, $this->apellido, $this->correo, $this->clave, $this->tipo);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador, id_tipo
+        $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador, id_tipo, tipo_usuario
                 FROM tb_administradores
+                INNER JOIN tb_tipousuarios USING (id_tipo)
                 ORDER BY id_administrador';
         return Database::getRows($sql);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador, id_tipo
+        $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador, id_tipo, tipo_usuario
                 FROM tb_administradores
+                INNER JOIN tb_tipousuarios USING (id_tipo)
                 WHERE id_administrador = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -119,9 +124,9 @@ class AdministradorHandler
     public function updateRow()
     {
         $sql = 'UPDATE tb_administradores
-                SET nombre_administrador = ?, apellido_administrador = ?, correo_administrador = ?
+                SET nombre_administrador = ?, apellido_administrador = ?, correo_administrador = ?, id_tipo = ?
                 WHERE id_administrador = ?';
-        $params = array($this->nombre, $this->apellido, $this->correo, $this->id);
+        $params = array($this->nombre, $this->apellido, $this->correo, $this->tipo, $this->id);
         return Database::executeRow($sql, $params);
     }
 

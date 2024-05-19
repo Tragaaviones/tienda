@@ -1,5 +1,6 @@
 // Constante para completar la ruta de la API.
 const ADMINISTRADOR_API = 'servicios/administrador/administrador.php';
+const TIPO_USUARIO_API = 'servicios/administrador/tipo_usuario.php'
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer los elementos de la tabla.
@@ -84,6 +85,7 @@ const fillTable = async (form = null) => {
                     <td>${row.nombre_administrador}</td>
                     <td>${row.apellido_administrador}</td>
                     <td>${row.correo_administrador}</td>
+                    <td>${row.tipo_usuario}</td>
                     <td>
                         <button type="button" class="btn btn-outline-info" onclick="openUpdate(${row.id_administrador})">
                             <i class="bi bi-pencil-square"></i>
@@ -107,16 +109,7 @@ const fillTable = async (form = null) => {
 *   Parámetros: ninguno.
 *   Retorno: ninguno.
 */
-// const openCreate = () => {
-//     // Se muestra la caja de diálogo con su título.
-//     SAVE_MODAL.show();
-//     MODAL_TITLE.textContent = 'Crear administrador';
-//     // Se prepara el formulario.
-//     SAVE_FORM.reset();
-//     ALIAS_ADMINISTRADOR.disabled = false;
-//     CLAVE_ADMINISTRADOR.disabled = false;
-//     CONFIRMAR_CLAVE.disabled = false;
-// }
+
 const openCreate = () => {
     // Se muestra la caja de diálogo con su título.
     SAVE_MODAL.show();
@@ -126,7 +119,7 @@ const openCreate = () => {
     // TIPO_USUARIO.disabled = false;
     CLAVE_ADMINISTRADOR.disabled = false;
     CONFIRMAR_CLAVE.disabled = false;
-    fillSelect(ADMINISTRADOR_API, 'readAll', 'tipoUsuario');
+    fillSelect(TIPO_USUARIO_API, 'readAll', 'tipo_usuario');
 }
 
 
@@ -156,6 +149,7 @@ const openUpdate = async (id) => {
         NOMBRE_ADMINISTRADOR.value = ROW.nombre_administrador;
         APELLIDO_ADMINISTRADOR.value = ROW.apellido_administrador;
         CORREO_ADMINISTRADOR.value = ROW.correo_administrador;
+        fillSelect(TIPO_USUARIO_API, 'readAll', 'tipo_usuario', ROW.id_tipo);
     } else {
         sweetAlert(2, DATA.error, false);
     }

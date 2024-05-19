@@ -25,6 +25,17 @@ class AdministradorData extends AdministradorHandler
         }
     }
 
+    public function setTipo($value)
+    {
+        if (Validator::validateNaturalNumber($value)) {
+            $this->tipo = $value;
+            return true;
+        } else {
+            $this->data_error = 'El identificador del administrador es incorrecto';
+            return false;
+        }
+    }
+
     public function setNombre($value, $min = 2, $max = 50)
     {
         if (!Validator::validateAlphabetic($value)) {

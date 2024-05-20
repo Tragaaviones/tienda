@@ -20,8 +20,8 @@ class PedidoHandler
     {
         $value = '%' . Validator::getSearchValue() . '%';
         $sql = 'SELECT id_pedido AS ID, fecha_venta AS FECHA, direccion_pedido AS DIRECCION, CASE 
-        WHEN estado_pedido = 1 THEN "Activo"
-        WHEN estado_pedido = 0 THEN "Bloqueado"
+        WHEN estado_pedido = 1 THEN "Entregado"
+        WHEN estado_pedido = 0 THEN "Cancelado"
         END AS ESTADO FROM tb_pedidos
                 WHERE fecha_venta LIKE ?
                 ORDER BY FECHA;';
@@ -32,8 +32,8 @@ class PedidoHandler
     public function readAll()
     {
         $sql = 'SELECT id_pedido AS ID, fecha_venta AS FECHA, direccion_pedido AS DIRECCION, CASE 
-        WHEN estado_pedido = 1 THEN "Activo"
-        WHEN estado_pedido = 0 THEN "Bloqueado"
+        WHEN estado_pedido = 1 THEN "Entregado"
+        WHEN estado_pedido = 0 THEN "Cancelado"
         END AS ESTADO FROM tb_pedidos
         ORDER BY FECHA;';
         return Database::getRows($sql);

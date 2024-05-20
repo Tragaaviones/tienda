@@ -20,6 +20,8 @@ class MarcaHandler
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
      */
+
+     // Función para buscar marcas.
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
@@ -31,6 +33,7 @@ class MarcaHandler
         return Database::getRows($sql, $params);
     }
 
+    // Función para crear marcas.
     public function createRow()
     {
         $sql = 'INSERT INTO tb_marcas(nombre_marca, telefono_marca, logo_marca)
@@ -39,6 +42,7 @@ class MarcaHandler
         return Database::executeRow($sql, $params);
     }
 
+    // Función para leer las marcas.
     public function readAll()
     {
         $sql = 'SELECT id_marca, nombre_marca, telefono_marca, logo_marca
@@ -47,6 +51,7 @@ class MarcaHandler
         return Database::getRows($sql);
     }
 
+    // Función para leer una marca.
     public function readOne()
     {
         $sql = 'SELECT id_marca, nombre_marca, telefono_marca, logo_marca
@@ -56,6 +61,7 @@ class MarcaHandler
         return Database::getRow($sql, $params);
     }
 
+    // Función para leer un archivo.
     public function readFilename()
     {
         $sql = 'SELECT imagen_categoria
@@ -65,6 +71,7 @@ class MarcaHandler
         return Database::getRow($sql, $params);
     }
 
+    // Función para actualizar marca.
     public function updateRow()
     {
         $sql = 'UPDATE tb_marcas
@@ -74,6 +81,7 @@ class MarcaHandler
         return Database::executeRow($sql, $params);
     }
 
+    // Función para eliminar marca.
     public function deleteRow()
     {
         $sql = 'DELETE FROM tb_marcas

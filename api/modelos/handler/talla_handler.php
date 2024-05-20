@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once('../../ayudantes/base_datos.php');
+require_once ('../../ayudantes/base_datos.php');
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla CATEGORIA.
  */
@@ -18,6 +18,8 @@ class Talla_handler
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
      */
+
+    // Función para buscar tallas.
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
@@ -29,6 +31,7 @@ class Talla_handler
         return Database::getRows($sql, $params);
     }
 
+    // Función para crear una talla.
     public function createRow()
     {
         $sql = 'INSERT INTO tb_tallas(talla)
@@ -37,6 +40,8 @@ class Talla_handler
         return Database::executeRow($sql, $params);
     }
 
+
+    // Función para leer todas tallas.
     public function readAll()
     {
         $sql = 'SELECT id_talla, talla
@@ -45,6 +50,7 @@ class Talla_handler
         return Database::getRows($sql);
     }
 
+    // Función para leer una talla.
     public function readOne()
     {
         $sql = 'SELECT id_talla, talla
@@ -63,6 +69,7 @@ class Talla_handler
     //     return Database::getRow($sql, $params);
     // }
 
+    // Función para actualizar tallas.
     public function updateRow()
     {
         $sql = 'UPDATE tb_tallas
@@ -72,6 +79,7 @@ class Talla_handler
         return Database::executeRow($sql, $params);
     }
 
+    // Función para eliminar tallas.
     public function deleteRow()
     {
         $sql = 'DELETE FROM tb_tallas

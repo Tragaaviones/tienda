@@ -41,52 +41,10 @@
                     <td colspan="6" id="rowsFound"></td>
                 </tr>
                 <tr>
-                    <th>NOMBRE</th>
                     <th>FECHA DE VENTA</th>
-                    <th>TOTAL</th>
-                    <th>ESTADO</th>
                     <th>DIRECCIÓN</th>
+                    <th>ESTADO</th>
                     <th></th>
-                </tr>
-                <tr>
-                    <th>Lorem Ipsum</th>
-                    <th>12/02/2024</th>
-                    <th>Lorem Ipsum</th>
-                    <th>Lorem Ipsum</th>
-                    <th>Lorem Ipsum</th>
-                    <th><button button type="submit" class="btn btn-success">detalles</button></th>
-                </tr>
-                <tr>
-                    <th>Lorem Ipsum</th>
-                    <th>12/02/2024</th>
-                    <th>Lorem Ipsum</th>
-                    <th>Lorem Ipsum</th>
-                    <th>Lorem Ipsum</th>
-                    <th><button button type="submit" class="btn btn-success">detalles</button></th>
-                </tr>
-                <tr>
-                    <th>Lorem Ipsum</th>
-                    <th>12/02/2024</th>
-                    <th>Lorem Ipsum</th>
-                    <th>Lorem Ipsum</th>
-                    <th>Lorem Ipsum</th>
-                    <th><button button type="submit" class="btn btn-success">detalles</button></th>
-                </tr>
-                <tr>
-                    <th>Lorem Ipsum</th>
-                    <th>12/02/2024</th>
-                    <th>Lorem Ipsum</th>
-                    <th>Lorem Ipsum</th>
-                    <th>Lorem Ipsum</th>
-                    <th><button button type="submit" class="btn btn-success">detalles</button></th>
-                </tr>
-                <tr>
-                    <th>Lorem Ipsum</th>
-                    <th>12/02/2024</th>
-                    <th>Lorem Ipsum</th>
-                    <th>Lorem Ipsum</th>
-                    <th>Lorem Ipsum</th>
-                    <th><button button type="submit" class="btn btn-success">detalles</button></th>
                 </tr>
             </thead>
             <!-- Cuerpo de la tabla para mostrar un registro por fila -->
@@ -150,6 +108,43 @@
                 </div>
             </div>
         </div>
+
+
+
+        <!-- Modal de detalle de pedido -->
+        <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></span></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table align-middle table-striped table-borderless">
+                                <!-- Cabeza de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
+                                <thead>
+                                    <tr>
+                                        <td colspan="6" id="rowsFound"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>FECHA</th>
+                                        <th>PRECIO</th>
+                                        <th>DIRECCIÓN</th>
+                                        <th>CANTIDAD</th>
+                                    </tr>
+                                </thead>
+                                <!-- Cuerpo de la tabla para mostrar un registro por fila -->
+                                <tbody id="tabla_detalle"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
     <!-- IMPORTACIÓN DE ARCHIVOS JAVASCRIPT -->
     <!-- Llamada al framework y librería de mensajes -->

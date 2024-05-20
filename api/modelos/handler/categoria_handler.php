@@ -19,6 +19,8 @@ class CategoriaHandler
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
      */
+
+     // Función para buscar categorías.
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
@@ -30,6 +32,7 @@ class CategoriaHandler
         return Database::getRows($sql, $params);
     }
 
+    // Función para crear una categoría.
     public function createRow()
     {
         $sql = 'INSERT INTO tb_categorias(nombre, imagen)
@@ -38,6 +41,7 @@ class CategoriaHandler
         return Database::executeRow($sql, $params);
     }
 
+    // Función para leer categorías.
     public function readAll()
     {
         $sql = 'SELECT id_categoria, nombre, imagen
@@ -46,6 +50,7 @@ class CategoriaHandler
         return Database::getRows($sql);
     }
 
+    // Función para leer una categoría.
     public function readOne()
     {
         $sql = 'SELECT id_categoria, nombre, imagen
@@ -55,6 +60,7 @@ class CategoriaHandler
         return Database::getRow($sql, $params);
     }
 
+    // Función para leer un archivo.
     public function readFilename()
     {
         $sql = 'SELECT imagen_categoria
@@ -64,6 +70,7 @@ class CategoriaHandler
         return Database::getRow($sql, $params);
     }
 
+    // Función para actualizar una categoría.
     public function updateRow()
     {
         $sql = 'UPDATE tb_categorias
@@ -73,6 +80,7 @@ class CategoriaHandler
         return Database::executeRow($sql, $params);
     }
 
+    // Función para eliminar una categoria.
     public function deleteRow()
     {
         $sql = 'DELETE FROM tb_categorias

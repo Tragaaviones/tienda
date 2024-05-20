@@ -87,10 +87,10 @@ const fillTable = async (form = null) => {
                     <td>${row.nombre_marca}</td>
                     <td>${row.telefono_marca}</td>
                     <td>
-                        <button type="button" class="btn btn-info" onclick="openUpdate(${row.id_marca})">
+                        <button type="button" class="btn btn-outline-info" onclick="openUpdate(${row.id_marca})">
                             <i class="bi bi-pencil-fill"></i>
                         </button>
-                        <button type="button" class="btn btn-danger" onclick="openDelete(${row.id_marca})">
+                        <button type="button" class="btn btn-outline-danger" onclick="openDelete(${row.id_marca})">
                             <i class="bi bi-trash-fill"></i>
                         </button>
                     </td>

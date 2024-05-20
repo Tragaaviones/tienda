@@ -21,6 +21,8 @@ class AdministradorHandler
     /*
      *  Métodos para gestionar la cuenta del administrador.
      */
+
+     // Función para el login.
     public function checkUser($username, $password)
     {
         $sql = 'SELECT id_administrador, clave_administrador
@@ -37,6 +39,7 @@ class AdministradorHandler
         }
     }
 
+    // Función para comprobar la contraseña.
     public function checkPassword($password)
     {
         $sql = 'SELECT clave_administrador
@@ -52,6 +55,7 @@ class AdministradorHandler
         }
     }
 
+    // Función para cambiar contraseña.
     public function changePassword()
     {
         $sql = 'UPDATE administrador
@@ -61,6 +65,7 @@ class AdministradorHandler
         return Database::executeRow($sql, $params);
     }
 
+    // Función para buscar los tipos de usuarios.
     public function readProfile()
     {
         $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador, alias_administrador
@@ -70,6 +75,7 @@ class AdministradorHandler
         return Database::getRow($sql, $params);
     }
 
+    // Función para leer perfil.
     public function editProfile()
     {
         $sql = 'UPDATE administrador
@@ -82,6 +88,8 @@ class AdministradorHandler
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
      */
+
+    // Función para buscar los administradores.
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
@@ -94,6 +102,7 @@ class AdministradorHandler
         return Database::getRows($sql, $params);
     }
 
+    // Función para crear un admministrador.
     public function createRow()
     {
         $sql = 'INSERT INTO tb_administradores(nombre_administrador, apellido_administrador, correo_administrador, clave_administrador,id_tipo)
@@ -102,6 +111,7 @@ class AdministradorHandler
         return Database::executeRow($sql, $params);
     }
 
+    // Función para primer uso.
     public function firstUser()
     {
         $sql = 'INSERT INTO tb_administradores(nombre_administrador, apellido_administrador, correo_administrador, clave_administrador,id_tipo)
@@ -110,7 +120,7 @@ class AdministradorHandler
         return Database::executeRow($sql, $params);
     }
 
-
+    // Función para leer administradores.
     public function readAll()
     {
         $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador, id_tipo, tipo_usuario
@@ -120,6 +130,7 @@ class AdministradorHandler
         return Database::getRows($sql);
     }
 
+    // Función para leer un administrador.
     public function readOne()
     {
         $sql = 'SELECT id_administrador, nombre_administrador, apellido_administrador, correo_administrador, id_tipo, tipo_usuario
@@ -130,6 +141,7 @@ class AdministradorHandler
         return Database::getRow($sql, $params);
     }
 
+    // Función para eliminar un administrador.
     public function updateRow()
     {
         $sql = 'UPDATE tb_administradores
@@ -139,6 +151,7 @@ class AdministradorHandler
         return Database::executeRow($sql, $params);
     }
 
+    // Función para eliminar un administrador.
     public function deleteRow()
     {
         $sql = 'DELETE FROM tb_administradores

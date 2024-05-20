@@ -1,6 +1,7 @@
 // Constantes para completar las rutas de la API.
 const PRODUCTO_API = 'servicios/administrador/producto.php';
 const CATEGORIA_API = 'servicios/administrador/categoria.php';
+const MARCA_API = 'servicios/administrador/marcas.php'
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer el contenido de la tabla.
@@ -11,12 +12,12 @@ const SAVE_MODAL = new bootstrap.Modal('#saveModal'),
     MODAL_TITLE = document.getElementById('modalTitle');
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
-    ID_PRODUCTO = document.getElementById('idProducto'),
-    NOMBRE_PRODUCTO = document.getElementById('nombreProducto'),
-    DESCRIPCION_PRODUCTO = document.getElementById('descripcionProducto'),
-    PRECIO_PRODUCTO = document.getElementById('precioProducto'),
-    EXISTENCIAS_PRODUCTO = document.getElementById('existenciasProducto'),
-    ESTADO_PRODUCTO = document.getElementById('estadoProducto');
+    ID_PRODUCTO = document.getElementById('id_producto'),
+    NOMBRE_PRODUCTO = document.getElementById('nombre_producto'),
+    DESCRIPCION_PRODUCTO = document.getElementById('descripcion_producto'),
+    PRECIO_PRODUCTO = document.getElementById('precio_producto'),
+    MARCA_PRODUCTO = document.getElementById('marca_producto'),
+    CATEGORIA_PRODUCTO = document.getElementById('categoria_producto');
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
@@ -78,21 +79,20 @@ const fillTable = async (form = null) => {
     if (DATA.status) {
         // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
         DATA.dataset.forEach(row => {
-            // Se establece un icono para el estado del producto.
-            (row.estado_producto) ? icon = 'bi bi-eye-fill' : icon = 'bi bi-eye-slash-fill';
             // Se crean y concatenan las filas de la tabla con los datos de cada registro.
             TABLE_BODY.innerHTML += `
                 <tr>
-                    <td><img src="${SERVER_URL}images/productos/${row.imagen_producto}" height="50"></td>
+                    <td><img src="${SERVER_URL}/imagenes/productos/${row.imagen}" height="50"></td>
                     <td>${row.nombre_producto}</td>
-                    <td>${row.precio_producto}</td>
-                    <td>${row.nombre_categoria}</td>
-                    <td><i class="${icon}"></i></td>
+                    <td>${row.precio_unitario}</td>
+                    <td>${row.nombre}</td>
+                    <td>${row.nombre_marca}</td>
+                    <td>${row.descripcion}</td>
                     <td>
-                        <button type="button" class="btn btn-info" onclick="openUpdate(${row.id_producto})">
+                        <button type="button" class="btn btn-outline-info" onclick="openUpdate(${row.id_producto})">
                             <i class="bi bi-pencil-fill"></i>
                         </button>
-                        <button type="button" class="btn btn-danger" onclick="openDelete(${row.id_producto})">
+                        <button type="button" class="btn btn-outline-danger" onclick="openDelete(${row.id_producto})">
                             <i class="bi bi-trash-fill"></i>
                         </button>
                     </td>
@@ -117,8 +117,8 @@ const openCreate = () => {
     MODAL_TITLE.textContent = 'Crear producto';
     // Se prepara el formulario.
     SAVE_FORM.reset();
-    EXISTENCIAS_PRODUCTO.disabled = false;
-    fillSelect(CATEGORIA_API, 'readAll', 'categoriaProducto');
+    fillSelect(CATEGORIA_API, 'readAll', 'categoria_producto');
+    fillSelect(MARCA_API, 'readAll', 'marca_producto');
 }
 
 /*
@@ -129,7 +129,7 @@ const openCreate = () => {
 const openUpdate = async (id) => {
     // Se define un objeto con los datos del registro seleccionado.
     const FORM = new FormData();
-    FORM.append('idProducto', id);
+    FORM.append('id_producto', id);
     // Petición para obtener los datos del registro solicitado.
     const DATA = await fetchData(PRODUCTO_API, 'readOne', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
@@ -139,16 +139,14 @@ const openUpdate = async (id) => {
         MODAL_TITLE.textContent = 'Actualizar producto';
         // Se prepara el formulario.
         SAVE_FORM.reset();
-        EXISTENCIAS_PRODUCTO.disabled = true;
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
         ID_PRODUCTO.value = ROW.id_producto;
         NOMBRE_PRODUCTO.value = ROW.nombre_producto;
-        DESCRIPCION_PRODUCTO.value = ROW.descripcion_producto;
-        PRECIO_PRODUCTO.value = ROW.precio_producto;
-        EXISTENCIAS_PRODUCTO.value = ROW.existencias_producto;
-        ESTADO_PRODUCTO.checked = ROW.estado_producto;
-        fillSelect(CATEGORIA_API, 'readAll', 'categoriaProducto', ROW.id_categoria);
+        DESCRIPCION_PRODUCTO.value = ROW.descripcion;
+        PRECIO_PRODUCTO.value = ROW.precio_unitario;
+        fillSelect(CATEGORIA_API, 'readAll', 'categoria_producto', ROW.id_categoria);
+        fillSelect(MARCA_API, 'readAll', 'marca_producto', ROW.id_marca);
     } else {
         sweetAlert(2, DATA.error, false);
     }
@@ -166,7 +164,7 @@ const openDelete = async (id) => {
     if (RESPONSE) {
         // Se define una constante tipo objeto con los datos del registro seleccionado.
         const FORM = new FormData();
-        FORM.append('idProducto', id);
+        FORM.append('id_producto', id);
         // Petición para eliminar el registro seleccionado.
         const DATA = await fetchData(PRODUCTO_API, 'deleteRow', FORM);
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.

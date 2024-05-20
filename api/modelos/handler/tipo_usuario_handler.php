@@ -19,6 +19,8 @@ class Tipo_usuario_handler
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
      */
+
+     // Función para buscar los tipos de usuarios.
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
@@ -30,6 +32,7 @@ class Tipo_usuario_handler
         return Database::getRows($sql, $params);
     }
 
+    // Función para crear un tipo usuario.
     public function createRow()
     {
         $sql = 'INSERT INTO tb_tipousuarios(tipo_usuario, descripcion_usuario)
@@ -38,6 +41,7 @@ class Tipo_usuario_handler
         return Database::executeRow($sql, $params);
     }
 
+    // Función para leer todos los tipos de usuarios.
     public function readAll()
     {
         $sql = 'SELECT id_tipo, tipo_usuario, descripcion_usuario
@@ -46,6 +50,7 @@ class Tipo_usuario_handler
         return Database::getRows($sql);
     }
 
+    // Función para leer un tipo de usuario.
     public function readOne()
     {
         $sql = 'SELECT id_tipo, tipo_usuario, descripcion_usuario
@@ -64,6 +69,7 @@ class Tipo_usuario_handler
     //     return Database::getRow($sql, $params);
     // }
 
+    // Función para actualizar el tipo de usuario.
     public function updateRow()
     {
         $sql = 'UPDATE tb_tipousuarios
@@ -73,6 +79,7 @@ class Tipo_usuario_handler
         return Database::executeRow($sql, $params);
     }
 
+    // Función para eliminar el tipo de usuario.
     public function deleteRow()
     {
         $sql = 'DELETE FROM tb_tipousuarios

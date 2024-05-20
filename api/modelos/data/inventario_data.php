@@ -2,11 +2,11 @@
 // Se incluye la clase para validar los datos de entrada.
 require_once('../../ayudantes/validar.php');
 // Se incluye la clase padre.
-require_once('../../modelos/handler/producto_handler.php');
+require_once('../../modelos/handler/inventario_handler.php');
 /*
  *	Clase para manejar el encapsulamiento de los datos de la tabla PRODUCTO.
  */
-class ProductoData extends ProductoHandler
+class InventarioData extends InventarioHandler
 {
     /*
      *  Atributos adicionales.
@@ -23,7 +23,18 @@ class ProductoData extends ProductoHandler
             $this->id = $value;
             return true;
         } else {
-            $this->data_error = 'El identificador del producto es incorrecto';
+            $this->data_error = 'El identificador del inventario es incorrecto';
+            return false;
+        }
+    }
+
+    public function setTalla($value)
+    {
+        if (Validator::validateNaturalNumber($value)) {
+            $this->talla = $value;
+            return true;
+        } else {
+            $this->data_error = 'El identificador de la talla es incorrecto';
             return false;
         }
     }
@@ -56,16 +67,39 @@ class ProductoData extends ProductoHandler
         }
     }
 
-    public function setPrecio($value)
+    public function setExistencias($value)
     {
-        if (Validator::validateMoney($value)) {
-            $this->precio = $value;
+        if (Validator::validateNaturalNumber($value)) {
+            $this->stock_producto = $value;
             return true;
         } else {
-            $this->data_error = 'El precio debe ser un número positivo';
+            $this->data_error = 'Las existencias debe ser un número entero positivo';
             return false;
         }
     }
+
+    
+    public function setProducto($value)
+    {
+        if (Validator::validateNaturalNumber($value)) {
+            $this->producto = $value;
+            return true;
+        } else {
+            $this->data_error = 'error';
+            return false;
+        }
+    }
+
+    // public function setPrecio($value)
+    // {
+    //     if (Validator::validateMoney($value)) {
+    //         $this->precio = $value;
+    //         return true;
+    //     } else {
+    //         $this->data_error = 'El precio debe ser un número positivo';
+    //         return false;
+    //     }
+    // }
 
     // public function setExistencias($value)
     // {

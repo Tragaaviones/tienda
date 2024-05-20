@@ -49,7 +49,7 @@
             <!-- Cabeza de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
             <thead>
                 <tr>
-                    <td colspan="6" id="rowsFound"></td>
+                    <td colspan="7" id="rowsFound"></td>
                 </tr>
                 <tr>
                     <th>IMÁGEN</th>
@@ -58,6 +58,7 @@
                     <th>CATEGORÍA</th>
                     <th>MARCA</th>
                     <th>DESCRIPCIÓN</th>
+                    <th>ACCIONES</th>
                 </tr>
             </thead>
             <!-- Cuerpo de la tabla para mostrar un registro por fila -->
@@ -76,46 +77,41 @@
                     <form id="saveForm">
                         <div class="modal-body row g-3">
                             <!-- Campo oculto para asignar el id del registro al momento de modificar -->
-                            <input type="number" class="d-none" id="idProducto" name="idProducto">
+                            <input type="number" class="d-none" id="id_producto" name="id_producto">
                             <div class="col-sm-12 col-md-6">
-                                <label for="nombreProducto" class="form-label"><i class="bi bi-file-earmark-text"></i>
+                                <label for="nombre_producto" class="form-label"><i class="bi bi-file-earmark-text"></i>
                                     Nombre</label>
-                                <input id="nombreProducto" type="text" name="nombreProducto" class="form-control"
+                                <input id="nombre_producto" type="text" name="nombre_producto" class="form-control"
                                     required>
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <label for="precioProducto" class="form-label"><i class="bi bi-currency-dollar"></i>
+                                <label for="precio_producto" class="form-label"><i class="bi bi-currency-dollar"></i>
                                     Precio (US$)</label>
-                                <input id="precioProducto" type="number" name="precioProducto" min="0.01" step="0.01"
+                                <input id="precio_producto" type="number" name="precio_producto" min="0.01" step="0.01"
                                     class="form-control" required>
                             </div>
-                            <!-- <div class="col-sm-12 col-md-6">
-                                <label for="existenciasProducto" class="form-label">Existencias</label>
-                                <input id="existenciasProducto" type="number" name="existenciasProducto" min="1"
-                                    step="1" class="form-control" required>
-                            </div> -->
                             <div class="col-sm-12 col-md-6">
-                                <label for="marcaProducto" class="form-label"><i class="bi bi-bookmark-fill"></i>
+                                <label for="marca_producto" class="form-label"><i class="bi bi-bookmark-fill"></i>
                                     Marca</label>
-                                <select id="marcaProducto" name="marcaProducto" class="form-select" required>
+                                <select id="marca_producto" name="marca_producto" class="form-select" required>
                                 </select>
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <label for="categoriaProducto" class="form-label"><i class="bi bi-bookmarks-fill"></i>
+                                <label for="categoria_producto" class="form-label"><i class="bi bi-bookmarks-fill"></i>
                                     Categoría</label>
-                                <select id="categoriaProducto" name="categoriaProducto" class="form-select" required>
+                                <select id="categoria_producto" name="categoria_producto" class="form-select" required>
                                 </select>
                             </div>
                             <div class="col-sm-12 col-md-6">
-                                <label for="imagenProducto" class="form-label"><i class="bi bi-card-image"></i>
+                                <label for="imagen_producto" class="form-label"><i class="bi bi-card-image"></i>
                                     Imagen</label>
-                                <input id="imagenProducto" type="file" name="imagenProducto" class="form-control"
+                                <input id="imagen_producto" type="file" name="imagen_producto" class="form-control"
                                     accept=".png, .jpg">
                             </div>
                             <div class="col-sm-12 col-md-12">
-                                <label for="descripcionProducto" class="form-label"><i
+                                <label for="descripcion_producto" class="form-label"><i
                                         class="bi bi-file-earmark-text"></i> Descripción</label>
-                                <input id="descripcionProducto" type="text" name="descripcionProducto"
+                                <input id="descripcion_producto" type="text" name="descripcion_producto"
                                     class="form-control" required>
                             </div>
                         </div>

@@ -81,16 +81,16 @@ class ProductoData extends ProductoHandler
     public function setImagen($file, $filename = null)
     {
         if (Validator::validateImageFile($file, 1000)) {
-            $this->imagen = Validator::getFileName();
+            $this->imagen_producto = Validator::getFileName();
             return true;
         } elseif (Validator::getFileError()) {
             $this->data_error = Validator::getFileError();
             return false;
         } elseif ($filename) {
-            $this->imagen = $filename;
+            $this->imagen_producto = $filename;
             return true;
         } else {
-            $this->imagen = 'default.png';
+            $this->imagen_producto = 'default.png';
             return true;
         }
     }

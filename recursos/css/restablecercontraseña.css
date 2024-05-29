@@ -4,7 +4,6 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f8f9fa;
 }
 
 .container {
@@ -19,7 +18,7 @@ body {
 }
 
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 .form-control {
@@ -30,11 +29,22 @@ body {
 
 .form-label {
     font-weight: bold;
+    font-size: 25px;
+}
+
+.espacio{
+    display: flex;
+    margin: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    gap: 1.5rem;
 }
 
 .login-link {
     margin-top: 1rem;
-    font-size: 0.9rem;
+    font-size: 20px;
 }
 
 .login-link a {
@@ -45,16 +55,26 @@ body {
 .login-link a:hover {
     text-decoration: underline;
 }
+ 
+.container{
+    max-width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
 .btn-primary {
-    display: flex;
-    justify-content: space-between;
+    display: inline-block;
+    
 }
 .btn-primary {
-    padding: 0.75rem 1.25rem;
-    font-size: 1rem;
+    padding: 0.75rem 4rem;
+    font-size: 18px;
     border: none;
-    border-radius: 0.25rem;
+    border-radius: 0.50rem;
+    cursor: pointer;
+    max-width: 15rem;
     cursor: pointer;
 }
 .btn-primary[type="submit"] {

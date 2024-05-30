@@ -27,7 +27,32 @@ class ClientesData extends ClientesHandler
         }
     }
 
-    
+    // Validación y asignación del correo del administrador.
+    public function setCorreo($value, $min = 8, $max = 100)
+    {
+        if (!Validator::validateEmail($value)) {
+            $this->data_error = 'El correo no es válido';
+            return false;
+        } elseif (Validator::validateLength($value, $min, $max)) {
+            $this->correo = $value;
+            return true;
+        } else {
+            $this->data_error = 'El correo debe tener una longitud entre ' . $min . ' y ' . $max;
+            return false;
+        }
+    }
+
+    // Validación y asignación de la clave del administrador.
+    public function setClave($value)
+    {
+        if (Validator::validatePassword($value)) {
+            $this->clave = password_hash($value, PASSWORD_DEFAULT);
+            return true;
+        } else {
+            $this->data_error = Validator::getPasswordError();
+            return false;
+        }
+    }
 
     // Método para obtener el error de los datos.
     public function getDataError()

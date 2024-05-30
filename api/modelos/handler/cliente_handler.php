@@ -10,6 +10,17 @@ class ClientesHandler
      *  Declaración de atributos para el manejo de datos.
      */
     protected $id = null;
+    protected $nombre = null;
+    protected $apellido = null;
+    protected $correo = null;
+    protected $telefono = null;
+    protected $dui = null;
+    protected $nacimiento = null;
+    protected $direccion = null;
+    protected $clave = null;
+    protected $estado = null;
+    protected $genero = null;
+
 
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
@@ -47,5 +58,57 @@ class ClientesHandler
         $sql = 'CALL cambiar_estado_cliente(?);';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
+    }
+
+    //Metodos para la publica
+
+    /*
+    *   Métodos para gestionar la cuenta del cliente.
+    */
+    //Función para el inicio de sesión (se piden dos parametros uno para el email y el otro para la contraseña)
+    public function checkUser($mail, $password)
+    {
+        //Consulta sql para ejecutar la consulta (se pide un parametro identificado como ?, para verificar el correo)
+        $sql = 'SELECT id_cliente, correo_cliente, clave_cliente, estado_cliente
+                FROM tb_clientes
+                WHERE correo_cliente = ?';
+        //arreglo que inserta todas los parametros que se van a utilizar
+        $params = array($mail);
+        //variable data, que se ocupa para ejecutar la consulta con la base de datos, se llama a la clase DataBase
+        //y se ejecuta la función getRow para traer solo un dato de la base.
+        $data = Database::getRow($sql, $params);
+        //se llama a una función propia de php llamada password_verify que sirve para comparar encriptada la clave
+        if (password_verify($password, $data['clave_cliente'])) {
+            //se dan valores a las variables protegidas, con el fin de mandarlas al metodo checkStatus luego de que el
+            //inicio de sesión sea exitoso.
+            $this->id = $data['id_cliente'];
+            $this->correo = $data['correo_cliente'];
+            $this->estado = $data['estado_cliente'];
+            //se retorna true si es exitoso la verificación
+            return true;
+        } else {
+            //se retorna false si es fallida la verificación
+            return false;
+        }
+    }
+
+    //Función para chequear el estado de la cuenta del cliente
+    public function checkStatus()
+    {
+        //se verifica si el estado es activo
+        if ($this->estado) {
+            //se crea variable de sesión llamada idCliente, para verificar que exista una sesión iniciada
+            $_SESSION['idCliente'] = $this->id;
+            //se crea variable de sesión llamada correoCliente para alguna verificación que se pueda utilizar con esta
+            //ya sea para el perfil o alguna otra cosa mas
+            $_SESSION['correoCliente'] = $this->correo;
+            //se retorna true si es correcta la verificación del estado
+            return true;
+        } 
+        //en caso que el estado sea inactivo o bloqueado
+        else {
+            //se retorna falso y no se dejara iniciar sesión
+            return false;
+        }
     }
 }

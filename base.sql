@@ -6,7 +6,7 @@ USE db_niki;
 CREATE TABLE tb_clientes (
   id_cliente INT AUTO_INCREMENT PRIMARY KEY,
   clave_cliente VARCHAR (50) NOT NULL UNIQUE,
-  nombre_cliente VARCHAR(50) NOT NULL,
+  nombre_cliente VARCHAR(50) NOT NULL,99999999999999999999999999
   apellido_cliente VARCHAR(50) NOT NULL,
   correo_cliente VARCHAR(50) UNIQUE NOT NULL,
   telefono_cliente VARCHAR(50) NOT NULL,

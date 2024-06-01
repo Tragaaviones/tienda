@@ -2,103 +2,694 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIKI´S</title>
-    <link rel="stylesheet" href="/recursos/css/publico.css">
-    <link rel="website icon" type="png" href="/recursos/imagenes/logo.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link type="text/css" rel="stylesheet" href="../../recursos/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="website icon" type="png" href="../../recursos/imagenes/logo.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link type="text/css" rel="stylesheet" href="../../recursos/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../recursos/css/publico.css">
 </head>
 
 <body>
-    <header class="navbar bg-body-tertiary">
-        <nav>
-            <div class="container-fluid">
-                <img src="../../recursos/imagenes/logo.png" alt="Niki's" class=" rounded" width="125" height="75">
-            </div>
-        </nav>
-    </header>
+  <main>
+    <!-- contenido principal del documento -->
 
-    <main>
-        <div class="col bg-white py-5 mb-4">
-            <!--LOGIN-->
-            <div class="contenedor">
-                <div action="#">
-                    <form id="loginForm">
-                        <div class="text-end">
-                            <img src="../../recursos/imagenes/login.png" class="mx-auto d-block" width="80">
-                        </div>
-                        <h2 class="fw-bold text-center py-4">Inicio de sesión</h2>
-                        <div class="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-                            <h5 class="fw-bold text-center py-2 titulo">Ingresa tu correo electrónico</h5>
-                            <input type="email" class="form-control" name="email" placeholder="ej: usuario@gmail.com">
-                        </div>
+    <!-- contenido de cards y carrusel -->
+    <div id="carouselExample" class="carousel slide car">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../../recursos/imagenes/anuncio1.svg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../../recursos/imagenes/anuncio2.svg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../../recursos/imagenes/anuncio3.svg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    </div>
 
-                        <h5 class="fw-bold text-center py-2 titulo">Ingresa tu contraseña</h5>
-                        <div class="conte"></div>
-                        <div class="mb-3"></div>
-                        <div class="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-                            <input type="password" class="form-control" name="password" placeholder="*********">
-                        </div>
+    <div class="col m-4 justify-content-between d-flex">
+      <strong class="text-start">Busca tus botines favoritos aquí</strong>
+      <a href="pantallavermas.html" class="text-end">Ver más</a>
+    </div>
 
-                        <div class="mb-4" h></div>
-
-                        <div class="d-grip text-center">
-                            <button type="submit" class="btn btn-light"><a href="">Crea una cuenta nueva</a></button>
-                            <button type="submit" class="btn btn-light"><a href="">Recuperar contraseña</a></button>
-                        </div>
-
-                        <div class="mb-4" h></div>
-
-                        <div class="d-grip text-center">
-                            <button type="submit" class="btn btn-light">Iniciar sesión</button>
-                        </div>
-                    </form>
+    <!-- Aquí inicia el primer carrusel de tacos -->
+    <div class="col-md-12">
+      <div id="carouselExampleControls" class="carousel slide imagenes" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-4">
+                <div class="card mb-3" style="max-width: 540px; height: 450px;">
+                  <div class="imagen1">
+                    <div class="text-center">
+                      <img src="/recursos/imagenes/botas11.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 1">
+                    </div>
+                    <div class="col-md-15">
+                      <div class="card-body">
+                        <h5 class="card-title">Nike</h5>
+                        <p class="letra1">Botines Nike para...</p>
+                        <h6 class="card-title">En venta solo en Niki´s</h6>
+                        <p class="letra2">$199.99</p>
+                        <button class="botines"><a href="pantalladecomprabotin1.html">Comprar producto</a></button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+              </div>
+              <div class="col-4">
+                <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                  <div class="imagen1">
+                    <div class="text-center">
+                      <img src="/recursos/imagenes/ricardo2 1.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 2">
+                    </div>
+                    <div class="col-md-15">
+                      <div class="card-body">
+                        <h5 class="card-title">Nike</h5>
+                        <p class="letra1">Botines Nike para...</p>
+                        <h6 class="card-title">En venta solo en Niki´s</h6>
+                        <p class="letra2">$99.99</p>
+                        <button class="botines"><a href="pantallacomprabotin2.html">Comprar producto</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-4">
+                <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                  <div class="imagen1">
+                    <div class="text-center">
+                      <img src="../../recursos/imagenes/botas6 1.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 3">
+                    </div>
+                    <div class="col-md-15">
+                      <div class="card-body">
+                        <h5 class="card-title">Nike</h5>
+                        <p class="letra1">Botines Nike para...</p>
+                        <h6 class="card-title">En venta solo en Niki´s</h6>
+                        <p class="letra2">$85.99</p>
+                        <button class="botines"><a href="pantallacomprabotin3.html">Comprar producto</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-4">
+                  <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                    <div class="imagen1">
+                      <div class="text-center">
+                        <img src="../../recursos/imagenes/botas8 1.svg" class="d-block w-100" data-bs-toggle="modal"
+                          data-bs-target="#imageModal" alt="Imagen 1">
+                      </div>
+                      <div class="col-md-15">
+                        <div class="card-body">
+                          <h5 class="card-title">Nike</h5>
+                          <p class="letra1">Botines Nike para...</p>
+                          <h6 class="card-title">En venta solo en Niki´s</h6>
+                          <p class="letra2">$180.99</p>
+                          <button class="botines"><a href="pantallacomprabotin4.html">Comprar producto</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-4">
+                  <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                    <div class="imagen1">
+                      <div class="text-center">
+                        <img src="../../recursos/imagenes/botas5 1.svg" class="d-block w-100" data-bs-toggle="modal"
+                          data-bs-target="#imageModal" alt="Imagen 2">
+                      </div>
+                      <div class="col-md-15">
+                        <div class="card-body">
+                          <h5 class="card-title">Nike</h5>
+                          <p class="letra1">Botines Nike para...</p>
+                          <h6 class="card-title">En venta solo en Niki´s</h6>
+                          <p class="letra2">$150.40</p>
+                          <button class="botines"><a href="pantallacomprabotin5.html">Comprar producto</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-4">
+                  <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                    <div class="imagen1">
+                      <div class="text-center">
+                        <img src="../../recursos/imagenes/botas3.svg" class="d-block w-100" data-bs-toggle="modal"
+                          data-bs-target="#imageModal" alt="Imagen 3">
+                      </div>
+                      <div class="col-md-15">
+                        <div class="card-body">
+                          <h5 class="card-title">Nike</h5>
+                          <p class="letra1">Botines Nike para...</p>
+                          <h6 class="card-title">En venta solo en Niki´s</h6>
+                          <p class="letra2">$120.95</p>
+                          <button class="botines"><a href="pantallacompra1.html">Comprar producto</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </main>
+        <button class="carousel-control-prev bg-dark redondo" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next bg-dark redondo" type="button" data-bs-target="#carouselExampleControls"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+    <!-- Aquí termina el primer carrusel -->
 
-    <footer class="bg-body-tertiary fixed-bottom">
-        <div class="container-fluid clear">
-            <ul class="nav justify-content-evenly ">
-                <li class="nav-item">
-                    <a href="https://www.instagram.com/" target="_blank" class="nav-link px-2 text-muted">
-                        <h4><i class="bi bi-instagram"></i></h4>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.facebook.com/" target="_blank" class="nav-link px-2 text-muted">
-                        <h4><i class="bi bi-facebook"></i></h4>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="navbar-brand">
-                        <img src="../../recursos/imagenes/logo.png" class="rounded" alt="Nikis" width="80" height="60">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://twitter.com/" target="_blank" class="nav-link px-2 text-muted">
-                        <h4><i class="bi bi-twitter"></i></h4>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.tiktok.com/" target="_blank" class="nav-link px-2 text-muted">
-                        <h4><i class="bi bi-tiktok"></i></h4>
-                    </a>
-                </li>
-            </ul>
+    <div class="col m-4 justify-content-between d-flex">
+      <strong class="text-start">Busca tus tenis favoritos aquí</strong>
+      <a href="pantallavermastenis.html" class="text-end">Ver más</a>
+    </div>
+
+    <!-- Aquí inicia el segundo carrusel de botines-->
+    <div class="col-md-12">
+      <div id="carouselExampleControls1" class="carousel slide imagenes" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-4">
+                <div class="card mb-3" style="max-width: 540px; height: 450px;">
+                  <div class="imagen1">
+                    <div class="text-center">
+                      <img src="../../recursos/imagenes/tenis1.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 1">
+                    </div>
+                    <div class="col-md-15">
+                      <div class="card-body">
+                        <h5 class="card-title">Nike</h5>
+                        <p class="letra1">Tenis Nike para...</p>
+                        <h6 class="card-title">En venta solo en Niki´s</h6>
+                        <p class="letra2">$85.99</p>
+                        <button class="botines"><a href="pantallacompratenis2.html">Comprar producto</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-4">
+                <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                  <div class="imagen1">
+                    <div class="text-center">
+                      <img src="../../recursos/imagenes/tenis2.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 2">
+                    </div>
+                    <div class="col-md-15">
+                      <div class="card-body">
+                        <h5 class="card-title">Nike</h5>
+                        <p class="letra1">Tenis Nike para...</p>
+                        <h6 class="card-title">En venta solo en Niki´s</h6>
+                        <p class="letra2">$79.99</p>
+                        <button class="botines"><a href="pantallacompra2.html">Comprar producto</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-4">
+                <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                  <div class="imagen1">
+                    <div class="text-center">
+                      <img src="../../recursos/imagenes/tenis3.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 3">
+                    </div>
+                    <div class="col-md-15">
+                      <div class="card-body">
+                        <h5 class="card-title">Nike</h5>
+                        <p class="letra1">Tenis Nike para...</p>
+                        <h6 class="card-title">En venta solo en Niki´s</h6>
+                        <p class="letra2">$65.99</p>
+                        <button class="botines"><a href="pantallacompratenis3.html">Comprar producto</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-4">
+                  <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                    <div class="imagen1">
+                      <div class="text-center">
+                        <img src="../../recursos/imagenes/tenis10 1.svg" class="d-block w-100" data-bs-toggle="modal"
+                          data-bs-target="#imageModal" alt="Imagen 1">
+                      </div>
+                      <div class="col-md-15">
+                        <div class="card-body">
+                          <h5 class="card-title">Nike</h5>
+                          <p class="letra1">Botines Nike para...</p>
+                          <h6 class="card-title">En venta solo en Niki´s</h6>
+                          <p class="letra2">$199.99</p>
+                          <button class="botines"><a href="pantallacompratenis4.html">Comprar producto</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-4">
+                  <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                    <div class="imagen1">
+                      <div class="text-center">
+                        <img src="../../recursos/imagenes/tenis11 1.svg" class="d-block w-100" data-bs-toggle="modal"
+                          data-bs-target="#imageModal" alt="Imagen 2">
+                      </div>
+                      <div class="col-md-15">
+                        <div class="card-body">
+                          <h5 class="card-title">Nike</h5>
+                          <p class="letra1">Botines Nike para...</p>
+                          <h6 class="card-title">En venta solo en Niki´s</h6>
+                          <p class="letra2">$199.99</p>
+                          <button class="botines"><a href="pantallacompratenis5.html">Comprar producto</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+                <div class="col-4">
+                  <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                    <div class="imagen1">
+                      <div class="text-center">
+                        <img src="../../recursos/imagenes/tenis9 1.svg" class="d-block w-100" data-bs-toggle="modal"
+                          data-bs-target="#imageModal" alt="Imagen 3">
+                      </div>
+                      <div class="col-md-15">
+                        <div class="card-body">
+                          <h5 class="card-title">Nike</h5>
+                          <p class="letra1">Botines Nike para...</p>
+                          <h6 class="card-title">En venta solo en Niki´s</h6>
+                          <p class="letra2">$199.99</p>
+                          <button class="botines"><a href="pantallacompratenis6.html">Comprar producto</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer>
+        <button class="carousel-control-prev bg-dark redondo" type="button" data-bs-target="#carouselExampleControls1"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next bg-dark redondo" type="button" data-bs-target="#carouselExampleControls1"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+    <!-- Aquí termina el segundo carrusel -->
+
+    <div id="carouselExample1" class="carousel slide car">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="../../recursos/imagenes/anuncio4 1.svg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../../recursos/imagenes/anuncio5 1.svg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="../../recursos/imagenes/anuncio6 1.svg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample1" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample1" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    </div>
 
 
+    <div class="col m-4 justify-content-between d-flex">
+      <strong class="text-start">Busca tu ropa deportiva favorita aquí</strong>
+      <a href="pantallavermasropa.html" class="text-end">Ver más</a>
+    </div>
 
-    <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
-    <script type="text/javascript" src="../../controladores/utilidades/componentes.js"></script>
-    <script type="text/javascript" src="../../controladores/publico/login.js"></script>
-    
+
+    <!-- Aquí inicia el tecer carrusel de ropa deportiva -->
+    <div class="col-md-12">
+      <div id="carouselExampleControls3" class="carousel slide imagenes" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-4">
+                <div class="card mb-3" style="max-width: 540px; height: 450px;">
+                  <div class="imagen1">
+                    <div class="text-center">
+                      <img src="../../recursos/imagenes/ropa1.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 1">
+                    </div>
+                    <div class="col-md-15">
+                      <div class="card-body">
+                        <h5 class="card-title">Nike</h5>
+                        <p class="letra1">Panst para salir a...</p>
+                        <h6 class="card-title">En venta solo en Niki´s</h6>
+                        <p class="letra2">$28.99</p>
+                        <button class="botines"><a href="pantallacompra3.html">Comprar producto</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-4">
+                <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                  <div class="imagen1">
+                    <div class="text-center">
+                      <img src="../../recursos/imagenes/ropa2.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 2">
+                    </div>
+                    <div class="col-md-15">
+                      <div class="card-body">
+                        <h5 class="card-title">Nike</h5>
+                        <p class="letra1">Panst para salir a...</p>
+                        <h6 class="card-title">En venta solo en Niki´s</h6>
+                        <p class="letra2">$34.99</p>
+                        <button class="botines"><a href="pantallacompra3.html">Comprar producto</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-4">
+                <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                  <div class="imagen1">
+                    <div class="text-center">
+                      <img src="../../recursos/imagenes/ropa3.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 3">
+                    </div>
+                    <div class="col-md-15">
+                      <div class="card-body">
+                        <h5 class="card-title">Nike</h5>
+                        <p class="letra1"></p>Panst para salir a...
+                        <h6 class="card-title">En venta solo en Niki´s</h6>
+                        <p class="letra2">$19.99</p>
+                        <button class="botines"><a href="pantallacompra3.html">Comprar producto</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-4">
+                  <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                    <div class="imagen1">
+                      <div class="text-center">
+                        <img src="../../recursos/imagenes/ropa4 1.svg" class="d-block w-100" data-bs-toggle="modal"
+                          data-bs-target="#imageModal" alt="Imagen 1">
+                      </div>
+                      <div class="col-md-15">
+                        <div class="card-body">
+                          <h5 class="card-title">Nike</h5>
+                          <p class="letra1">Panst para salir a...</p>
+                          <h6 class="card-title">En venta solo en Niki´s</h6>
+                          <p class="letra2">$34.99</p>
+                          <button class="botines"><a href="pantallacompra3.html">Comprar producto</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-4">
+                  <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                    <div class="imagen1">
+                      <div class="text-center">
+                        <img src="../../recursos/imagenes/ropa5 1.svg" class="d-block w-100" data-bs-toggle="modal"
+                          data-bs-target="#imageModal" alt="Imagen 2">
+                      </div>
+                      <div class="col-md-15">
+                        <div class="card-body">
+                          <h5 class="card-title">Nike</h5>
+                          <p class="letra1">Panst para salir a...</p>
+                          <h6 class="card-title">En venta solo en Niki´s</h6>
+                          <p class="letra2">$24.99</p>
+                          <button class="botines"><a href="pantallacompra3.html">Comprar producto</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-4">
+                  <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                    <div class="imagen1">
+                      <div class="text-center">
+                        <img src="../../recursos/imagenes/ropa6 1.svg" class="d-block w-100" data-bs-toggle="modal"
+                          data-bs-target="#imageModal" alt="Imagen 3">
+                      </div>
+                      <div class="col-md-15">
+                        <div class="card-body">
+                          <h5 class="card-title">Nike</h5>
+                          <p class="letra1">Panst para salir a...</p>
+                          <h6 class="card-title">En venta solo en Niki´s</h6>
+                          <p class="letra2">$29.99</p>
+                          <button class="botines"><a href="pantallacompra3.html">Comprar producto</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev bg-dark redondo" type="button" data-bs-target="#carouselExampleControls3"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next bg-dark redondo" type="button" data-bs-target="#carouselExampleControls3"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+    <!-- Aquí termina el tercer carrusel -->
+
+    <div class="col m-4 justify-content-between d-flex">
+      <strong class="text-start">Colecciona tus camisetas favoritas </strong>
+      <a href="pantallavermascamisetas.html" class="text-end">Ver más</a>
+    </div>
+
+
+    <!-- Aquí inicia el cuarto carrusel de camisas coleccionables-->
+    <div class="col-md-12">
+      <div id="carouselExampleControls2" class="carousel slide imagenes" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row">
+              <div class="col-4">
+                <div class="card mb-3" style="max-width: 540px; height: 450px;">
+                  <div class="imagen1">
+                    <div class="text-center">
+                      <img src="../../recursos/imagenes/camiseta1.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 1">
+                    </div>
+                    <div class="col-md-15">
+                      <div class="card-body">
+                        <h5 class="card-title">Nike</h5>
+                        <p class="letra1">Panst para salir a...</p>
+                        <h6 class="card-title">En venta solo en Niki´s</h6>
+                        <p class="letra2">$28.99</p>
+                        <button class="botines"><a href="pantallacompra4.html">Comprar producto</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-4">
+                <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                  <div class="imagen1">
+                    <div class="text-center">
+                      <img src="../../recursos/imagenes/camiseta2.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 2">
+                    </div>
+                    <div class="col-md-15">
+                      <div class="card-body">
+                        <h5 class="card-title">Nike</h5>
+                        <p class="letra1">Panst para salir a...</p>
+                        <h6 class="card-title">En venta solo en Niki´s</h6>
+                        <p class="letra2">$34.99</p>
+                        <button class="botines"><a href="pantallacompra4.html">Comprar producto</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-4">
+                <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                  <div class="imagen1">
+                    <div class="text-center">
+                      <img src="../../recursos/imagenes/camiseta3.svg" class="d-block w-100" data-bs-toggle="modal"
+                        data-bs-target="#imageModal" alt="Imagen 3">
+                    </div>
+                    <div class="col-md-15">
+                      <div class="card-body">
+                        <h5 class="card-title">Nike</h5>
+                        <p class="letra1"></p>Panst para salir a...
+                        <h6 class="card-title">En venta solo en Niki´s</h6>
+                        <p class="letra2">$19.99</p>
+                        <button class="botines"><a href="pantallacompra4.html">Comprar producto</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-4">
+                  <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                    <div class="imagen1">
+                      <div class="text-center">
+                        <img src="../../recursos/imagenes/camiseta4.svg" class="d-block w-100" data-bs-toggle="modal"
+                          data-bs-target="#imageModal" alt="Imagen 1">
+                      </div>
+                      <div class="col-md-15">
+                        <div class="card-body">
+                          <h5 class="card-title">Nike</h5>
+                          <p class="letra1">Panst para salir a...</p>
+                          <h6 class="card-title">En venta solo en Niki´s</h6>
+                          <p class="letra2">$34.99</p>
+                          <button class="botines"><a href="pantallacompra4.html">Comprar producto</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-4">
+                  <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                    <div class="imagen1">
+                      <div class="text-center">
+                        <img src="../../recursos/imagenes/ropa5 1.svg" class="d-block w-100" data-bs-toggle="modal"
+                          data-bs-target="#imageModal" alt="Imagen 2">
+                      </div>
+                      <div class="col-md-15">
+                        <div class="card-body">
+                          <h5 class="card-title">Nike</h5>
+                          <p class="letra1">Panst para salir a...</p>
+                          <h6 class="card-title">En venta solo en Niki´s</h6>
+                          <p class="letra2">$24.99</p>
+                          <button class="botines"><a href="pantallacompra4.html">Comprar producto</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-4">
+                  <div class="card mb-3 " style="max-width: 540px; height: 450px;">
+                    <div class="imagen1">
+                      <div class="text-center">
+                        <img src="../../recursos/imagenes/ropa6 1.svg" class="d-block w-100" data-bs-toggle="modal"
+                          data-bs-target="#imageModal" alt="Imagen 3">
+                      </div>
+                      <div class="col-md-15">
+                        <div class="card-body">
+                          <h5 class="card-title">Nike</h5>
+                          <p class="letra1">Panst para salir a...</p>
+                          <h6 class="card-title">En venta solo en Niki´s</h6>
+                          <p class="letra2">$29.99</p>
+                          <button class="botines"><a href="pantallacompra4.html">Comprar producto</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev bg-dark redondo" type="button" data-bs-target="#carouselExampleControls2"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next bg-dark redondo" type="button" data-bs-target="#carouselExampleControls2"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+    <!-- Aquí termina el cuarto carrusel -->
+  </main>
+
+  </main>
+
+  <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
+  <script type="text/javascript" src="../../controladores/utilidades/componentes.js"></script>
+  <script type="text/javascript" src="../../controladores/utilidades/publico.js"></script>
+  <script type="text/javascript" src="../../controladores/publico/inicio.js"></script>
+
 </body>
 
 </html>

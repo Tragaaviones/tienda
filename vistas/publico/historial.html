@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/recursos/css/publico.css">
+    <link rel="stylesheet" href="../../recursos/css/pantallainicio.css">
+    <link rel="website icon" type="png" href="/recursos/imagenes/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link type="text/css" rel="stylesheet" href="../../recursos/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <main>
+        <!-- Esta sección contiene el cuerpo principal de la página, con el historial de compras. -->
+        <section class="container margen">
+            <div class="container">
+                <div class="row">
+                    <!-- Botón para recargar la página -->
+                    <div class="col-2">
+                        <button type="button" onclick="location.reload();" class="p-0">
+                            <img src="../../recursos/imagenes/actualizar 1.svg" height="40" alt="Recargar página">
+                        </button>
+                    </div>
+                    <!-- Título de la sección -->
+                    <div class="col-10 text-center">
+                        <h1>
+                            Historial de compras
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primera carta de producto en el historial -->
+            <div class="card mb-3 d-flex">
+                <div class="row g-0">
+                    <!-- Imagen del producto -->
+                    <div class="col-md-5">
+                        <img src="/recursos/imagenes/camisazidane.svg" class="d-block w-100" height="200"
+                            data-bs-toggle="modal" data-bs-target="#imageModal" alt="Imagen 1">
+                    </div>
+                    <!-- Detalles del producto -->
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h5 class="letra2 text-center">Descripción del producto</h5>
+                            <p class="letra1 text-center">Camisa de la selección Francesa de 1998 ortgada al jugador
+                                Zinedine Zidane campeón del mundo </p>
+                            <!-- Fecha y hora de entrega -->
+                            <div>
+                                <p class="text-primary text-center">Fecha y hora de la entrega</p>
+                                <p class=" text-center">13-2-2024/ 3:55 pm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segunda carta de producto en el historial -->
+            <div class="card mb-3 d-flex">
+                <div class="row g-0">
+                    <!-- Imagen del producto -->
+                    <div class="col-md-5">
+                        <img src="/recursos/imagenes/camisanazario.svg" class="d-block w-100" height="200"
+                            data-bs-toggle="modal" data-bs-target="#imageModal" alt="Imagen 1">
+                    </div>
+                    <!-- Detalles del producto -->
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <h5 class="letra2 text-center">Descripción del producto</h5>
+                            <p class="letra1 text-center">
+                                Camisa del inter de milan de 1996, ganador de la UEFA Champions League
+                                y ortogada por el jugador Ronaldo Nazario (El Fenmeno)</p>
+                            <!-- Fecha y hora de entrega -->
+                            <div>
+                                <p class="text-primary text-center">Fecha y hora de la entrega</p>
+                                <p class=" text-center">9-1-2024/ 12:00 pm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../../controladores/utilidades/publico.js"></script>
+    <script type="text/javascript" src="../../controladores/publico/historial.js"></script>
+</body>
+
+</html>

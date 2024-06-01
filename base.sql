@@ -5,8 +5,8 @@ USE db_niki;
 
 CREATE TABLE tb_clientes (
   id_cliente INT AUTO_INCREMENT PRIMARY KEY,
-  clave_cliente VARCHAR (50) NOT NULL UNIQUE,
-  nombre_cliente VARCHAR(50) NOT NULL,99999999999999999999999999
+  clave_cliente VARCHAR (100) NOT NULL UNIQUE,
+  nombre_cliente VARCHAR(50) NOT NULL,
   apellido_cliente VARCHAR(50) NOT NULL,
   correo_cliente VARCHAR(50) UNIQUE NOT NULL,
   telefono_cliente VARCHAR(50) NOT NULL,
@@ -111,8 +111,9 @@ ALTER TABLE tb_detalle_pedidos ADD FOREIGN KEY (id_detalle_producto) REFERENCES 
 
 INSERT INTO tb_tipousuarios (tipo_usuario,descripcion_usuario) VALUES('Administrador','Cargo mas alto');
 
+
 INSERT INTO tb_clientes (clave_cliente, nombre_cliente, apellido_cliente, correo_cliente, telefono_cliente, estado_cliente) VALUES
-('CL001', 'Juan', 'Pérez', 'juan.perez@example.com', '555-1234', TRUE),
+('$2y$10$/8JZKxjAdlo4jTfS7uri7OzhZZ1/yNiw2DCurBt/Tb9h/c7L7P/Y6', 'Juan', 'Pérez', 'juan.perez@example.com', '555-1234', TRUE),
 ('CL002', 'María', 'Gómez', 'maria.gomez@example.com', '555-5678', TRUE),
 ('CL003', 'Carlos', 'Sánchez', 'carlos.sanchez@example.com', '555-8765', FALSE),
 ('CL004', 'Ana', 'Martínez', 'ana.martinez@example.com', '555-4321', TRUE),
@@ -138,26 +139,29 @@ INSERT INTO tb_pedidos (id_cliente, fecha_venta, estado_pedido, direccion_pedido
 (9, '2023-05-09 15:40:00', TRUE, '2021 Calle Sexta, Ciudad Ejemplo'),
 (10, '2023-05-10 17:25:00', TRUE, '2223 Avenida Séptima, Ciudad Ejemplo');
 
-INSERT INTO tb_detalle_productos (id_producto, id_talla, stock_producto) VALUES
-(1, 2, 50),
-(2, 3, 30);
 
-SELECT * FROM tb_detalle_productos
-SELECT * FROM tb_pedidos
 
 INSERT INTO tb_detalle_pedidos (id_pedido, precio_producto, id_detalle_producto, cantidad_producto) VALUES
 (1, 19.99, 1, 2),
-(2, 29.99, 2, 1);
+(2, 29.99, 2, 1),
+(3, 15.50, 1, 3),
+(4, 45.00, 2, 1),
+(5, 10.00, 1, 5);
 
+
+
+INSERT INTO tb_detalle_productos (id_producto, id_talla, stock_producto) VALUES
+(1, 1, 50),
+(2, 1, 30);
 
 INSERT INTO tb_comentarios (comentario, calificacion_producto, fecha_comentario, estado_comentario, id_detalle_pedidos) VALUES
-('Producto excelente, muy recomendado', '5', '2023-05-01 14:30:00', TRUE, 1),
-('El producto llegó dañado, no lo recomiendo', '1', '2023-05-02 10:45:00', FALSE, 2),
-('Buena relación calidad-precio', '4', '2023-05-03 09:20:00', TRUE, 1),
-('El producto es aceptable, pero tardó en llegar', '3', '2023-05-04 13:15:00', TRUE, 2),
-('No estoy satisfecho con la compra', '2', '2023-05-05 16:40:00', FALSE, 2);
+('Producto excelente, muy recomendado', '5', '2023-05-01 14:30:00', TRUE, 21),
+('El producto llegó dañado, no lo recomiendo', '1', '2023-05-02 10:45:00', FALSE, 22),
+('Buena relación calidad-precio', '4', '2023-05-03 09:20:00', TRUE, 23),
+('El producto es aceptable, pero tardó en llegar', '3', '2023-05-04 13:15:00', TRUE, 24),
+('No estoy satisfecho con la compra', '2', '2023-05-05 16:40:00', FALSE, 25);
 
-SELECT * FROM tb_detalle_pedidos
+SELECT * FROM tb_productos
 
 DELIMITER $$
 CREATE PROCEDURE cambiar_estado_cliente(IN cliente_id INT)

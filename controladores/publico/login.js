@@ -1,12 +1,9 @@
 // Constante para establecer el formulario de iniciar sesión.
 const SESSION_FORM = document.getElementById('loginForm');
 
-// Constante para completar la ruta de la API.
-const USER_API = 'servicios/publico/cliente.php';
-
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
-
+    loadTemplate();
 });
 
 // Método del evento para cuando se envía el formulario de iniciar sesión.

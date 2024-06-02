@@ -37,8 +37,10 @@
                         <div class="mb-4" h></div>
 
                         <div class="d-grip text-center">
-                            <button type="submit" class="btn btn-light"><a href="">Crea una cuenta nueva</a></button>
-                            <button type="submit" class="btn btn-light"><a href="">Recuperar contraseña</a></button>
+                            <button type="button" class="btn btn-light" aria-expanded="false" data-bs-toggle="modal"
+                                data-bs-target="#crear_cliente">Crea una cuenta nueva</button>
+                            <button type="button" class="btn btn-light" aria-expanded="false" data-bs-toggle="modal"
+                                data-bs-target="#recuperar">Recuperar contraseña</button>
                         </div>
 
                         <div class="mb-4" h></div>
@@ -47,6 +49,162 @@
                             <button type="submit" class="btn btn-light">Iniciar sesión</button>
                         </div>
                     </form>
+                </div>
+            </div>
+            <!-- Componente Modal para crear un cliente -->
+            <div class="modal fade" id="crear_cliente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="modalTitleEdit" aria-hidden="true">
+                <div class="modal-lg modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modalTitleEdit">Crear cuenta</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form id="editForm">
+                            <div class="modal-body row g-3">
+                                <input type="number" id="id_cliente" name="id_cliente" class="d-none">
+                                <div class="col-sm-6 col-md-6 col-lg-6 col-12 mb-3 ">
+                                    <div class=" form-floating borde ">
+                                        <input id="nombrePerfil" type="text" name="nombrePerfil" placeholder="Nombre"
+                                            class="form-control" required autocomplete="off" />
+                                        <label for="nombrePerfil"><i class="bi bi-person-circle"></i> Nombre</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6 col-12 mb-3">
+                                    <div class="form-floating borde ">
+                                        <input id="apellidoPerfil" type="text" name="apellidoPerfil"
+                                            placeholder="Apellido" class="form-control" required autocomplete="off" />
+                                        <label for="apellidoPerfil"><i class="bi bi-person-circle"></i> Apellido</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6 col-12 mb-3">
+                                    <div class="form-floating borde">
+                                        <input id="telefonoPerfil" type="text" name="telefonoPerfil"
+                                            class="form-control" placeholder="0000-0000" required autocomplete="off" />
+                                        <label for="telefonoPerfil"><i class="bi bi-phone-fill"></i> Teléfono</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6 col-12 mb-3">
+                                    <div class="form-floating borde ">
+                                        <input id="correoPerfil" type="email" name="correoPerfil"
+                                            placeholder="Correo electrónico" class="form-control" required
+                                            autocomplete="off" />
+                                        <label for="correoPerfil"><i class="bi bi-envelope-at-fill"></i> Correo
+                                            electrónico</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6 col-6 mb-3">
+                                    <div class="form-floating borde ">
+                                        <input id="direccionPerfil" type="text" name="direccionPerfil"
+                                            placeholder="Dirección" class="form-control" required autocomplete="off" />
+                                        <label for="direccionPerfil"><i class="bi bi-house-door-fill"></i>
+                                            Dirección</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-6 col-lg-6 col-6 mb-3">
+                                    <div class="form-floating borde ">
+                                        <input id="direccionPerfil" type="password" name="direccionPerfil"
+                                            placeholder="Contraseña" class="form-control" required autocomplete="off" />
+                                        <label for="direccionPerfil">
+                                            <i class="bi bi-key-fill"></i> Contraseña</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-12 col-lg-12 col-6 mb-3">
+                                    <div class="form-floating borde ">
+                                        <input id="direccionPerfil" type="password" name="direccionPerfil"
+                                            placeholder="Confirmar contraseña" class="form-control" required
+                                            autocomplete="off" />
+                                        <label for="direccionPerfil">
+                                            <i class="bi bi-key-fill"></i> Confirmar contraseña</label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer col-sm-12 col-md-12 col-lg-12">
+                                    <button type="reset" class="btn btn-outline-dark"><i
+                                            class="bi bi-x-square-fill"></i> Cancelar</button>
+                                    <button type="submit" class="btn btn-outline-primary"><i class="bi bi-floppy2"></i>
+                                        Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para enviar codigo -->
+        <div class="modal fade" id="recuperar" tabindex="-1" aria-labelledby="recuperarLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered"> <!-- Cambiar modal-xl según tu necesidad -->
+                <div class="modal-content py-5">
+                    <div class="modal-header">
+                        <h5 class="modal-title mx-auto" id="recuperarLabel">Recuperación de Contraseña</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card mb-3 d-flex">
+                            <div class="row g-0">
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <div>
+                                            <input type="email" class="form-control" name="email"
+                                                placeholder="Correo Electrónico">
+                                        </div>
+                                        <div class="py-4"></div>
+                                        <div>
+                                            <input type="text" class="form-control" name="text" placeholder="Codigo">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 card-body">
+                                    <div>
+                                        <button type="submit" class="btn btn-success">Enviar</button>
+                                    </div>
+                                    <div class="py-4"></div>
+                                    <div>
+                                        <button type="submit" class="btn btn-success" data-bs-toggle="modal"
+                                            data-bs-target="#reestablecer">Confirmar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal para reestablecer contraseña-->
+        <div class="modal fade" id="reestablecer" tabindex="-1" aria-labelledby="reestablecerLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header mx-auto">
+                        <img src="/recursos/imagenes/login.png" class="mx-auto d-block" width="150" height="150">
+                    </div>
+                    <div class="modal-body">
+                        <div class="card mb-3 d-flex">
+                            <div class="row g-0">
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <div>
+                                            <input type="password" class="form-control" name="password"
+                                                placeholder="Ingresar Contraseña">
+                                        </div>
+                                        <div class="py-4"></div>
+                                        <div>
+                                            <input type="password" class="form-control" name="password"
+                                                placeholder="Confirmar contraseña">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 card-body">
+                                    <div>
+                                        <h5 class="modal-title" id="recuperarLabel">Reestablecer contraseña</h5>
+                                    </div>
+                                    <div class="py-4"></div>
+                                    <div>
+                                        <button type="submit" class="btn btn-success">Confirmar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,46 @@
+.form-select {
+    display: flex;
+    width: 15rem;
+}
+
+.ordenador {
+    display: flex;
+    width: 15rem;
+    height: 3rem;
+}
+
+.texto {
+    margin-right: 1.5rem;
+    padding: .5rem;
+}
+
+.contenedor_descripcion {
+    text-align: center;
+    font-size: 15px;
+}
+
+.descripción {
+    text-align: center;
+    font-size: 21px;
+
+}
+
+.imageR {
+    display: flex;
+    margin-left: 6rem;
+}
+
+.button_comentario {
+    display: flex;
+    color: #0D6EFD;
+    ;
+    align-items: center;
+    margin: 20px auto ;
+}
+
+
+
+
+/* 10px = 1rem*/
+/* px, rem, em*/
+/* % */

@@ -45,10 +45,10 @@ MAIN.insertAdjacentHTML('beforebegin', `
           <a href="/vistas/publico/historial.html"><img src="../../recursos/imagenes/historial.png" alt="" width="40"
               height="40"></a>
         </button>
-        <button class="btn btn-light" type="button" aria-expanded="false" data-bs-toggle="modal"
-          data-bs-target="#exampleModal">
-          <img src="../../recursos/imagenes/carrito-de-compras.png" alt="" width="40" height="40">
-        </button>
+        <button class="btn btn-light" type="button" aria-expanded="false">
+        <a href="/vistas/publico/carrito_compra.html"><img src="../../recursos/imagenes/carrito-de-compras.png" alt="" width="40"
+            height="40"></a>
+      </button>
       </div>
 
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -83,54 +83,6 @@ MAIN.insertAdjacentHTML('beforebegin', `
     </div>
   </nav>
 </header>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Carrito de compras</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="card mb-3 d-flex">
-          <div class="row g-0">
-            <div class="d-flex justify-content-end align-items-center">
-              <a><img src="/recursos/imagenes/basurero.svg" class="d-block" height="50" alt="Imagen 1"></a>
-            </div>
-            <div class="col-md-5">
-              <img src="/recursos/imagenes/botas6 1.svg" class="d-block w-100" height="200" alt="Imagen 1">
-            </div>
-            <div class="col-md-7">
-              <div class="card-body">
-                <h5 class="card-title text-center">Nike</h5>
-                <p class="letra1 text-center">Botines Nike color blanco con tarugos anaranjados</p>
-                <div class="row">
-                  <div class="col-md-6 text-start">
-                    <p class="card-title text-start">Descripción:</p>
-                    <strong>-Para cancha engramada</strong><br>
-                    <strong>-Para cancha sintetica</strong>
-                  </div>
-                  <div class="col-md-6 text-start">
-                    <p>AHORA</p>
-                    <p class="letra2">$199.99</p>
-                  </div>
-                </div>
-                <div class="text-center">
-                  <button class="botines text-primary"><a href="pantallahistorial.html">Historial de
-                      compras</a></button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 `);
 MAIN.insertAdjacentHTML('afterend', `

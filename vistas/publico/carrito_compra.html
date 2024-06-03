@@ -13,66 +13,67 @@
 <body>
 
     <main>
-          <!-- Título del contenido principal -->
-          <h4 id="mainTitle"></h4>
-          <!-- Tabla para mostrar el detalle de los productos agregados al carrito de compras -->
-          <table class="table table-striped">
-              <!-- Cabeza de la tabla para mostrar los títulos de las columnas -->
-              <thead>
-                  <tr>
-                      <th>PRODUCTO</th>
-                      <th>PRECIO (US$)</th>
-                      <th>CANTIDAD</th>
-                      <th>SUBTOTAL (US$)</th>
-                      <th>ACCIONES</th>
-                  </tr>
-              </thead>
-              <!-- Cuerpo de la tabla para mostrar un registro por fila -->
-              <tbody id="tableBody"></tbody>
-          </table>
-          <!-- Párrafo para mostrar el monto total a pagar -->
-          <p class="text-end">TOTAL A PAGAR (US$) <b id="pago"></b></p>
-          <!-- Párrafo para mostrar un botón que finaliza el pedido -->
-          <p class="text-end">
-              <button type="button" class="btn btn-primary" onclick="finishOrder()">
-                  <i class="bi bi-credit-card-fill"></i> Finalizar pedido
-              </button>
-          </p>
-          <!-- Párrafo para mostrar un enlace a la página web principal -->
-          <p class="text-end">
-              <a href="index.html" class="btn btn-success">
-                  <i class="bi bi-cart-fill"></i> Seguir comprando
-              </a>
-          </p>
-          <!-- Componente Modal para mostrar una caja de diálogo -->
-          <div class="modal fade" id="itemModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-              aria-labelledby="modalTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered">
-                  <!-- Contenido del componente Modal -->
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="modalTitle">Cambiar cantidad</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <!-- Formulario para actualizar cantidad -->
-                      <form id="itemForm">
-                          <div class="modal-body row">
-                              <input type="number" class="d-none" id="idDetalle" name="idDetalle">
-                              <div class="col-sm-12">
-                                  <label for="cantidadProducto" class="form-label">Cantidad</label>
-                                  <input id="cantidadProducto" type="number" name="cantidadProducto" min="1" class="form-control"
-                                      required>
-                              </div>
-                          </div>
-                          <div class="modal-footer">
-                              <button type="submit" class="btn btn-primary">Guardar</button>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
+        <!-- Título del contenido principal -->
+        <h4 id="mainTitle"></h4>
+        <!-- Tabla para mostrar el detalle de los productos agregados al carrito de compras -->
+        <table class="table table-striped">
+            <!-- Cabeza de la tabla para mostrar los títulos de las columnas -->
+            <thead>
+                <tr>
+                    <th>PRODUCTO</th>
+                    <th>PRECIO (US$)</th>
+                    <th>CANTIDAD</th>
+                    <th>SUBTOTAL (US$)</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <!-- Cuerpo de la tabla para mostrar un registro por fila -->
+            <tbody id="tableBody"></tbody>
+        </table>
+        <!-- Párrafo para mostrar un botón que finaliza el pedido -->
+        <p class="text-end">
+            <button type="button" class="btn btn-primary" onclick="finishOrder()">
+                <i class="bi bi-credit-card-fill"></i> Finalizar compra
+            </button>
+        </p>
+        <!-- Párrafo para mostrar un enlace a la página web principal -->
+        <p class="text-end">
+            <a href="index.html" class="btn btn-success">
+                <i class="bi bi-cart-fill"></i> Seguir comprando
+            </a>
+        </p>
+        <!-- Párrafo para mostrar el monto total a pagar -->
+        <p class="text-end">TOTAL A PAGAR (US$) <b id="pago"></b></p>
+        <!-- Componente Modal para mostrar una caja de diálogo -->
+        <div class="modal fade" id="itemModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="modalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <!-- Contenido del componente Modal -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modalTitle">Cambiar cantidad</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Formulario para actualizar cantidad -->
+                    <form id="itemForm">
+                        <div class="modal-body row">
+                            <input type="number" class="d-none" id="idDetalle" name="idDetalle">
+                            <div class="col-sm-12">
+                                <label for="cantidadProducto" class="form-label">Cantidad</label>
+                                <input id="cantidadProducto" type="number" name="cantidadProducto" min="1"
+                                    class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
 
+    <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="../../controladores/utilidades/publico.js"></script>
     <script type="text/javascript" src="../../controladores/publico/carrito.js"></script>
 </body>

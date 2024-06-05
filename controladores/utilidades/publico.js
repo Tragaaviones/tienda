@@ -7,11 +7,11 @@
 const USER_API = 'servicios/publico/cliente.php';
 // Constante para establecer el elemento del contenido principal.
 const MAIN = document.querySelector('main');
-MAIN.style.paddingTop = '150px';
+MAIN.style.paddingTop = '50px';
 MAIN.style.paddingBottom = '100px';
 MAIN.classList.add('container');
 // Se establece el título de la página web.
-// document.querySelector('title').textContent = 'CoffeeShop - Store';
+document.querySelector('title').textContent = 'Niki´s - Store';
 // Constante para establecer el elemento del título principal.
 // const MAIN_TITLE = document.getElementById('mainTitle');
 // MAIN_TITLE.classList.add('text-center', 'py-3');
@@ -22,7 +22,7 @@ MAIN.classList.add('container');
 */
 const loadTemplate = async () => {
 MAIN.insertAdjacentHTML('beforebegin', `
-<header class="header fixed-top">
+<header class="header">
   <!-- barra de navegación -->
   <nav class="navbar bg-body-tertiary navegacion">
     <div class="container-fluid">
@@ -42,13 +42,12 @@ MAIN.insertAdjacentHTML('beforebegin', `
       <!-- contenido de carrito de compras -->
       <div class="button">
         <button class="btn btn-light" type="button" aria-expanded="false">
-          <a href="/vistas/publico/historial.html"><img src="../../recursos/imagenes/historial.png" alt="" width="40"
-              height="40"></a>
+          <a href="historial.html"><img src="../../recursos/imagenes/historial.png" alt="" width="40" height="40"></a>
         </button>
         <button class="btn btn-light" type="button" aria-expanded="false">
-        <a href="/vistas/publico/carrito_compra.html"><img src="../../recursos/imagenes/carrito-de-compras.png" alt="" width="40"
-            height="40"></a>
-      </button>
+          <a href="carrito_compra.html"><img src="../../recursos/imagenes/carrito-de-compras.png" alt="" width="40"
+              height="40"></a>
+        </button>
       </div>
 
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -71,8 +70,8 @@ MAIN.insertAdjacentHTML('beforebegin', `
               <a class="nav-link active" href="perfil_cliente.html"><i class="bi bi-person-fill-gear"></i> Perfil</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link active" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Iniciar sesion</a>
-          </li>
+              <a class="nav-link active" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Iniciar sesion</a>
+            </li>
         </div>
         <div class="d-grid gap-2 nav-item logout">
           <button type="button" class="btn btn-danger" onclick="logOut()">Cerrar sesión <i
@@ -86,38 +85,38 @@ MAIN.insertAdjacentHTML('beforebegin', `
 
 `);
 MAIN.insertAdjacentHTML('afterend', `
-<footer class="bg-body-tertiary">
-<div class="container-fluid clear">
-  <ul class="nav justify-content-evenly ">
-    <li class="nav-item">
-      <a href="https://www.instagram.com/" target="_blank" class="nav-link px-2 text-muted">
-        <h4><i class="bi bi-instagram"></i></h4>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="https://www.facebook.com/" target="_blank" class="nav-link px-2 text-muted">
-        <h4><i class="bi bi-facebook"></i></h4>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="navbar-brand">
-        <img src="../../recursos/imagenes/logo.png" class="rounded" alt="Nikis" width="80" height="60">
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="https://twitter.com/" target="_blank" class="nav-link px-2 text-muted">
-        <h4><i class="bi bi-twitter"></i></h4>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a href="https://www.tiktok.com/" target="_blank" class="nav-link px-2 text-muted">
-        <h4><i class="bi bi-tiktok"></i></h4>
-      </a>
-    </li>
-  </ul>
-  <hr>
-  <p class="text-center text-muted">&copy; 2024 NIKI’S El Salvador . Todos los derechos reservados.</p>
-</div>
+<footer class="bg-body-tertiary fixed-bottom">
+  <div class="container-fluid clear">
+    <ul class="nav justify-content-evenly ">
+      <li class="nav-item">
+        <a href="https://www.instagram.com/" target="_blank" class="nav-link px-2 text-muted">
+          <h4><i class="bi bi-instagram"></i></h4>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="https://www.facebook.com/" target="_blank" class="nav-link px-2 text-muted">
+          <h4><i class="bi bi-facebook"></i></h4>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="navbar-brand">
+          <img src="../../recursos/imagenes/logo.png" class="rounded" alt="Nikis" width="80" height="60">
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="https://twitter.com/" target="_blank" class="nav-link px-2 text-muted">
+          <h4><i class="bi bi-twitter"></i></h4>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="https://www.tiktok.com/" target="_blank" class="nav-link px-2 text-muted">
+          <h4><i class="bi bi-tiktok"></i></h4>
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <p class="text-center text-muted">&copy; 2024 NIKI’S El Salvador . Todos los derechos reservados.</p>
+  </div>
 </footer>
 `);
 }

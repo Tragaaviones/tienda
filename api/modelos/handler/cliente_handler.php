@@ -31,7 +31,7 @@ class ClientesHandler
     {
         $value = '%' . Validator::getSearchValue() . '%';
         $sql = 'SELECT id_cliente AS ID, nombre_cliente AS NOMBRE, correo_cliente AS CORREO,
-         telefono_cliente AS TELEFONO, CASE 
+        telefono_cliente AS TELEFONO, CASE 
         WHEN estado_cliente = 1 THEN "Activo"
         WHEN estado_cliente = 0 THEN "Bloqueado"
         END AS ESTADO FROM tb_clientes
@@ -44,12 +44,20 @@ class ClientesHandler
     public function readAll()
     {
         $sql = 'SELECT id_cliente AS ID, nombre_cliente AS NOMBRE, apellido_cliente AS APELLIDO, correo_cliente AS CORREO,
-         telefono_cliente AS TELEFONO, CASE 
+        telefono_cliente AS TELEFONO, CASE 
         WHEN estado_cliente = 1 THEN "Activo"
         WHEN estado_cliente = 0 THEN "Bloqueado"
         END AS ESTADO FROM tb_clientes
                 ORDER BY NOMBRE;';
         return Database::getRows($sql);
+    }
+
+    public function createRow()
+    {
+        $sql = 'INSERT INTO tb_clientes(clave_cliente, nombre_cliente, apellido_cliente, correo_cliente, telefono_cliente, direccion_cliente, estado_cliente)
+                VALUES(?, ?, ?, ?, ?, ?, 1)';
+        $params = array($this->clave, $this->nombre, $this->apellido, $this->correo, $this->telefono, $this->direccion);
+        return Database::executeRow($sql, $params);
     }
 
     //Función para cambiar el estado de un cliente.

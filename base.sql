@@ -10,6 +10,7 @@ CREATE TABLE tb_clientes (
   apellido_cliente VARCHAR(50) NOT NULL,
   correo_cliente VARCHAR(50) UNIQUE NOT NULL,
   telefono_cliente VARCHAR(50) NOT NULL,
+  direccion_cliente VARCHAR(100) NOT NULL,
   estado_cliente BOOLEAN NOT NULL
 );
 

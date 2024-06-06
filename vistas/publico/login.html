@@ -6,8 +6,8 @@
     <link rel="website icon" type="png" href="../../recursos/imagenes/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/recursos/css/publico.css">
-    <link rel="website icon" type="png" href="/recursos/imagenes/logo.png">
+    <link rel="stylesheet" href="../../recursos/css/publico.css">
+    <link rel="website icon" type="png" href="../../recursos/imagenes/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link type="text/css" rel="stylesheet" href="../../recursos/css/bootstrap.min.css">
 </head>
@@ -38,8 +38,7 @@
                         <div class="mb-4" h></div>
 
                         <div class="d-grip text-center">
-                            <button type="button" class="btn btn-light" aria-expanded="false" data-bs-toggle="modal"
-                                data-bs-target="#crear_cliente">Crea una cuenta nueva</button>
+                            <button type="button" class="btn btn-light" onclick="openCreate()">Crea una cuenta nueva</button>
                             <button type="button" class="btn btn-light" aria-expanded="false" data-bs-toggle="modal"
                                 data-bs-target="#recuperar">Recuperar contraseña</button>
                         </div>
@@ -61,61 +60,62 @@
                             <h1 class="modal-title fs-5" id="modalTitleEdit">Crear cuenta</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form id="editForm">
+                        <form id="saveForm">
                             <div class="modal-body row g-3">
-                                <input type="number" id="id_cliente" name="id_cliente" class="d-none">
+                                <input type="number" id="idCliente" name="idCliente" class="d-none">
                                 <div class="col-sm-6 col-md-6 col-lg-6 col-12 mb-3 ">
                                     <div class=" form-floating borde ">
-                                        <input id="nombrePerfil" type="text" name="nombrePerfil" placeholder="Nombre"
-                                            class="form-control" required autocomplete="off" />
-                                        <label for="nombrePerfil"><i class="bi bi-person-circle"></i> Nombre</label>
+                                        <input id="nombre_cliente" type="text" name="nombre_cliente"
+                                            placeholder="Nombre" class="form-control" required autocomplete="off" />
+                                        <label for="nombre_cliente"><i class="bi bi-person-circle"></i> Nombre</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6 col-lg-6 col-12 mb-3">
                                     <div class="form-floating borde ">
-                                        <input id="apellidoPerfil" type="text" name="apellidoPerfil"
+                                        <input id="apellido_cliente" type="text" name="apellido_cliente"
                                             placeholder="Apellido" class="form-control" required autocomplete="off" />
-                                        <label for="apellidoPerfil"><i class="bi bi-person-circle"></i> Apellido</label>
+                                        <label for="apellido_cliente"><i class="bi bi-person-circle"></i>
+                                            Apellido</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6 col-lg-6 col-12 mb-3">
                                     <div class="form-floating borde">
-                                        <input id="telefonoPerfil" type="text" name="telefonoPerfil"
+                                        <input id="telefono_cliente" type="text" name="telefono_cliente"
                                             class="form-control" placeholder="0000-0000" required autocomplete="off" />
-                                        <label for="telefonoPerfil"><i class="bi bi-phone-fill"></i> Teléfono</label>
+                                        <label for="telefono_cliente"><i class="bi bi-phone-fill"></i> Teléfono</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6 col-lg-6 col-12 mb-3">
                                     <div class="form-floating borde ">
-                                        <input id="correoPerfil" type="email" name="correoPerfil"
+                                        <input id="correo_cliente" type="email" name="correo_cliente"
                                             placeholder="Correo electrónico" class="form-control" required
                                             autocomplete="off" />
-                                        <label for="correoPerfil"><i class="bi bi-envelope-at-fill"></i> Correo
+                                        <label for="correo_cliente"><i class="bi bi-envelope-at-fill"></i> Correo
                                             electrónico</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6 col-lg-6 col-6 mb-3">
                                     <div class="form-floating borde ">
-                                        <input id="direccionPerfil" type="text" name="direccionPerfil"
+                                        <input id="direccion_cliente" type="text" name="direccion_cliente"
                                             placeholder="Dirección" class="form-control" required autocomplete="off" />
-                                        <label for="direccionPerfil"><i class="bi bi-house-door-fill"></i>
+                                        <label for="direccion_cliente"><i class="bi bi-house-door-fill"></i>
                                             Dirección</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6 col-lg-6 col-6 mb-3">
                                     <div class="form-floating borde ">
-                                        <input id="direccionPerfil" type="password" name="direccionPerfil"
+                                        <input id="contra_cliente" type="password" name="contra_cliente"
                                             placeholder="Contraseña" class="form-control" required autocomplete="off" />
-                                        <label for="direccionPerfil">
+                                        <label for="contra_cliente">
                                             <i class="bi bi-key-fill"></i> Contraseña</label>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-12 col-6 mb-3">
                                     <div class="form-floating borde ">
-                                        <input id="direccionPerfil" type="password" name="direccionPerfil"
+                                        <input id="confirmar_contra" type="password" name="confirmar_contra"
                                             placeholder="Confirmar contraseña" class="form-control" required
                                             autocomplete="off" />
-                                        <label for="direccionPerfil">
+                                        <label for="confirmar_contra">
                                             <i class="bi bi-key-fill"></i> Confirmar contraseña</label>
                                     </div>
                                 </div>

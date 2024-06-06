@@ -103,11 +103,12 @@ class ProductoHandler
     // Función para visualizar gficas.
     public function readProductosCategoria()
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto
-                FROM producto
-                INNER JOIN categoria USING(id_categoria)
-                WHERE id_categoria = ? AND estado_producto = true
-                ORDER BY nombre_producto';
+        $sql = 'SELECT p.id_producto, p.nombre_producto, p.id_categoria, p.precio_unitario, p.descripcion, p.id_marca, nombre_marca, p.imagen AS IMAGEN
+                FROM tb_productos p
+                INNER JOIN tb_categorias USING(id_categoria)
+                INNER JOIN tb_marcas USING(id_marca)
+                WHERE id_categoria = ?
+                ORDER BY p.nombre_producto';
         $params = array($this->categoria);
         return Database::getRows($sql, $params);
     }

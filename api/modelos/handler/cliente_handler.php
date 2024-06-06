@@ -52,11 +52,32 @@ class ClientesHandler
         return Database::getRows($sql);
     }
 
+    //Funcion para poder registrarse (crear un cliente)
     public function createRow()
     {
         $sql = 'INSERT INTO tb_clientes(clave_cliente, nombre_cliente, apellido_cliente, correo_cliente, telefono_cliente, direccion_cliente, estado_cliente)
                 VALUES(?, ?, ?, ?, ?, ?, 1)';
         $params = array($this->clave, $this->nombre, $this->apellido, $this->correo, $this->telefono, $this->direccion);
+        return Database::executeRow($sql, $params);
+    }
+
+    //Funcion para llenar los campos del perfil de usuario
+    public function readProfile()
+    {
+        $sql = 'SELECT id_cliente, nombre_cliente, apellido_cliente, correo_cliente, telefono_cliente, direccion_cliente
+                FROM tb_clientes
+                WHERE id_cliente = ?';
+        $params = array($_SESSION['idCliente']);
+        return Database::getRow($sql, $params);
+    }
+
+    //Funcion para actualizar perfil del usuario
+    public function editProfile()
+    {
+        $sql = 'UPDATE tb_clientes
+                SET nombre_cliente = ?, apellido_cliente = ?, correo_cliente = ?, telefono_cliente = ?, direccion_cliente = ?
+                WHERE id_cliente = ?';
+        $params = array($this->nombre, $this->apellido, $this->correo, $this->telefono, $this->direccion, $_SESSION['idCliente']);
         return Database::executeRow($sql, $params);
     }
 

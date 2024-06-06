@@ -50,7 +50,7 @@ const loadTemplate = async () => {
                 </button>
               </div>
 
-              <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+              <div class="offcanvas offcanvas-start rounded" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -106,7 +106,7 @@ const loadTemplate = async () => {
             <div class="button">
             </div>
 
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas offcanvas-start rounded" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
               <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -134,7 +134,7 @@ const loadTemplate = async () => {
   }
 
   MAIN.insertAdjacentHTML('afterend', `
-    <footer class="bg-body-tertiary fixed-bottom">
+    <footer class="bg-body-tertiary">
       <div class="container-fluid clear">
         <ul class="nav justify-content-evenly ">
           <li class="nav-item">

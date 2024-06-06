@@ -7,7 +7,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../recursos/css/publico.css">
-    <!-- <link rel="stylesheet" href="../../recursos/css/pantallainicio.css"> -->
     <link rel="website icon" type="png" href="/recursos/imagenes/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link type="text/css" rel="stylesheet" href="../../recursos/css/bootstrap.min.css">
@@ -16,36 +15,40 @@
 
     <main>
         <!-- Título del contenido principal -->
-        <h3 id="mainTitle"></h3>
+        <h3 id="mainTitle" class="text-center"></h3>
         <!-- Formulario para cambiar datos personales -->
         <form class="row g-3" id="profileForm">
             <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">
-                <label for="nombreAdministrador" class="form-label">Nombre</label>
-                <input id="nombreAdministrador" type="text" name="nombreAdministrador" class="form-control" required>
+                <label for="nombre_perfil" class="form-label">Nombre</label>
+                <input id="nombre_perfil" type="text" name="nombre_perfil" class="form-control" required>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <label for="apellidoAdministrador" class="form-label">Apellido</label>
-                <input id="apellidoAdministrador" type="text" name="apellidoAdministrador" class="form-control"
+                <label for="apellido_perfil" class="form-label">Apellido</label>
+                <input id="apellido_perfil" type="text" name="apellido_perfil" class="form-control"
                     required>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4 offset-lg-2">
-                <label for="correoAdministrador" class="form-label">Correo</label>
-                <input id="correoAdministrador" type="email" name="correoAdministrador" class="form-control" required>
+                <label for="correo_perfil" class="form-label">Correo</label>
+                <input id="correo_perfil" type="email" name="correo_perfil" class="form-control" required>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <label for="aliasAdministrador" class="form-label">Telefóno</label>
-                <input id="aliasAdministrador" type="text" name="aliasAdministrador" class="form-control" required>
+                <label for="telefono_perfil" class="form-label">Telefóno</label>
+                <input id="telefono_perfil" type="text" name="telefono_perfil" class="form-control" required>
             </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Guardar</button>
+            <div class="col-sm-8 col-md-8 col-lg-8 offset-lg-2">
+                <label for="direccion_perfil" class="form-label">Dirección</label>
+                <input id="direccion_perfil" type="text" name="direccion_perfil" class="form-control" required>
+            </div>
+            <div class="text-center p-3 col-md-6">
+                <button type="submit" class="btn btn-outline-primary"><i class="bi bi-floppy2"></i> Guardar</button>
+            </div>
+            <div class="text-center p-3 col-md-5">
+                <button type="button" class="btn btn-outline-danger" onclick="openPassword()">
+                    <i class="bi bi-shield-lock"></i> Cambiar contraseña
+                </button>
             </div>
         </form>
         <!-- Contenedor con enlace para abrir la caja de diálogo del formulario de cambiar constraseña -->
-        <div class="text-center p-3">
-            <button type="button" class="btn btn-secondary" onclick="openPassword()">
-                <i class="bi bi-shield-lock"></i> Cambiar contraseña
-            </button>
-        </div>
         <!-- Componente Modal para mostrar el formulario de cambio de contraseña -->
         <div class="modal fade" id="passwordModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="modalTitle" aria-hidden="true">
@@ -88,8 +91,11 @@
     </main>
 
     <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../recursos/js/vanillaTextMask.js"></script>
     <script type="text/javascript" src="../../controladores/utilidades/publico.js"></script>
     <script type="text/javascript" src="../../controladores/publico/perfil_cliente.js"></script>
+    <script type="text/javascript" src="../../controladores/utilidades/componentes.js"></script>
 </body>
 
 </html>

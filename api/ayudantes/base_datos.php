@@ -100,13 +100,13 @@ class Database
                 self::$error = 'Tabla no encontrada';
                 break;
             case '42S22':
-                self::$error = 'Columna no encontrada';
+                self::$error;
                 break;
             case '23000':
                 self::$error = 'Violación de restricción de integridad';
                 break;
             default:
-                self::$error = 'Ocurrió un problema en la base de datos';
+                // self::$error = 'Ocurrió un problema en la base de datos';
         }
     }
 

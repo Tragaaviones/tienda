@@ -6,6 +6,12 @@ const TITULO_MODAL = document.getElementById('modalTitle');
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
     ID_CLIENTE = document.getElementById('idCliente')
+    
+// Llamada a la función para establecer la mascara del campo teléfono.
+vanillaTextMask.maskInput({
+    inputElement: document.getElementById('telefono_cliente'),
+    mask: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+});
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {

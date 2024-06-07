@@ -4,7 +4,11 @@ const PERFIL = document.getElementById('profileForm'),
     APELLIDO_CLIENTE = document.getElementById('apellido_perfil'),
     CORREO_CLIENTE = document.getElementById('correo_perfil'),
     TELEFONO_CLIENTE = document.getElementById('telefono_perfil');
-    DIRECCION_CLIENTE = document.getElementById('direccion_perfil');
+    DIRECCION_CLIENTE = document.getElementById('direccion_perfil')
+// Constante para establecer la modal de cambiar contraseña.
+const MODAL_CONTRA = new bootstrap.Modal('#modal_contra');
+// Constante para establecer el formulario de cambiar contraseña.
+const CONTRA_FORMULARIO = document.getElementById('passwordForm')
 //constante para el titulo de la pagina
 const MAIN_TITLE = document.getElementById('mainTitle')
 
@@ -49,6 +53,36 @@ PERFIL.addEventListener('submit', async (event) => {
         sweetAlert(1, DATA.message, true);
     } else {
         sweetAlert(2, DATA.error, false);
-        console.log(DATA.error)
     }
 });
+
+// Mètodo del evento para cuando se envía el formulario de cambiar contraseña.
+CONTRA_FORMULARIO.addEventListener('submit', async (event) => {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Constante tipo objeto con los datos del formulario.
+    const FORM = new FormData(CONTRA_FORMULARIO);
+    // Petición para actualizar la constraseña.
+    const DATA = await fetchData(USER_API, 'changePassword', FORM);
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+    if (DATA.status) {
+        // Se cierra la caja de diálogo.
+        MODAL_CONTRA.hide();
+        // Se muestra un mensaje de éxito.
+        sweetAlert(1, DATA.message, true);
+    } else {
+        sweetAlert(2, DATA.error, false);
+    }
+});
+
+/*
+*   Función para preparar el formulario al momento de cambiar la constraseña.
+*   Parámetros: ninguno.
+*   Retorno: ninguno.
+*/
+const openPassword = () => {
+    // Se abre la caja de diálogo que contiene el formulario.
+    MODAL_CONTRA.show();
+    // Se restauran los elementos del formulario.
+    CONTRA_FORMULARIO.reset();
+}

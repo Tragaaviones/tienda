@@ -7,8 +7,8 @@
 const USER_API = 'servicios/publico/cliente.php';
 // Constante para establecer el elemento del contenido principal.
 const MAIN = document.querySelector('main');
-MAIN.style.paddingTop = '50px';
-MAIN.style.paddingBottom = '100px';
+MAIN.style.paddingTop = '150px';
+MAIN.style.paddingBottom = '150px';
 MAIN.classList.add('container');
 // Se establece el título de la página web.
 document.querySelector('title').textContent = 'Niki´s - Store';
@@ -22,7 +22,7 @@ const loadTemplate = async () => {
   if (DATA.session) {
     if (!location.pathname.endsWith('login.html')) {
       MAIN.insertAdjacentHTML('beforebegin', `
-        <header class="header">
+        <header class="header fixed-top">
           <!-- barra de navegación -->
           <nav class="navbar bg-body-tertiary navegacion">
             <div class="container-fluid">
@@ -86,7 +86,7 @@ const loadTemplate = async () => {
     }
   } else {
     MAIN.insertAdjacentHTML('beforebegin', `
-      <header class="header">
+      <header class="header fixed-top">
         <!-- barra de navegación -->
         <nav class="navbar bg-body-tertiary navegacion">
           <div class="container-fluid">
@@ -134,7 +134,7 @@ const loadTemplate = async () => {
   }
 
   MAIN.insertAdjacentHTML('afterend', `
-    <footer class="bg-body-tertiary">
+    <footer class="bg-body-tertiary py-5">
       <div class="container-fluid clear">
         <ul class="nav justify-content-evenly ">
           <li class="nav-item">

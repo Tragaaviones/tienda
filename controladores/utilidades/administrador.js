@@ -7,8 +7,8 @@
 const USER_API = 'servicios/administrador/administrador.php';
 // Constante para establecer el elemento del contenido principal.
 const MAIN = document.querySelector('main');
-MAIN.style.paddingTop = '100px';
-MAIN.style.paddingBottom = '100px';
+MAIN.style.paddingTop = '150px';
+MAIN.style.paddingBottom = '150px';
 MAIN.classList.add('container');
 // Se establece el título de la página web.
 document.querySelector('title').textContent = 'Niki`s';
@@ -23,7 +23,7 @@ MAIN_TITLE.classList.add('text-center', 'py-3');
 const loadTemplate = async () => {
 MAIN.insertAdjacentHTML('beforebegin', `
 <header>
-    <nav class="fixed-top navbar bg-body-tertiary">
+    <nav class="fixed-top navbar bg-body-tertiary fixed-top">
         <div class="container-fluid" class="offcanvas offcanvas-start ">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
                 aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -112,7 +112,7 @@ MAIN.insertAdjacentHTML('beforebegin', `
 
 `);
 MAIN.insertAdjacentHTML('afterend', `
-<footer id = 'footer' class="bg-body-tertiary">
+<footer id = 'footer' class="bg-body-tertiary py-5">
     <div class="container-fluid clear">
         <ul class="nav justify-content-evenly border-bottom pb-3 mb-3">
             <li class="nav-item">

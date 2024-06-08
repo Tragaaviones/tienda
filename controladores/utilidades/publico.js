@@ -33,12 +33,6 @@ const loadTemplate = async () => {
                 <label for="navbar-toggler"> Menú</label>
               </button>
 
-              <!-- barra de busqueda -->
-              <form class="d-flex buscador" role="Buscar articulo">
-                <input class="form-control me-3" type="search" placeholder="Buscar articulo" aria-label="Buscar articulo">
-                <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-              </form>
-
               <!-- contenido de carrito de compras -->
               <div class="button">
                 <button class="btn btn-light" type="button" aria-expanded="false">
@@ -96,12 +90,6 @@ const loadTemplate = async () => {
               <span class=" navbar-toggler-icon"></span>
               <label for="navbar-toggler"> Menú</label>
             </button>
-
-            <!-- barra de busqueda -->
-            <form class="d-flex buscador" role="Buscar articulo">
-              <input class="form-control me-3" type="search" placeholder="Buscar articulo" aria-label="Buscar articulo">
-              <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-            </form>
 
             <div class="button">
             </div>

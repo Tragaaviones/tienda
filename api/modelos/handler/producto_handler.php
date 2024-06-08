@@ -38,6 +38,18 @@ class ProductoHandler
         return Database::getRows($sql, $params);
     }
 
+    
+    public function searchRowsPublic()
+    {
+        $value = '%' . Validator::getSearchValue() . '%';
+        $sql = 'SELECT p.nombre_producto, p.id_categoria, p.precio_unitario, p.descripcion, p.id_marca
+                FROM tb_productos p
+                WHERE nombre_producto LIKE ?
+                ORDER BY nombre_producto';
+        $params = array($value);
+        return Database::getRows($sql, $params);
+    }
+
     // Función para crear un producto.
     public function createRow()
     {

@@ -1,11 +1,38 @@
+// Constante para establecer el formulario de buscar.
+const SEARCH_FORM = document.getElementById('searchForm');
+const MAIN_TITLE = document.getElementById('mainTitle');
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
 loadTemplate();
 cargarProductos();
+    // Se establece el título del contenido principal.
+    MAIN_TITLE.textContent = 'Bienvienidos/as a tienda Niki´s';
+    read()
 });
 
 const PRODUCTOS_API = "servicios/publico/producto.php";
 const CATEGORIAS_API = "servicios/publico/categoria.php";
+
+// Método del evento para cuando se envía el formulario de buscar.
+SEARCH_FORM.addEventListener('submit', (event) => {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+    // Constante tipo objeto con los datos del formulario.
+    const FORM = new FormData(SEARCH_FORM);
+    read(FORM)
+});
+
+/*
+*   Función asíncrona para llenar la tabla con los registros disponibles.
+*   Parámetros: form (objeto opcional con los datos de búsqueda).
+*   Retorno: ninguno.
+*/
+const read = async (form = null) => {
+    // Se verifica la acción a realizar.
+    (form) ? action = 'searchRowsPublic' : action = 'readAll';
+    // Petición para obtener los registros disponibles.
+    const DATA = await fetchData(PRODUCTOS_API, action, form);
+}
 
 async function cargarProductos() {
     try {

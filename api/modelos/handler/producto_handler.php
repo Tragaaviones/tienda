@@ -61,7 +61,8 @@ class ProductoHandler
     // Función para leer un producto.
     public function readOne()
     {
-        $sql = 'SELECT p.id_producto, p.nombre_producto, p.id_categoria, nombre, p.precio_unitario, p.descripcion, p.id_marca, nombre_marca, p.imagen AS IMAGEN
+        $sql = 'SELECT p.id_producto, p.nombre_producto, p.id_categoria, nombre, p.precio_unitario, 
+                p.descripcion, p.id_marca, nombre_marca, p.imagen
                 FROM tb_productos p
                 INNER JOIN tb_categorias USING(id_categoria)
                 INNER JOIN tb_marcas USING(id_marca)

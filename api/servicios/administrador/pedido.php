@@ -36,7 +36,8 @@ if (isset($_GET['action'])) {
                 // Estado
             case 'changeState':
                 if (
-                    !$pedido->setId($_POST['idPedido'])
+                    !$pedido->setId($_POST['idPedido'])or
+                    !$pedido->setEstado($_POST)
                 ) {
                     $result['error'] = $pedido->getDataError();
                 } elseif ($pedido->changeState()) {

@@ -56,8 +56,8 @@ class PedidoHandler
     //Función para cambiar el estado de un pedido.
     public function changeState()
     {
-        $sql = 'CALL cambiar_estado_pedido(?);';
-        $params = array($this->id);
+        $sql = 'CALL actualizar_estado_pedido(?,?);';
+        $params = array($this->id, $this->estado);
         return Database::executeRow($sql, $params);
     }
 
@@ -142,11 +142,11 @@ class PedidoHandler
     //Leer un elemento del historial
     public function readOneHistory()
     {
-        $sql = 'SELECT p.id_pedido AS ID, p.estado_pedido AS ESTADO, p.fecha_pedido AS FECHA, 
+        $sql = 'SELECT p.id_pedido AS ID, p.estado_pedido AS ESTADO, p.fecha_venta AS FECHA, 
         p.direccion_pedido AS DIRECCION, CONCAT(c.nombre_cliente, " ", c.apellido_cliente) AS CLIENTE
         FROM tb_pedidos p
         INNER JOIN tb_clientes c ON p.id_cliente = c.id_cliente
-        WHERE (estado_pedido = "En camino" OR estado_pedido = "Entregado" OR estado_pedido = "Cancelado") AND c.id_cliente = ?  AND p.id_pedido = ?
+        WHERE (estado_pedido = "En camino" OR estado_pedido = "Entregado" OR estado_pedido = "Cancelado") AND c.id_cliente = 1  AND p.id_pedido = 1
         ORDER BY CLIENTE;';
         $params = array($_SESSION['idCliente'], $this->id_pedido);
         return Database::getRow($sql, $params);

@@ -42,7 +42,7 @@ class ProductoData extends ProductoHandler
         }
     }
 
-    public function setDescripcion($value, $min = 2, $max = 250)
+    public function setDescripcion($value, $min = 2, $max = 1000)
     {
         if (!Validator::validateString($value)) {
             $this->data_error = 'La descripción contiene caracteres prohibidos';

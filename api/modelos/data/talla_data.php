@@ -28,7 +28,7 @@ class Talla_Data extends Talla_handler
         }
     }
 
-    public function setNombre($value, $min = 2, $max = 50)
+    public function setNombre($value, $min = 1, $max = 50)
     {
         if (!Validator::validateAlphanumeric($value)) {
             $this->data_error = 'El nombre debe ser un valor alfanumérico';

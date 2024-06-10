@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase del modelo.
-require_once('../../modelos/data/producto_data.php');
+require_once ('../../modelos/data/producto_data.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -15,9 +15,12 @@ if (isset($_GET['action'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un cliente ha iniciado sesión.
         switch ($_GET['action']) {
-                // Buscar un producto por el nombre de este
+            // Buscar un producto por el nombre de este
             case 'searchRowsPublic':
-                if (!Validator::validateSearch($_POST['search'])) {
+                if (
+                    !$producto->setCategoria($_POST['idCategoria']) or
+                    !Validator::validateSearch($_POST['search'])
+                ) {
                     $result['error'] = Validator::getSearchError();
                 } elseif ($result['dataset'] = $producto->searchRowsPublic()) {
                     $result['status'] = 1;
@@ -26,7 +29,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay coincidencias';
                 }
                 break;
-                // Metodo para que se muestren todos los productos
+            // Metodo para que se muestren todos los productos
             case 'readAll':
                 if ($result['dataset'] = $producto->readAll()) {
                     $result['status'] = 1;
@@ -35,7 +38,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen productos registrados';
                 }
                 break;
-                // Metodo para que se muestren todos productos por categoría 
+            // Metodo para que se muestren todos productos por categoría 
             case 'readProductosCategoria':
                 if (!$producto->setCategoria($_POST['idCategoria'])) {
                     $result['error'] = $producto->getDataError();
@@ -61,7 +64,7 @@ if (isset($_GET['action'])) {
     } else {
         // Se compara la acción a realizar cuando el cliente no ha iniciado sesión.
         switch ($_GET['action']) {
-                // Buscar
+            // Buscar
             case 'searchRows':
                 if (!Validator::validateSearch($_POST['search'])) {
                     $result['error'] = Validator::getSearchError();
@@ -72,7 +75,20 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay coincidencias';
                 }
                 break;
-                // Leer todos
+            case 'searchRowsPublic':
+                if (
+                    !$producto->setCategoria($_POST['idCategoria']) or
+                    !Validator::validateSearch($_POST['search'])
+                ) {
+                    $result['error'] = Validator::getSearchError();
+                } elseif ($result['dataset'] = $producto->searchRowsPublic()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Existen ' . count($result['dataset']) . ' coincidencias';
+                } else {
+                    $result['error'] = 'No hay coincidencias';
+                }
+                break;
+            // Leer todos
             case 'readAll':
                 if ($result['dataset'] = $producto->readAll()) {
                     $result['status'] = 1;
@@ -81,7 +97,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen productos registrados';
                 }
                 break;
-                // Leer productos por categoría 
+            // Leer productos por categoría 
             case 'readProductosCategoria':
                 if (!$producto->setCategoria($_POST['idCategoria'])) {
                     $result['error'] = $producto->getDataError();
@@ -110,7 +126,7 @@ if (isset($_GET['action'])) {
     // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
     header('Content-type: application/json; charset=utf-8');
     // Se imprime el resultado en formato JSON y se retorna al controlador.
-    print(json_encode($result));
+    print (json_encode($result));
 } else {
-    print(json_encode('Recurso no disponible'));
+    print (json_encode('Recurso no disponible'));
 }

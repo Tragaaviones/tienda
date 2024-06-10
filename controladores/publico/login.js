@@ -6,7 +6,7 @@ const TITULO_MODAL = document.getElementById('modalTitle');
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
     ID_CLIENTE = document.getElementById('idCliente')
-    
+
 // Llamada a la función para establecer la mascara del campo teléfono.
 vanillaTextMask.maskInput({
     inputElement: document.getElementById('telefono_cliente'),
@@ -43,11 +43,15 @@ SAVE_FORM.addEventListener('submit', async (event) => {
     // Petición para registrar un cliente.
     const DATA = await fetchData(USER_API, 'signUp', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-    if (DATA.status) {
-        sweetAlert(1, DATA.message, true);
-        REGISTRARSE_MODAL.hide();
-    } else {
-        sweetAlert(2, DATA.error, false);
+    try {
+        if (DATA.status) {
+            sweetAlert(1, DATA.message, true);
+            REGISTRARSE_MODAL.hide();
+        } else {
+            sweetAlert(2, DATA.error, false);
+        }
+    } catch (error) {
+        sweetAlert(2, "No se detecta el correo del usuario", false);
     }
 });
 

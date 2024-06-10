@@ -19,25 +19,24 @@
     <main>
         <!-- Sección de visualización del producto -->
         <section class="container">
-            <div class="row imageR">
+            <div class="row">
                 <!-- Campo oculto para asignar el id del producto -->
-                <input type="number" class="d-none" id="idProducto" name="idProducto">
+                <input type="number" class="d-none" id="id_producto" name="id_producto">
                 <!-- Imagen del producto -->
                 <div class="col-lg-5 col-md-5 col-sm-10">
-                    <img id="imagenProducto" src="/recursos/imagenes/botincompra1.svg" class="d-block w-100"
-                        data-bs-toggle="modal" data-bs-target="#imageModal" alt="Imagen 1">
+                    <img id="imagen_producto" class="d-block w-100 img-fluid rounded-start">
                 </div>
                 <!-- Información del producto -->
                 <div class="col-lg-5 col-md-5 col-sm-8">
                     <div class="text-start mt-5 mb-5">
-                        <h5 class="mt-5" id="nombreProducto">Tacos Nike color negro </h5>
+                        <h5 class="mt-5" id="nombre_producto"></h5>
                     </div>
                     <div class="text-start">
-                        <h5>AHORA</h5>
-                        <strong class="letra2" id="precioProducto"> $120.95</strong>
+                        <h5>Precio unitario:</h5>
+                        $<strong id="precio_producto"></strong>
                         <div class="contenedor_descripcion">
-                            <h5>Descripción de producto</h5>
-                            <p class="descripción" id="descripcionProducto">
+                            <h5>Descripción del producto</h5>
+                            <p class="descripción" id="descripcion_producto">
                             </p>
                             <p id="existenciasProducto">Existencias del producto: </p>
                         </div>
@@ -49,26 +48,30 @@
         <!-- Artículo con opciones de selección y botón para agregar al carrito -->
         <article class="row container-fluid">
             <div class="col-lg-3 d-flex text-center mt-5">
-                <div class="col-lg-12 d-flex text-center">
+                <div class="col-lg-12 d-flex text-center d-none">
                     <!-- Selección de talla -->
                     <strong class="me-5">Elige tu talla: </strong>
                     <select class="form-select col-12" required>
                     </select>
                 </div>
             </div>
-            <div class="col-12 d-flex justify-content-between text-center mt-5">
-                <div class="col-8 d-flex text-center">
-                    <!-- Selección de cantidad -->
-                    <strong class="texto">Cantidad de botines </strong>
-                    <input class="ordenador form-control text-center col-12" type="number" value="1" min="1" step="1"
-                        id="quantityInput" oninput="validarCantidad(this)"
-                        onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+            <form class="row" id="shoppingForm">
+                <div class="col-12 d-flex justify-content-between text-center mt-5">
+                    <div class="col-8 d-flex text-center">
+                        <!-- Campo oculto para asignar el id del producto -->
+                        <input type="number" class="d-none" id="idProducto" name="idProducto">
+                        <!-- Selección de cantidad -->
+                        <strong class="texto">Cantidad de botines </strong>
+                        <input class="ordenador form-control text-center col-12" type="number" value="1" min="1"
+                            step="1" id="quantityInput"  name="cantidad" oninput="validarCantidad(this)"
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    </div>
+                    <!-- Botón para agregar al carrito -->
+                    <div>
+                        <button type="submit" class="botines btn btn-outline-primary">Agregar al carrito</button>
+                    </div>
                 </div>
-                <!-- Botón para agregar al carrito -->
-                <div>
-                    <button class="botines text-primary btn btn-outline-primary">Agregar al carrito</button>
-                </div>
-            </div>
+            </form>
             <p class="carrito">
                 Escriba su comentario sobre este producto
             </p>
@@ -86,6 +89,8 @@
         </article>
     </main>
     <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../../recursos/js/vanillaTextMask.js"></script>
+    <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
     <script type="text/javascript" src="../../controladores/utilidades/componentes.js"></script>
     <script type="text/javascript" src="../../controladores/utilidades/publico.js"></script>
     <script type="text/javascript" src="../../controladores/publico/detalle_producto.js"></script>

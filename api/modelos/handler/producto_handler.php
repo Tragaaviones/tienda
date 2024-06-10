@@ -38,18 +38,6 @@ class ProductoHandler
         return Database::getRows($sql, $params);
     }
 
-    
-    public function searchRowsPublic()
-    {
-        $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT p.nombre_producto, p.id_categoria, p.precio_unitario, p.descripcion, p.id_marca
-                FROM tb_productos p
-                WHERE nombre_producto LIKE ?
-                ORDER BY nombre_producto';
-        $params = array($value);
-        return Database::getRows($sql, $params);
-    }
-
     // Función para crear un producto.
     public function createRow()
     {
@@ -125,6 +113,19 @@ class ProductoHandler
         $params = array($this->categoria);
         return Database::getRows($sql, $params);
     }
+    
+    public function searchRowsPublic()
+    {
+        $value = '%' . Validator::getSearchValue() . '%';
+        $sql = 'SELECT p.id_producto, p.nombre_producto, p.id_categoria, p.precio_unitario, p.descripcion, p.id_marca, nombre_marca, p.imagen AS IMAGEN
+                FROM tb_productos p
+                INNER JOIN tb_categorias USING(id_categoria)
+                INNER JOIN tb_marcas USING(id_marca)
+                WHERE p.id_categoria = ? AND p.nombre_producto LIKE ?
+                ORDER BY p.nombre_producto';
+        $params = array($this->categoria, $value);
+        return Database::getRows($sql, $params);
+    }
 
     /*
      *   Métodos para generar gráficos.
@@ -132,17 +133,17 @@ class ProductoHandler
     public function cantidadProductosCategoria()
     {
         $sql = 'SELECT nombre_categoria, COUNT(id_producto) cantidad
-                FROM producto
-                INNER JOIN categoria USING(id_categoria)
+                FROM tb_productos
+                INNER JOIN tb_categorias USING(id_categoria)
                 GROUP BY nombre_categoria ORDER BY cantidad DESC LIMIT 5';
         return Database::getRows($sql);
     }
 
     public function porcentajeProductosCategoria()
     {
-        $sql = 'SELECT nombre_categoria, ROUND((COUNT(id_producto) * 100.0 / (SELECT COUNT(id_producto) FROM producto)), 2) porcentaje
-                FROM producto
-                INNER JOIN categoria USING(id_categoria)
+        $sql = 'SELECT nombre_categoria, ROUND((COUNT(id_producto) * 100.0 / (SELECT COUNT(id_producto) FROM tb_productos)), 2) porcentaje
+                FROM tb_productos
+                INNER JOIN tb_categorias USING(id_categoria)
                 GROUP BY nombre_categoria ORDER BY porcentaje DESC';
         return Database::getRows($sql);
     }
@@ -153,8 +154,8 @@ class ProductoHandler
     public function productosCategoria()
     {
         $sql = 'SELECT nombre_producto, precio_producto, estado_producto
-                FROM producto
-                INNER JOIN categoria USING(id_categoria)
+                FROM tb_productos
+                INNER JOIN tb_categorias USING(id_categoria)
                 WHERE id_categoria = ?
                 ORDER BY nombre_producto';
         $params = array($this->categoria);

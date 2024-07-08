@@ -19,6 +19,7 @@ if (isset($_GET['action'])) {
                 if (isset($_SESSION['correo_cliente'])) {
                     $result['status'] = 1;
                     $result['username'] = $_SESSION['correo_cliente'];
+                    $result['name'] = $cliente->readOneCorreo($_SESSION['correoCliente']);
                 } else {
                     $result['error'] = 'Correo de usuario indefinido';
                 }
@@ -97,6 +98,26 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al registrar la cuenta';
                 }
                 break;
+                case 'signUpMovil':
+                    $_POST = Validator::validateForm($_POST);
+                if (
+                        !$cliente->setNombre($_POST['nombre_cliente']) or
+                        !$cliente->setApellido($_POST['apellido_cliente']) or
+                        !$cliente->setCorreo($_POST['correo_cliente']) or
+                        !$cliente->setDireccion($_POST['direccion_cliente']) or
+                        !$cliente->setTelefono($_POST['telefono_cliente']) or
+                        !$cliente->setClave($_POST['contra_cliente'])
+                    ) {
+                        $result['error'] = $cliente->getDataError();
+                    } elseif ($_POST['contra_cliente'] != $_POST['confirmar_contra']) {
+                        $result['error'] = 'Contraseñas diferentes';
+                    } elseif ($cliente->createRow()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Cuenta registrada correctamente';
+                    } else {
+                        $result['error'] = 'Ocurrió un problema al registrar la cuenta';
+                    }
+                    break;
             case 'logIn':
                 $_POST = Validator::validateForm($_POST);
                 if (!$cliente->checkUser($_POST['email'], $_POST['password'])) {

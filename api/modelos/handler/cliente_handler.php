@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once('../../ayudantes/base_datos.php');
+require_once ('../../ayudantes/base_datos.php');
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla administrador.
  */
@@ -14,12 +14,9 @@ class ClientesHandler
     protected $apellido = null;
     protected $correo = null;
     protected $telefono = null;
-    protected $dui = null;
-    protected $nacimiento = null;
     protected $direccion = null;
     protected $clave = null;
     protected $estado = null;
-    protected $genero = null;
 
 
     /*
@@ -92,8 +89,8 @@ class ClientesHandler
     //Metodos para la publica
 
     /*
-    *   Métodos para gestionar la cuenta del cliente.
-    */
+     *   Métodos para gestionar la cuenta del cliente.
+     */
     //Función para el inicio de sesión (se piden dos parametros uno para el email y el otro para la contraseña)
     public function checkUser($mail, $password)
     {
@@ -133,7 +130,7 @@ class ClientesHandler
             $_SESSION['correoCliente'] = $this->correo;
             //se retorna true si es correcta la verificación del estado
             return true;
-        } 
+        }
         //en caso que el estado sea inactivo o bloqueado
         else {
             //se retorna falso y no se dejara iniciar sesión
@@ -150,19 +147,28 @@ class ClientesHandler
         return Database::executeRow($sql, $params);
     }
 
-        // Función para comprobar la contraseña.
-        public function checkPassword($password)
-        {
-            $sql = 'SELECT clave_cliente
+    // Función para comprobar la contraseña.
+    public function checkPassword($password)
+    {
+        $sql = 'SELECT clave_cliente
                     FROM tb_clientes
                     WHERE id_cliente = ?';
-            $params = array($_SESSION['idCliente']);
-            $data = Database::getRow($sql, $params);
-            // Se verifica si la contraseña coincide con el hash almacenado en la base de datos.
-            if (password_verify($password, $data['clave_cliente'])) {
-                return true;
-            } else {
-                return false;
-            }
+        $params = array($_SESSION['idCliente']);
+        $data = Database::getRow($sql, $params);
+        // Se verifica si la contraseña coincide con el hash almacenado en la base de datos.
+        if (password_verify($password, $data['clave_cliente'])) {
+            return true;
+        } else {
+            return false;
         }
+    }
+
+    public function readOneCorreo($correo)
+    {
+        $sql = 'SELECT id_cliente, nombre_cliente, apellido_cliente, correo_cliente, telefono_cliente, direccion_cliente, estado_cliente
+            FROM tb_clientes
+            WHERE correo_cliente = ?';
+        $params = array($correo);
+        return Database::getRow($sql, $params);
+    }
 }

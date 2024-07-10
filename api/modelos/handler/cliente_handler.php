@@ -78,6 +78,15 @@ class ClientesHandler
         return Database::executeRow($sql, $params);
     }
 
+    public function readOneCorreo()
+    {
+        $sql = 'SELECT id_cliente, nombre_cliente, apellido_cliente, correo_cliente, telefono_cliente, direccion_cliente, estado_cliente
+            FROM tb_clientes
+            WHERE correo_cliente = ?';
+        $params = array($_SESSION['correoCliente']);
+        return Database::getRow($sql, $params);
+    }
+
     //Función para cambiar el estado de un cliente.
     public function changeState()
     {
@@ -163,12 +172,5 @@ class ClientesHandler
         }
     }
 
-    public function readOneCorreo($correo)
-    {
-        $sql = 'SELECT id_cliente, nombre_cliente, apellido_cliente, correo_cliente, telefono_cliente, direccion_cliente, estado_cliente
-            FROM tb_clientes
-            WHERE correo_cliente = ?';
-        $params = array($correo);
-        return Database::getRow($sql, $params);
-    }
+
 }

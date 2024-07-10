@@ -5,7 +5,9 @@ const REGISTRARSE_MODAL = new bootstrap.Modal('#crear_cliente');
 const TITULO_MODAL = document.getElementById('modalTitle');
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
-    ID_CLIENTE = document.getElementById('idCliente')
+    ID_CLIENTE = document.getElementById('idCliente'),
+    NOMBRE_CLIENTE = document.getElementById('nombreCliente'),
+    CORREO_CLIENTE = document.getElementById('correoCliente');
 
 // Llamada a la función para establecer la mascara del campo teléfono.
 vanillaTextMask.maskInput({

@@ -29,6 +29,13 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+
+  #registrarse{
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
   
   h2 {
     text-align: center;
@@ -44,7 +51,7 @@ body {
     margin-bottom: 5px;
   }
   
-  input[type="text"],
+  /* input[type="text"],
   input[type="password"] {
     width: 100%;
     padding: 10px;
@@ -61,7 +68,7 @@ body {
     border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+  } */
   
   button:hover {
     background-color: #0056b3;

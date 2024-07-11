@@ -2,45 +2,45 @@
 <html lang="es">
 
 <head>
-  <title></title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="website icon" type="png" href="../../recursos/imagenes/logo.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link type="text/css" rel="stylesheet" href="../../recursos/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../recursos/css/publico.css">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="../../recursos/imagenes/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link type="text/css" rel="stylesheet" href="../../recursos/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../recursos/css/publico.css">
 </head>
 
 <body>
-  <main>
-    <h3 id="mainTitle" class="text-center p-3"></h3>
-    <form id="searchForm" class="d-flex buscador p-3" role="Buscar articulo">
-      <div class="row">
-        <div class="col-8">
-          <input type="search" class="form-control" name="search" placeholder="Buscar articulo"
-            aria-label="Buscar articulo">
-        </div>
-        <div class="col-2">
-          <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-        </div>
-        <div class="col-2">
-          <button type="reset" class="btn btn-outline-secondary" onclick="cargarProductos()">
-            <i class="bi bi-x-square-fill"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-    <!-- Contenedor de carruseles dinámicos -->
-    <div id="dynamicCarousels"></div>
-  </main>
+    <main>
+        <h3 id="mainTitle" class="text-center p-3"></h3>
+        <form id="searchForm" class="d-flex buscador p-3" role="Buscar articulo">
+            <div class="row">
+                <div class="col-8">
+                    <input type="search" class="form-control" name="search" placeholder="Buscar articulo"
+                    autocomplete="off">
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-outline-success" type="submit"><i class="bi bi-search" autocomplete="off"></i></button>
+                </div>
+                <div class="col-2">
+                    <button type="reset" class="btn btn-outline-secondary" onclick="cargarProductos()">
+                        <i class="bi bi-x-square-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <!-- Contenedor de carruseles dinámicos -->
+        <div id="dynamicCarousels"></div>
+    </main>
 
-  </main>
+    </main>
 
-  <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
-  <script type="text/javascript" src="../../controladores/utilidades/componentes.js"></script>
-  <script type="text/javascript" src="../../controladores/utilidades/publico.js"></script>
-  <script type="text/javascript" src="../../controladores/publico/inicio.js"></script>
+    <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controladores/utilidades/componentes.js"></script>
+    <script type="text/javascript" src="../../controladores/utilidades/publico.js"></script>
+    <script type="text/javascript" src="../../controladores/publico/inicio.js"></script>
 
 </body>
 

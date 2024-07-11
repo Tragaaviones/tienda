@@ -93,14 +93,14 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al eliminar el administrador';
                 }
                 break;
-            // case 'getUser':
-            //     if (isset($_SESSION['aliasAdministrador'])) {
-            //         $result['status'] = 1;
-            //         $result['username'] = $_SESSION['aliasAdministrador'];
-            //     } else {
-            //         $result['error'] = 'Alias de administrador indefinido';
-            //     }
-            //     break;
+            case 'getUser':
+                if (isset($_SESSION['id_administrador'])) {
+                    $result['status'] = 1;
+                    $result['username'] = $_SESSION['id_administrador'];
+                } else {
+                    $result['error'] = 'Nombre de administrador indefinido';
+                }
+                break;
             case 'logOut':
                 if (session_destroy()) {
                     $result['status'] = 1;
@@ -121,8 +121,7 @@ if (isset($_GET['action'])) {
                 if (
                     !$administrador->setNombre($_POST['nombreAdministrador']) or
                     !$administrador->setApellido($_POST['apellidoAdministrador']) or
-                    !$administrador->setCorreo($_POST['correoAdministrador']) or
-                    !$administrador->setAlias($_POST['aliasAdministrador'])
+                    !$administrador->setCorreo($_POST['correoAdministrador'])
                 ) {
                     $result['error'] = $administrador->getDataError();
                 } elseif ($administrador->editProfile()) {

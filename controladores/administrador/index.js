@@ -5,8 +5,6 @@ const LOGIN_FORM = document.getElementById('loginForm');
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
-    // Llamada a la función para mostrar el encabezado y pie del documento.
-    // loadTemplate();
     // Petición para consultar los usuarios registrados.
     const DATA = await fetchData(USER_API, 'readUsers');
     // Se comprueba si existe una sesión, de lo contrario se sigue con el flujo normal.
@@ -24,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         MAIN_TITLE.textContent = 'Registrar primer usuario';
         // Se muestra el formulario para registrar el primer usuario.
         SIGNUP_FORM.classList.remove('d-none');
-        sweetAlert(4, DATA.error, true);
+        sweetAlert(2, DATA.error, true);
     }
 });
 
@@ -32,14 +30,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 SIGNUP_FORM.addEventListener('submit', async (event) => {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
+    // Petición para consultar los usuarios registrados.
+    const DATAA = await fetchData(USER_API, 'readUsers');
     // Constante tipo objeto con los datos del formulario.
     const FORM = new FormData(SIGNUP_FORM);
     // Petición para registrar el primer usuario del sitio privado.
     const DATA = await fetchData(USER_API, 'registrarse', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-    if (DATA.status) {
+    if(DATAA.status){
+        sweetAlert(2, "Ya existen usuarios registrados", true, 'index.html');
+    } 
+    else if (DATA.status) {
         sweetAlert(1, DATA.message, true, 'index.html');
-    } else {
+    }
+    else {
         sweetAlert(2, DATA.error, false);
     }
 });

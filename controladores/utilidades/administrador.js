@@ -36,12 +36,7 @@ const loadTemplate = async () => {
                                 <span class="navbar-toggler-icon"></span>
                                 <label for="navbar-toggler"> Menú</label>
                             </button>
-                            <div class="dropdown">
-                                <button class="btn btn-light" type="button" aria-expanded="false">
-                                    Administrador
-                                    <i class="bi bi-person-circle"></i>
-                                </button>
-                            </div>
+
                             <div class="offcanvas offcanvas-start rounded" tabindex="-1" id="offcanvasNavbar"
                                 aria-labelledby="offcanvasNavbarLabel">
                                 <div class="offcanvas-header">

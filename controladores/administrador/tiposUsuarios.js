@@ -87,9 +87,6 @@ const fillTable = async (form = null) => {
                         <button type="button" class="btn btn-outline-danger" onclick="openDelete(${row.id_tipo})">
                             <i class="bi bi-trash-fill"></i>
                         </button>
-                        <button type="button" class="btn btn-warning" onclick="openReport(${row.id_tipo})">
-                            <i class="bi bi-filetype-pdf"></i>
-                        </button>
                     </td>
                 </tr>
             `;

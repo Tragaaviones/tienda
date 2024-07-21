@@ -47,7 +47,7 @@ class ProductoHandler
         return Database::executeRow($sql, $params);
     }
 
-    // Fucnión para leer todos los productos. 
+    // Fucnión para leer todos los productos.
     public function readAll()
     {
         $sql = 'SELECT p.id_producto, p.nombre_producto, p.id_categoria, nombre, p.precio_unitario, p.descripcion, p.id_marca, nombre_marca, p.imagen AS IMAGEN
@@ -61,7 +61,7 @@ class ProductoHandler
     // Función para leer un producto.
     public function readOne()
     {
-        $sql = 'SELECT p.id_producto, p.nombre_producto, p.id_categoria, nombre, p.precio_unitario, 
+        $sql = 'SELECT p.id_producto, p.nombre_producto, p.id_categoria, nombre, p.precio_unitario,
                 p.descripcion, p.id_marca, nombre_marca, p.imagen
                 FROM tb_productos p
                 INNER JOIN tb_categorias USING(id_categoria)
@@ -114,7 +114,7 @@ class ProductoHandler
         $params = array($this->categoria);
         return Database::getRows($sql, $params);
     }
-    
+
     public function searchRowsPublic()
     {
         $value = '%' . Validator::getSearchValue() . '%';
@@ -165,7 +165,7 @@ class ProductoHandler
 
     public function productosMarca()
     {
-        $sql = 'SELECT id_producto, nombre_producto, precio_unitario, descripcion
+        $sql = 'SELECT id_producto, nombre_producto, precio_unitario, descripcion, telefono_marca
                 FROM tb_productos
                 INNER JOIN tb_marcas USING(id_marca)
                 WHERE id_marca = ?

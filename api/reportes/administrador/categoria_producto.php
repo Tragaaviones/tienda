@@ -33,9 +33,8 @@ if (isset($_GET['id_categoria'])) {
                 $pdf->setFont('Arial', 'B', 12);
                 
                 // Se imprimen las celdas con los encabezados.
-                $pdf->cell(15, 10, '#', 1, 0, 'C', 1);
-                $pdf->cell(126, 10, 'Producto', 1, 0, 'C', 1);
-                $pdf->cell(45, 10, 'Precio unitario (US$)', 1, 1, 'C', 1);
+                $pdf->cell(20, 10, 'ID', 1, 0, 'C', 1);
+                $pdf->cell(170, 10, 'Producto', 1, 1, 'C', 1);
                 
                 // Se establece la fuente para los datos de los productos.
                 $pdf->setFont('Arial', '', 11);
@@ -46,13 +45,12 @@ if (isset($_GET['id_categoria'])) {
                 foreach ($dataProductos as $rowProducto) {
                     // Alternar color de fondo
                     $pdf->setFillColor($fill ? 230 : 255); // Gris claro y blanco
-                    $pdf->cell(15, 10, $rowProducto['id_producto'], 1, 0, 'C', 1);
-                    $pdf->cell(126, 10, $pdf->encodeString($rowProducto['nombre_producto']), 1, 0, 'L', 1);
-                    $pdf->cell(45, 10, $rowProducto['precio_unitario'], 1, 1, 'C', 1);
+                    $pdf->cell(20, 8, $rowProducto['id_producto'], 1, 0, 'C', 1);
+                    $pdf->cell(170, 8, $pdf->encodeString($rowProducto['nombre_producto']), 1, 1, 'L', 1);
                     $fill = !$fill;
                 }
             } else {
-                $pdf->cell(0, 10, $pdf->encodeString('No hay productos registrados en esta categoría'), 1, 1);
+                $pdf->cell(0, 8, $pdf->encodeString('No hay productos registrados en esta categoría'), 1, 1);
             }
             
             // Se llama implícitamente al método footer() y se envía el documento al navegador web.

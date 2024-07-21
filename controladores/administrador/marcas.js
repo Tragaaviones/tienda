@@ -178,8 +178,8 @@ const openDelete = async (id) => {
 
 /*
 *   Función para abrir un reporte automático de productos por categoría.
-*   Parámetros: ninguno.
-*   Retorno: ninguno.
+*   Parámetros: id.
+*   Retorno: id.
 */
 const openReport = (id) => {
     // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.

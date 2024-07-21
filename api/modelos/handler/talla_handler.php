@@ -87,4 +87,15 @@ class Talla_handler
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+    public function productosTalla()
+    {
+        $sql = 'SELECT id_producto, nombre_producto, precio_unitario, stock_producto, talla
+                FROM tb_productos 
+                RIGHT JOIN tb_detalle_productos USING(id_producto)
+                INNER JOIN tb_tallas USING(id_talla)
+                ORDER BY nombre_producto';
+        $params = array($this->talla);
+        return Database::getRows($sql, $params);
+    }
 }

@@ -11,14 +11,14 @@ const SAVE_MODAL = new bootstrap.Modal('#saveModal'),
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
     ID_MARCA = document.getElementById('id_marca'),
-    TELEFONO_MARCA = document.getElementById('telefono_marca')
+    TELEFONO_MARCA = document.getElementById('telefono_marca'),
     NOMBRE_MARCA = document.getElementById('nombre_marca'),
     IMAGEN_MARCA = document.getElementById('descripcionProducto');
 
-    vanillaTextMask.maskInput({
-        inputElement: document.getElementById('telefono_marca'),
-        mask: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
-    });
+vanillaTextMask.maskInput({
+    inputElement: document.getElementById('telefono_marca'),
+    mask: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
+});
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
@@ -92,6 +92,9 @@ const fillTable = async (form = null) => {
                         </button>
                         <button type="button" class="btn btn-outline-danger" onclick="openDelete(${row.id_marca})">
                             <i class="bi bi-trash-fill"></i>
+                        </button>
+                        <button type="button" class="btn btn-warning" onclick="openReport(${row.id_marca})">
+                            <i class="bi bi-filetype-pdf"></i>
                         </button>
                     </td>
                 </tr>
@@ -178,9 +181,11 @@ const openDelete = async (id) => {
 *   Parámetros: ninguno.
 *   Retorno: ninguno.
 */
-const openReport = () => {
+const openReport = (id) => {
     // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
-    const PATH = new URL(`${SERVER_URL}reports/admin/productos.php`);
+    const PATH = new URL(`${SERVER_URL}reportes/administrador/marca_producto.php`);
+    // Se agrega un parámetro a la ruta con el valor del registro seleccionado.
+    PATH.searchParams.append('id_marca', id);
     // Se abre el reporte en una nueva pestaña.
     window.open(PATH.href);
 }

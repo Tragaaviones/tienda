@@ -12,10 +12,26 @@ if (isset($_SESSION['idCliente'])) {
     require_once('../../modelos/data/pedido_data.php');
     require_once('../../modelos/data/detalle_pedido_data.php');
     require_once('../../modelos/data/producto_data.php');
+    require_once('../../modelos/data/cliente_data.php');
     
     // Se instancian las entidades correspondientes.
     $pedido = new PedidoData;
+    $cliente = new ClientesData;
     $dtpedido = new DetallesPedidosData;
+    
+    // Obtener los datos del cliente
+    $clienteData = $cliente->readProfile();
+    if ($clienteData) {
+        // Mostrar los datos del cliente
+        $pdf->setFont('Arial', 'B', 12);
+        $pdf->cell(0, 10, 'Datos del Cliente', 0, 1, 'C');
+        $pdf->setFont('Arial', '', 11);
+        $pdf->cell(0, 10, 'Nombre: ' . $clienteData['nombre_cliente'] . ' ' . $clienteData['apellido_cliente'], 0, 1);
+        $pdf->cell(0, 10, 'Correo: ' . $clienteData['correo_cliente'], 0, 1);
+        $pdf->cell(0, 10, 'Telefono: ' . $clienteData['telefono_cliente'], 0, 1);
+        $pdf->cell(0, 10, 'Direccion: ' . $clienteData['direccion_cliente'], 0, 1);
+        $pdf->ln(10); // Espacio adicional antes de los productos
+    }
             
     // Se verifica si existen registros para mostrar, de lo contrario se imprime un mensaje.
     if ($dataPedido = $pedido->readDetail2()) {

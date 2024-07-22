@@ -191,4 +191,5 @@ ORDER BY
         $params = array($_SESSION['idCliente'], $this->id_pedido);
         return Database::getRow($sql, $params);
     }
+
 }

@@ -153,7 +153,7 @@ const graficoDonaClientesEstados = async () => {
                 cantidad.push(row.CANTIDAD);
             });
             // Llamada a la función para generar y mostrar un gráfico de pastel. Se encuentra en el archivo components.js
-            DoughnutGraph('chart2', estado, cantidad, 'Clientes por estado');
+            barGraph('chart2', estado, cantidad, 'Clientes por estado');
         } else {
             document.getElementById('chart2').remove();
             console.log(DATA.error);

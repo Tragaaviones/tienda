@@ -8,7 +8,7 @@ require_once('../../modelos/data/tipo_usuario_data.php');
 // Se instancia la clase para crear el reporte.
 $pdf = new Report;
 // Se inicia el reporte con el encabezado del documento.
-$pdf->startReport('Inventario de productos por tallas');
+$pdf->startReport('Inventario de usuarios por niveles');
 // Se instancia el módelo Categoría para obtener los datos.
 $tipo_usuario = new Tipo_usuario_Data;
 // Se verifica si existen registros para mostrar, de lo contrario se imprime un mensaje.
@@ -38,9 +38,9 @@ if ($datatipo = $tipo_usuario->readAll()) {
         // Se instancia el módelo Producto para procesar los datos.
         $administrador = new AdministradorData;
         // Se establece la categoría para obtener sus productos, de lo contrario se imprime un mensaje de error.
-        if ($administrador->setId($rowtipo['id_tipo'])) {
+        if ($administrador->setTipo($rowtipo['id_tipo'])) {
             // Se verifica si existen registros para mostrar, de lo contrario se imprime un mensaje.
-            if ($dataAdministrador = $administrador->readAll()) {
+            if ($dataAdministrador = $administrador->readAllTipo()) {
                 // Se recorren los registros fila por fila.
                 foreach ($dataAdministrador as $rowAdministrador) {
                     // Se imprimen las celdas con los datos de los productos.
@@ -49,14 +49,14 @@ if ($datatipo = $tipo_usuario->readAll()) {
                     $pdf->cell(70, 10, $rowAdministrador['correo_administrador'], 1, 1, 'C', 1); // Cambiado el valor de la última columna a 1 para saltar línea
                 }
             } else {
-                $pdf->cell(190, 10, $pdf->encodeString('No hay usuarios registrados'), 1, 1);
+                $pdf->cell(190, 10, $pdf->encodeString('No hay usuarios registrados con este rol'), 1, 0, 'C', 1);
             }
         } else {
-            $pdf->cell(190, 10, $pdf->encodeString('Usuario incorrecto o inexistente'), 1, 1);
+            $pdf->cell(190, 10, $pdf->encodeString('Usuario incorrecto o inexistente'), 1, 0, 'C', 1);
         }
     }
 } else {
-    $pdf->cell(190, 10, $pdf->encodeString('No hay usuarios para mostrar'), 1, 1);
+    $pdf->cell(190, 10, $pdf->encodeString('No hay usuarios para mostrar'), 1, 0, 'C', 1);
 }
 // Se llama implícitamente al método footer() y se envía el documento al navegador web.
 $pdf->output('I', 'Usuarios.pdf');

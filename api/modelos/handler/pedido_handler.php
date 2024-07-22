@@ -61,6 +61,22 @@ class PedidoHandler
         GROUP BY estado_pedido;';
         return Database::getRows($sql);
     }
+
+    public function graficoGanancias()
+    {
+        $sql = 'SELECT 
+    DATE_FORMAT(p.fecha_venta, "%Y-%m") AS mes,
+    SUM(dp.precio_producto * dp.cantidad_producto) AS total_ingresos
+FROM 
+    tb_pedidos p
+JOIN 
+    tb_detalle_pedidos dp ON p.id_pedido = dp.id_pedido
+GROUP BY 
+    mes
+ORDER BY 
+    mes;';
+        return Database::getRows($sql);
+    }
     
 
     //Función para cambiar el estado de un pedido.

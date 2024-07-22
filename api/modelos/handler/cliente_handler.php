@@ -37,6 +37,16 @@ class ClientesHandler
         $params = array($value);
         return Database::getRows($sql, $params);
     }
+
+        // Función para leer un cliente
+        public function readOne()
+        {
+            $sql = 'SELECT id_cliente AS ID, nombre_cliente AS NOMBRE, apellido_cliente AS APELLIDO, correo_cliente AS CORREO,
+            telefono_cliente AS TELEFONO FROM tb_clientes
+                    ORDER BY NOMBRE;';
+            return Database::getRows($sql);
+        }
+
     // Función para leer todos los clientes
     public function readAll()
     {
@@ -93,6 +103,21 @@ class ClientesHandler
         $sql = 'CALL cambiar_estado_cliente(?);';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
+    }
+
+    
+    public function pedidosCliente()
+    {
+        $sql = 'SELECT  nombre_cliente, correo_cliente, direccion_cliente, fecha_venta, nombre_producto, precio_unitario
+                FROM tb_clientes 
+                INNER JOIN tb_pedidos USING(id_cliente)
+                INNER JOIN tb_detalle_pedidos USING(id_pedido)
+                INNER JOIN tb_detalle_productos USING(id_detalle_producto)
+                INNER JOIN tb_productos USING(id_producto)
+                WHERE id_cliente = ?
+                ORDER BY nombre_producto';
+        $params = array($this->id);
+        return Database::getRows($sql, $params);
     }
 
     //Metodos para la publica

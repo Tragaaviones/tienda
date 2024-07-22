@@ -39,6 +39,27 @@ class Report extends FPDF
         }
     }
 
+    public function startReport2($title)
+    {
+        // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en los reportes.
+        session_start();
+        // Se verifica si un administrador ha iniciado sesión para generar el documento, de lo contrario se direcciona a la página web principal.
+        if (isset($_SESSION['id_administrador'])) {
+            // Se asigna el título del documento a la propiedad de la clase.
+            $this->title = $title;
+            // Se establece el título del documento (true = utf-8).
+            $this->setTitle('Reporte', true);
+            // Se establecen los margenes del documento (izquierdo, superior y derecho).
+            $this->setMargins(15, 15, 15);
+            // Se añade una nueva página al documento con orientación vertical y formato carta, llamando implícitamente al método header()
+            $this->addPage('l', 'A4');
+            // Se define un alias para el número total de páginas que se muestra en el pie del documento.
+            $this->aliasNbPages();
+        } else {
+            header('location:' . self::CLIENT_URL);
+        }
+    }
+
     /*
     *   Método para codificar una cadena de alfabeto español a UTF-8.
     *   Parámetros: $string (cadena).
@@ -60,11 +81,11 @@ class Report extends FPDF
         // Se ubica el título.
         $this->cell(20);
         $this->setFont('Arial', 'B', 15);
-        $this->cell(166, 10, $this->encodeString($this->title), 0, 1, 'C');
+        $this->cell(0, 10, $this->encodeString($this->title), 0, 1, 'C');
         // Se ubica la fecha y hora del servidor.
         $this->cell(20);
         $this->setFont('Arial', '', 10);
-        $this->cell(166, 10, 'Fecha del reporte: ' . date('d-m-Y'), 0, 1, 'C');
+        $this->cell(0, 10, 'Fecha del reporte: ' . date('d-m-Y'), 0, 1, 'C');
         // Se agrega un salto de línea para mostrar el contenido principal del documento.
         $this->ln(10);
     }

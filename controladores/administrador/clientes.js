@@ -60,6 +60,11 @@ const fillTable = async (form = null) => {
                         <i class="bi bi-exclamation-octagon"></i>
                         </button>
                     </td>
+                    <td>
+                        <button type="button" class="btn btn-warning" onclick="openReport(${row.ID})">
+                        <i class="bi bi-filetype-pdf"></i>
+                        </button>
+                    </td>
                 </tr>
             `;
         });
@@ -100,4 +105,18 @@ const openState = async (id) => {
     catch (Error) {
         sweetAlert(2, Error, false);
     }
+}
+
+/*
+*   Función para abrir un reporte parametrizado de productos de una categoría.
+*   Parámetros: id (identificador del registro seleccionado).
+*   Retorno: ninguno.
+*/
+const openReport = (id) => {
+    // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
+    const PATH = new URL(`${SERVER_URL}reportes/administrador/cliente_pedidos.php`);
+    // Se agrega un parámetro a la ruta con el valor del registro seleccionado.
+    PATH.searchParams.append('ID', id);
+    // Se abre el reporte en una nueva pestaña.
+    window.open(PATH.href);
 }

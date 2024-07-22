@@ -19,7 +19,7 @@ class PedidoData extends PedidoHandler
     public function setId($value)
     {
         if (Validator::validateNaturalNumber($value)) {
-            $this->id = $value;
+            $this->id_pedido = $value;
             return true;
         } else {
             $this->data_error = 'El identificador del pedido es incorrecto';

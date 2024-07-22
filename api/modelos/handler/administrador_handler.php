@@ -131,6 +131,7 @@ class AdministradorHandler
         return Database::getRows($sql);
     }
 
+    //Metodo para reportes
     public function readAllTipo()
     {
         $sql = 'SELECT nombre_administrador, apellido_administrador, correo_administrador, id_tipo, tipo_usuario

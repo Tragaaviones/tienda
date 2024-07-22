@@ -119,7 +119,21 @@ ORDER BY
         $params = array($_SESSION['idCliente'], $_SESSION['idCliente']);
         return Database::getRows($sql, $params);
     }
-
+    public function readDetail2()
+    {
+        $sql = 'SELECT dp.id_detalle_pedido AS ID,
+                       p.nombre_producto AS NOMBRE,
+                       dp.cantidad_producto AS CANTIDAD,
+                       dp.precio_producto AS PRECIO,
+                       ROUND(dp.precio_producto * dp.cantidad_producto, 2) AS SUBTOTAL
+                FROM tb_detalle_pedidos dp
+                JOIN tb_detalle_productos dpd ON dp.id_detalle_producto = dpd.id_detalle_producto
+                JOIN tb_productos p ON dpd.id_producto = p.id_producto
+                WHERE dp.id_pedido = (SELECT id_pedido FROM tb_pedidos WHERE id_cliente = ? AND estado_pedido = "En camino" ORDER BY id_pedido DESC LIMIT 1);';
+        $params = array($_SESSION['idCliente']);
+        return Database::getRows($sql, $params);
+    }
+    
     // Método para finalizar un pedido por parte del cliente.
     //Finalizar el carrito
     public function finishOrder()

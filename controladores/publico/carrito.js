@@ -109,6 +109,9 @@ async function finishOrder() {
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
         if (DATA.status) {
             sweetAlert(1, DATA.message, true, 'index.html');
+            const PATH = new URL(`${SERVER_URL}reportes/publico/factura.php`);
+            // Se abre el reporte en una nueva pestaña.
+            window.open(PATH.href);
         } else {
             sweetAlert(2, DATA.error, false);
         }

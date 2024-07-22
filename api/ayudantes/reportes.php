@@ -39,6 +39,27 @@ class Report extends FPDF
         }
     }
 
+    public function startReportPublic($title)
+    {
+        // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en los reportes.
+        session_start();
+        // Se verifica si un administrador ha iniciado sesión para generar el documento, de lo contrario se direcciona a la página web principal.
+        if (isset($_SESSION['idCliente'])) {
+            // Se asigna el título del documento a la propiedad de la clase.
+            $this->title = $title;
+            // Se establece el título del documento (true = utf-8).
+            $this->setTitle('Reporte', true);
+            // Se establecen los margenes del documento (izquierdo, superior y derecho).
+            $this->setMargins(15, 15, 15);
+            // Se añade una nueva página al documento con orientación vertical y formato carta, llamando implícitamente al método header()
+            $this->addPage('p', 'letter');
+            // Se define un alias para el número total de páginas que se muestra en el pie del documento.
+            $this->aliasNbPages();
+        } else {
+            header('location:' . self::CLIENT_URL);
+        }
+    }
+
     public function startReport2($title)
     {
         // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en los reportes.
@@ -101,7 +122,7 @@ class Report extends FPDF
         // Se establece la fuente para el número de página.
         $this->setFont('Arial', 'I', 8);
         // Se imprime una celda con el número de página.
-        $this->Cell(0, 10, $this->encodeString('Reporte generado por: ' .$_SESSION['nombre_administrador']), 0, 0,'C');
+        // $this->Cell(0, 10, $this->encodeString('Reporte generado por: ' .$_SESSION['nombre_administrador']), 0, 0,'C');
         $this->cell(0, 10, $this->encodeString('Página ') . $this->pageNo() . '/{nb}', 0, 1, 'C');
     }
 }

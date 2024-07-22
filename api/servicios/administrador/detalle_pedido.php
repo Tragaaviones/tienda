@@ -24,6 +24,14 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Pedido inexistente';
                 }
                 break;
+                case 'graficosDetalle':
+                    if ($result['dataset'] = $pedido->graficosDetalle()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
+                    } else {
+                        $result['error'] = 'No hay pedidos registrados';
+                    }
+                    break;
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }

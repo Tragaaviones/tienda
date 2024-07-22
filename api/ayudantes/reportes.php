@@ -85,7 +85,7 @@ class Report extends FPDF
         // Se ubica la fecha y hora del servidor.
         $this->cell(20);
         $this->setFont('Arial', '', 10);
-        $this->cell(0, 10, 'Fecha del reporte: ' . date('d-m-Y'), 0, 1, 'C');
+        $this->cell(0, 10, 'Fecha y hora del reporte: ' . date('d-m-Y H:i:s'), 0, 1, 'C');
         // Se agrega un salto de línea para mostrar el contenido principal del documento.
         $this->ln(10);
     }
@@ -97,10 +97,11 @@ class Report extends FPDF
     public function footer()
     {
         // Se establece la posición para el número de página (a 15 milímetros del final).
-        $this->setY(-15);
+        $this->setY(-18);
         // Se establece la fuente para el número de página.
         $this->setFont('Arial', 'I', 8);
         // Se imprime una celda con el número de página.
-        $this->cell(0, 10, $this->encodeString('Página ') . $this->pageNo() . '/{nb}', 0, 0, 'C');
+        $this->Cell(0, 10, $this->encodeString('Reporte generado por: ' .$_SESSION['nombre_administrador']), 0, 0,'C');
+        $this->cell(0, 10, $this->encodeString('Página ') . $this->pageNo() . '/{nb}', 0, 1, 'C');
     }
 }

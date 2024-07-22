@@ -8,6 +8,9 @@ const TABLE_BODY = document.getElementById('tableBody'),
 // Constantes para establecer los elementos del componente Modal.
 const SAVE_MODAL = new bootstrap.Modal('#saveModal'),
     MODAL_TITLE = document.getElementById('modalTitle');
+//Modal de reporte
+const REPORT_MODAL = new bootstrap.Modal('#reportModal'),
+    REPORT_MODAL_TITLE = document.getElementById('reportModalTitle');
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
     // Llamada a la función para mostrar el encabezado y pie del documento.
@@ -120,3 +123,44 @@ const openReport = (id) => {
     // Se abre el reporte en una nueva pestaña.
     window.open(PATH.href);
 }
+
+async function openModalGraphic() {
+    // Se muestra la caja de diálogo con su título.
+    REPORT_MODAL.show();
+    REPORT_MODAL_TITLE.textContent = 'Gráfica de dona de clientes por estado';
+    try {
+        graficoDonaClientesEstados();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const graficoDonaClientesEstados = async () => {
+    try {
+        // Petición para obtener los datos del gráfico.
+        const DATA = await fetchData(CLIENTES_API, 'graficoState');
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
+        if (DATA.status) {
+            // Se declaran los arreglos para guardar los datos a gráficar.
+            let estado = [];
+            let cantidad = [];
+            // Se recorre el conjunto de registros fila por fila a través del objeto row.
+            DATA.dataset.forEach(row => {
+                // Convertir estado booleano a texto legible.
+                let estadoTexto = row.ESTADO ? 'Activo' : 'Bloqueado';
+                // Se agregan los datos a los arreglos.
+                estado.push(estadoTexto);
+                cantidad.push(row.CANTIDAD);
+            });
+            // Llamada a la función para generar y mostrar un gráfico de pastel. Se encuentra en el archivo components.js
+            DoughnutGraph('chart2', estado, cantidad, 'Clientes por estado');
+        } else {
+            document.getElementById('chart2').remove();
+            console.log(DATA.error);
+        }
+    } catch (error) {
+        console.log('error:', error);
+    }
+}
+
+

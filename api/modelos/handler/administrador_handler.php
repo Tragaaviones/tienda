@@ -25,7 +25,7 @@ class AdministradorHandler
      // Función para el login.
     public function checkUser($username, $password)
     {
-        $sql = 'SELECT id_administrador, clave_administrador
+        $sql = 'SELECT id_administrador, clave_administrador, nombre_administrador
                 FROM tb_administradores
                 WHERE  correo_administrador = ?';
         $params = array($username);
@@ -33,6 +33,7 @@ class AdministradorHandler
             return false;
         } elseif (password_verify($password, $data['clave_administrador'])) {
             $_SESSION['id_administrador'] = $data['id_administrador'];
+            $_SESSION['nombre_administrador'] = $data['nombre_administrador'];
             return true;
         } else {
             return false;

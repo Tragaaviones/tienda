@@ -33,6 +33,14 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay clientes registrados';
                 }
                 break;
+                case 'graficoState':
+                    if ($result['dataset'] = $cliente->graficoState()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
+                    } else {
+                        $result['error'] = 'No hay clientes registrados';
+                    }
+                    break;
                 // Estado
             case 'changeState':
                 if (

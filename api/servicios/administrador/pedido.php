@@ -33,10 +33,19 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay pedidos registrados';
                 }
                 break;
+                // Leer todos
+            case 'graphicStates':
+                if ($result['dataset'] = $pedido->graphicStates()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
+                } else {
+                    $result['error'] = 'No hay pedidos registrados';
+                }
+                break;
                 // Estado
             case 'changeState':
                 if (
-                    !$pedido->setId($_POST['idPedido'])or
+                    !$pedido->setId($_POST['idPedido']) or
                     !$pedido->setEstado($_POST)
                 ) {
                     $result['error'] = $pedido->getDataError();

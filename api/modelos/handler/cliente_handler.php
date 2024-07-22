@@ -59,6 +59,15 @@ class ClientesHandler
         return Database::getRows($sql);
     }
 
+
+    public function graficoState()
+    {
+        $sql = 'SELECT estado_cliente AS ESTADO, COUNT(*) AS CANTIDAD
+        FROM tb_clientes 
+        GROUP BY estado_cliente;';
+        return Database::getRows($sql);
+    }
+
     //Funcion para poder registrarse (crear un cliente)
     public function createRow()
     {

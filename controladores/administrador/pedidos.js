@@ -11,6 +11,9 @@ const SAVE_MODAL = new bootstrap.Modal('#saveModal'),
     MODAL_TITLE = document.getElementById('modalTitle');
 const DETAIL_MODAL = new bootstrap.Modal('#detailModal'),
     MODAL_TITLE_DETAIL = document.getElementById('exampleModalLabel');
+// Modal del reporte
+const REPORT_MODAL = new bootstrap.Modal('#reportModal'),
+    REPORT_MODAL_TITLE = document.getElementById('reportModalTitle');
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
     // Llamada a la función para mostrar el encabezado y pie del documento.
@@ -143,4 +146,85 @@ const openDetail = async (id) => {
     DETAIL_MODAL.show();
     MODAL_TITLE_DETAIL.textContent = 'Detalle del pedido ' + id;
     fillDetail(FORM);
+}
+
+// Función para abrir el Modal
+async function openModalGraphic() {
+    // Se muestra la caja de diálogo con su título.
+    REPORT_MODAL.show();
+    REPORT_MODAL_TITLE.textContent = 'Gráfica de dona de pedidos por estado';
+    try {
+        graficoDonaPedidosEstados();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+/*
+*   Función asíncrona para mostrar un gráfico de pastel con el porcentaje de productos por categoría.
+*   Parámetros: ninguno.
+*   Retorno: ninguno.
+*/
+const graficoDonaPedidosEstados = async () => {
+    try {
+        // Petición para obtener los datos del gráfico.
+        const DATA = await fetchData(PEDIDOS_API, 'graphicStates');
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
+        if (DATA.status) {
+            // Se declaran los arreglos para guardar los datos a gráficar.
+            let estado = [];
+            let cantidad = [];
+            // Se recorre el conjunto de registros fila por fila a través del objeto row.
+            DATA.dataset.forEach(row => {
+                // Se agregan los datos a los arreglos.
+                estado.push(row.ESTADO);
+                cantidad.push(row.CANTIDAD);
+            });
+            // Llamada a la función para generar y mostrar un gráfico de pastel. Se encuentra en el archivo components.js
+            DoughnutGraph('chart2', estado, cantidad, 'Pedidos por estado');
+        } else {
+            document.getElementById('chart2').remove();
+            console.log(DATA.error);
+        }
+    } catch {
+        console.log('error')
+    }
+
+}
+
+
+
+// ESTA FUNCIÓN NO SE UTILIZA (es un ejemplo de uso de gráfica de barras o lineal)
+
+/*
+*   Función asíncrona para mostrar un gráfico de barras con la cantidad de productos por categoría.
+*   Parámetros: ninguno.
+*   Retorno: ninguno.
+*/
+const graficoBarrasCategorias = async () => {
+    /*
+*   Lista de datos de ejemplo en caso de error al obtener los datos reales.
+*/
+    try {
+        // Petición para obtener los datos del gráfico.
+        let DATA = await fetchData(PRODUCTO_API, '');
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
+        if (DATA.status) {
+            // Se declaran los arreglos para guardar los datos a graficar.
+            let categorias = [];
+            let cantidades = [];
+            // Se recorre el conjunto de registros fila por fila a través del objeto row.
+            DATA.dataset.forEach(row => {
+                // Se agregan los datos a los arreglos.
+                categorias.push(row.nombre_categoria);
+                cantidades.push(row.cantidad);
+            });
+            // Llamada a la función para generar y mostrar un gráfico de barras. Se encuentra en el archivo components.js
+            barGraph('chart1', categorias, cantidades, 'Cantidad de productos', 'Cantidad de productos por categoría');
+        } else {
+            document.getElementById('chart1').remove();
+            console.log(DATA.error);
+        }
+    } catch (error) {
+    }
 }

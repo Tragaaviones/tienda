@@ -133,10 +133,10 @@ class ProductoHandler
      */
     public function cantidadProductosCategoria()
     {
-        $sql = 'SELECT nombre_categoria, COUNT(id_producto) cantidad
+        $sql = 'SELECT nombre AS NOMBRE  , COUNT(id_producto) CANTIDAD
                 FROM tb_productos
                 INNER JOIN tb_categorias USING(id_categoria)
-                GROUP BY nombre_categoria ORDER BY cantidad DESC LIMIT 5';
+                GROUP BY nombre ORDER BY CANTIDAD DESC LIMIT 5';
         return Database::getRows($sql);
     }
 

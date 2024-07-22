@@ -15,24 +15,15 @@
 
     <main>
         <h3 id="mainTitle"></h3>
-        <div class="centro container px-4 text-center">
-            <div class=" centro2 row gx-5">
-                <div class="col-sm-6 col-lg-6 col-md-6 col-12">
-                    <div class="p-3 d-flex justify-content-center">
-
-                        <canvas id="barchart" height="300" width="300"></canvas>
-
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-6 col-md-6 col-12">
-                    <div class="p-3 d-flex justify-content-center">
-
-                        <canvas id="doughnut" height="300" width="300"></canvas>
-
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col-sm-6 col-lg-6 col-md-6 col-12">
+                <canvas id="chart1"></canvas>
             </div>
-        </div>
+            <div class="col-sm-6 col-lg-6 col-md-6 col-12">
+                <canvas id="chart2"></canvas>
+            </div>
+            <!-- Llamada a la libreria de los gráficos -->
+            <script type="text/javascript" src="../../recursos/js/chart.js"></script>
     </main>
 
     <!-- IMPORTACIÓN DE ARCHIVOS JAVASCRIPT -->
@@ -43,8 +34,6 @@
     <script type="text/javascript" src="../../controladores/utilidades/componentes.js"></script>
     <!-- Llamada al controlador del sitio privado -->
     <script type="text/javascript" src="../../controladores/utilidades/administrador.js"></script>
-    <!-- Llamada al controlodor para las graficas -->
-    <script src="../../recursos/js/chart.js"></script>
     <!-- Llamada al controlador de grafica de barras -->
     <script src="../../controladores/administrador/dashboard.js"></script>
 </body>

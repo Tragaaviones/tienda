@@ -1,3 +1,8 @@
+const DETALLE_PEDIDO_API = 'servicios/administrador/detalle_pedido.php',
+    PRODUCTO_API = 'servicios/administrador/producto.php';
+// const REPORT_MODAL = new bootstrap.Modal('#reportModal'),
+//     REPORT_MODAL_TITLE = document.getElementById('reportModalTitle');
+
 document.addEventListener('DOMContentLoaded', () => {
     // Constante para obtener el número de horas.
     const HOUR = new Date().getHours();
@@ -15,88 +20,76 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTemplate();
     // Se establece el título del contenido principal.
     MAIN_TITLE.textContent = `${greeting}, bienvenido administrador`;
-
+    graficoDetalle();
+    graficoBarrasCategorias();
 });
 
+// Función para abrir el Modal
+// async function openModalGraphic() {
+//     // Se muestra la caja de diálogo con su título.
+//     REPORT_MODAL.show();
+//     REPORT_MODAL_TITLE.textContent = 'Gráfica de dona de pedidos por estado';
+//     try {
+//         graficoDetalle();
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 
-const ctx = document.getElementById('barchart').getContext('2d');
-const names = ['Camisas', 'Zapatos', 'Tenis', 'Camisas coleccionables'];
-const stock = [23, 34, 12, 4];
-
-const barchart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: names,
-        datasets: [{
-            label: 'stock',
-            data: stock,
-            backgroundColor: [
-                'rgba(120, 247, 79, 0.46)',
-                'rgba(239, 0, 0, 0.46)',
-                'rgba(221, 111, 38, 0.46)',
-                'rgba(32, 43, 75, 0.46)',
-                'rgba(146, 92, 141, 0.46)',
-                'rgba(225, 34, 206, 0.3)'
-            ],
-            borderColor: [
-                'rgba(120, 247, 79, 0.46)',
-                'rgba(239, 0, 0, 0.46)',
-                'rgba(221, 111, 38, 0.46)',
-                'rgba(32, 43, 75, 0.46)',
-                'rgba(146, 92, 141, 0.46)',
-                'rgba(225, 34, 206, 0.3)'
-            ],
-            borderWidth: 1.5
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        },
-        plugins: {
-            title: {
-                display: true,
-                text: 'Cantidad de productos',
-                color: 'black' // Change the title color
-            },
-            legend: {
-                labels: {
-                    color: 'black' // Change the legend labels color
-                }
-            }
+const graficoDetalle = async () => {
+    try {
+        // Petición para obtener los datos del gráfico.
+        const DATA = await fetchData(DETALLE_PEDIDO_API, 'graficosDetalle');
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
+        if (DATA.status) {
+            // Se declaran los arreglos para guardar los datos a gráficar.
+            let nombre = [];
+            let cantidad = [];
+            // Se recorre el conjunto de registros fila por fila a través del objeto row.
+            DATA.dataset.forEach(row => {
+                // Se agregan los datos a los arreglos.
+                nombre.push(row.NOMBRE)
+                cantidad.push(row.CANTIDAD);
+            });
+            // Llamada a la función para generar y mostrar un gráfico de pastel. Se encuentra en el archivo components.js
+            pieGraph('chart2', nombre, cantidad, 'Productos más vendidos');
+        } else {
+            document.getElementById('chart2').remove();
+            console.log(DATA.error);
         }
+    } catch {
+        console.log('error')
+        sweetAlert(4, DATA.error, true);
     }
-});
+}
 
-const ctx2 = document.getElementById('doughnut')
-const names2 = ['Camisas', 'Zapatos', 'Tenis', 'Camisas coleccionables']
-const stock2 = [23, 34, 12, 4]
-const doughnut = new Chart(ctx2, {
-    type: 'doughnut',
-    data: {
-        labels: names2,
-        datasets: [{
-            label: 'stock',
-            data: stock2,
-            backgroundColor: [
-                'rgba(120, 247, 79, 0.46)',
-                'rgba(239, 0, 0, 0.46)',
-                'rgba(221, 111, 38, 0.46)',
-                'rgba(32, 43, 75, 0.46)',
-                'rgba(146, 92, 141, 0.46)',
-                'rgba(225, 34, 206, 0.46)'
-            ],
-            borderColor: [
-                'rgba(120, 247, 79, 0.46)',
-                'rgba(239, 0, 0, 0.46)',
-                'rgba(221, 111, 38, 0.46)',
-                'rgba(32, 43, 75, 0.46)',
-                'rgba(146, 92, 141, 0.46)',
-                'rgba(225, 34, 206, 0.46)'
-            ],
-            borderWith: 1.5
-        }]
+/*
+*   Función asíncrona para mostrar un gráfico de barras con la cantidad de productos por categoría.
+*   Parámetros: ninguno.
+*   Retorno: ninguno.
+*/
+const graficoBarrasCategorias = async () => {
+    // Petición para obtener los datos del gráfico.
+    const DATA = await fetchData(PRODUCTO_API, 'cantidadProductosCategoria');
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
+    if (DATA.status) {
+        // Se declaran los arreglos para guardar los datos a graficar.
+        let categorias = [];
+        let cantidades = [];
+        // Se recorre el conjunto de registros fila por fila a través del objeto row.
+        DATA.dataset.forEach(row => {
+            // Se agregan los datos a los arreglos.
+            categorias.push(row.NOMBRE);
+            cantidades.push(row.CANTIDAD);
+        });
+        // Llamada a la función para generar y mostrar un gráfico de barras. Se encuentra en el archivo components.js
+        barGraph('chart1', categorias, cantidades, 'Cantidad de productos', 'Cantidad de productos por categoría');
+    } else {
+        document.getElementById('chart1').remove();
+        console.log(DATA.error);
     }
-})
+}
+
+
+
+

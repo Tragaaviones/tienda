@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once ('../../ayudantes/base_datos.php');
+require_once('../../ayudantes/base_datos.php');
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla administrador.
  */
@@ -52,6 +52,16 @@ class PedidoHandler
         ORDER BY FECHA;';
         return Database::getRows($sql);
     }
+
+    // Función para generar el gráfico de estado de los pedidos
+    public function graphicStates()
+    {
+        $sql = 'SELECT estado_pedido AS ESTADO, COUNT(*) AS CANTIDAD
+        FROM tb_pedidos
+        GROUP BY estado_pedido;';
+        return Database::getRows($sql);
+    }
+    
 
     //Función para cambiar el estado de un pedido.
     public function changeState()

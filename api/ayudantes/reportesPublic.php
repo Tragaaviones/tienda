@@ -9,7 +9,7 @@ require_once('../../librerias/fpdf185/fpdf.php');
 class Report extends FPDF
 {
     // Constante para definir la ruta de las vistas del sitio privado.
-    const CLIENT_URL = 'http://localhost/tienda/vistas/administrador/';
+    const CLIENT_URL = 'http://localhost/tienda/vistas/publico/';
     // Propiedad para guardar el título del reporte.
     private $title = null;
 
@@ -18,26 +18,6 @@ class Report extends FPDF
     *   Parámetros: $title (título del reporte).
     *   Retorno: ninguno.
     */
-    public function startReport($title)
-    {
-        // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en los reportes.
-        session_start();
-        // Se verifica si un administrador ha iniciado sesión para generar el documento, de lo contrario se direcciona a la página web principal.
-        if (isset($_SESSION['id_administrador'])) {
-            // Se asigna el título del documento a la propiedad de la clase.
-            $this->title = $title;
-            // Se establece el título del documento (true = utf-8).
-            $this->setTitle('Reporte', true);
-            // Se establecen los margenes del documento (izquierdo, superior y derecho).
-            $this->setMargins(15, 15, 15);
-            // Se añade una nueva página al documento con orientación vertical y formato carta, llamando implícitamente al método header()
-            $this->addPage('p', 'letter');
-            // Se define un alias para el número total de páginas que se muestra en el pie del documento.
-            $this->aliasNbPages();
-        } else {
-            header('location:' . self::CLIENT_URL);
-        }
-    }
 
     public function startReportPublic($title)
     {
@@ -48,7 +28,7 @@ class Report extends FPDF
             // Se asigna el título del documento a la propiedad de la clase.
             $this->title = $title;
             // Se establece el título del documento (true = utf-8).
-            $this->setTitle('Reporte', true);
+            $this->setTitle('Comprobante de compra', true);
             // Se establecen los margenes del documento (izquierdo, superior y derecho).
             $this->setMargins(15, 15, 15);
             // Se añade una nueva página al documento con orientación vertical y formato carta, llamando implícitamente al método header()
@@ -60,26 +40,6 @@ class Report extends FPDF
         }
     }
 
-    public function startReport2($title)
-    {
-        // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en los reportes.
-        session_start();
-        // Se verifica si un administrador ha iniciado sesión para generar el documento, de lo contrario se direcciona a la página web principal.
-        if (isset($_SESSION['id_administrador'])) {
-            // Se asigna el título del documento a la propiedad de la clase.
-            $this->title = $title;
-            // Se establece el título del documento (true = utf-8).
-            $this->setTitle('Reporte', true);
-            // Se establecen los margenes del documento (izquierdo, superior y derecho).
-            $this->setMargins(15, 15, 15);
-            // Se añade una nueva página al documento con orientación vertical y formato carta, llamando implícitamente al método header()
-            $this->addPage('l', 'A4');
-            // Se define un alias para el número total de páginas que se muestra en el pie del documento.
-            $this->aliasNbPages();
-        } else {
-            header('location:' . self::CLIENT_URL);
-        }
-    }
 
     /*
     *   Método para codificar una cadena de alfabeto español a UTF-8.
@@ -122,7 +82,6 @@ class Report extends FPDF
         // Se establece la fuente para el número de página.
         $this->setFont('Arial', 'I', 8);
         // Se imprime una celda con el número de página.
-        $this->Cell(0, 10, $this->encodeString('Reporte generado por: ' .$_SESSION['nombre_administrador']), 0, 0,'C');
         $this->cell(0, 10, $this->encodeString('Página ') . $this->pageNo() . '/{nb}', 0, 1, 'C');
     }
 }

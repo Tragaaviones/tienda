@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase con las plantillas para generar reportes.
-require_once('../../ayudantes/reportes.php');
+require_once('../../ayudantes/reportesPublic.php');
 
 // Se instancia la clase para crear el reporte
 $pdf = new Report;
@@ -32,7 +32,7 @@ if (isset($_SESSION['idCliente'])) {
         $pdf->cell(50, 10, 'NOMBRE', 1, 0, 'C', 1);
         $pdf->cell(25, 10, 'CANTIDAD', 1, 0, 'C', 1);
         $pdf->cell(30, 10, 'PRECIO', 1, 0, 'C', 1);
-        $pdf->cell(50, 10, 'SUBTOTAL', 1, 0, 'C', 1);
+        $pdf->cell(60, 10, 'SUBTOTAL', 1, 0, 'C', 1);
         $pdf->ln(); // Nueva línea después del encabezado
 
         // Se establece la fuente para los datos de los productos.
@@ -55,7 +55,7 @@ if (isset($_SESSION['idCliente'])) {
                     $pdf->cell(50, 10, $rowProducto['NOMBRE'], 1, 0, 'C', $fill);
                     $pdf->cell(25, 10, $rowProducto['CANTIDAD'], 1, 0, 'C', $fill);
                     $pdf->cell(30, 10, $rowProducto['PRECIO'], 1, 0, 'C', $fill);
-                    $pdf->cell(50, 10, $rowProducto['SUBTOTAL'], 1, 1, 'C', $fill); // Ajuste para nueva línea al final
+                    $pdf->cell(60, 10, $rowProducto['SUBTOTAL'], 1, 1, 'C', $fill); // Ajuste para nueva línea al final
                     $fill = !$fill;
                     // Sumar el subtotal al total general
                     $totalGeneral += $rowProducto['SUBTOTAL'];
@@ -67,7 +67,7 @@ if (isset($_SESSION['idCliente'])) {
             // Imprimir el total general
             $pdf->setFont('Arial', 'B', 12);
             $pdf->cell(120, 10, 'Total General', 1, 0, 'C', 1);
-            $pdf->cell(50, 10, number_format($totalGeneral, 2), 1, 1, 'C', 1);
+            $pdf->cell(60, 10, number_format($totalGeneral, 2), 1, 1, 'C', 1);
         } else {
             // Manejo del error: $dataPedido no es un array
             $pdf->cell(0, 10, 'Error: Datos de pedido no válidos', 1, 1, 'C');

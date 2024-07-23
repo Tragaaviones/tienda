@@ -95,7 +95,7 @@ const loadTemplate = async () => {
                                                 Clientes</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="tiposUsuarios.html"><i
+                                            <a class="nav-link active" aria-current="page" href="tipos_usuarios.html"><i
                                                     class="bi bi-person-vcard-fill"></i>
                                                 Tipos de usuarios</a>
                                         </li>

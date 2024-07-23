@@ -61,7 +61,7 @@ class InventarioHandler
     // Función para leer un solo inventario.
     public function readOne()
     {
-        $sql = 'SELECT nombre_producto, talla, precio_unitario, stock_producto, id_detalle_producto
+        $sql = 'SELECT nombre_producto, talla, precio_unitario, stock_producto, id_detalle_producto, id_talla, id_producto
                 FROM tb_detalle_productos
                 INNER JOIN tb_tallas USING(id_talla)
                 INNER JOIN tb_productos USING(id_producto)

@@ -138,9 +138,9 @@ const openUpdate = async (id) => {
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
         ID_INVENTARIO.value = ROW.id_detalle_producto;
-        STOCK.value = ROW.stock_producto;
         fillSelect(TALLA_API, 'readAll', 'inventario_talla', ROW.id_talla);
         fillSelect(PRODUCTO_API, 'readAll', 'inventario_producto', ROW.id_producto);
+        STOCK.value = ROW.stock_producto;
     } else {
         sweetAlert(2, DATA.error, false);
     }

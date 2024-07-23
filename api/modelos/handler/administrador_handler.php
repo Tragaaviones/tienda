@@ -137,7 +137,7 @@ class AdministradorHandler
         $sql = 'SELECT nombre_administrador, apellido_administrador, correo_administrador, id_tipo, tipo_usuario
                 FROM tb_administradores
                 INNER JOIN tb_tipousuarios USING (id_tipo)
-                where id_tipo = ?
+                WHERE id_tipo = ?
                 ORDER BY id_administrador';
                 $params = array($this->tipo);
         return Database::getRows($sql, $params);

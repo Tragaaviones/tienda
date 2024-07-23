@@ -52,7 +52,7 @@ const graficoDetalle = async () => {
                 cantidad.push(row.CANTIDAD);
             });
             // Llamada a la función para generar y mostrar un gráfico de pastel. Se encuentra en el archivo components.js
-            pieGraph('chart2', nombre, cantidad, 'Productos más vendidos');
+            DoughnutGraph('chart2', nombre, cantidad, 'Top 10 productos más vendidos');
         } else {
             document.getElementById('chart2').remove();
             console.log(DATA.error);

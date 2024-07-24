@@ -36,7 +36,6 @@ const loadTemplate = async () => {
                                 <span class="navbar-toggler-icon"></span>
                                 <label for="navbar-toggler"> Menú</label>
                             </button>
-
                             <div class="offcanvas offcanvas-start rounded" tabindex="-1" id="offcanvasNavbar"
                                 aria-labelledby="offcanvasNavbarLabel">
                                 <div class="offcanvas-header">
@@ -109,42 +108,40 @@ const loadTemplate = async () => {
                         </div>
                     </nav>
                 </header>
-        }
-`);
+        }`);
             MAIN.insertAdjacentHTML('afterend', `
-    <footer id='footer' class="bg-body-tertiary py-5">
-        <div class="container-fluid clear">
-            <ul class="nav justify-content-evenly border-bottom pb-3 mb-3">
-                <li class="nav-item">
-                    <a href="https://www.instagram.com/" target="_blank" class="nav-link px-2 text-muted">
-                        <h4><i class="bi bi-instagram"></i></h4>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.facebook.com/" target="_blank" class="nav-link px-2 text-muted">
-                        <h4><i class="bi bi-facebook"></i></h4>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="navbar-brand">
-                        <img src="../../recursos/imagenes/logo.png" class="rounded" alt="Nikis" width="100" height="70">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://twitter.com/" target="_blank" class="nav-link px-2 text-muted">
-                        <h4><i class="bi bi-twitter"></i></h4>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.tiktok.com/" target="_blank" class="nav-link px-2 text-muted">
-                        <h4><i class="bi bi-tiktok"></i></h4>
-                    </a>
-                </li>
-            </ul>
-            <p class="text-center text-muted">&copy; 2024 NIKI’S El Salvador . Todos los derechos reservados.</p>
-        </div>
-    </footer>
-`);
+                <footer id='footer' class="bg-body-tertiary py-5">
+                    <div class="container-fluid clear">
+                        <ul class="nav justify-content-evenly border-bottom pb-3 mb-3">
+                            <li class="nav-item">
+                                <a href="https://www.instagram.com/" target="_blank" class="nav-link px-2 text-muted">
+                                    <h4><i class="bi bi-instagram"></i></h4>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://www.facebook.com/" target="_blank" class="nav-link px-2 text-muted">
+                                    <h4><i class="bi bi-facebook"></i></h4>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="navbar-brand">
+                                    <img src="../../recursos/imagenes/logo.png" class="rounded" alt="Nikis" width="100" height="70">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://twitter.com/" target="_blank" class="nav-link px-2 text-muted">
+                                    <h4><i class="bi bi-twitter"></i></h4>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://www.tiktok.com/" target="_blank" class="nav-link px-2 text-muted">
+                                    <h4><i class="bi bi-tiktok"></i></h4>
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="text-center text-muted">&copy; 2024 NIKI’S El Salvador . Todos los derechos reservados.</p>
+                    </div>
+                </footer>`);
         } else {
             sweetAlert(3, DATA.error, false, 'index.html');
         }
@@ -152,13 +149,9 @@ const loadTemplate = async () => {
         // Se comprueba si la página web es la principal, de lo contrario se direcciona a iniciar sesión.
         if (location.pathname.endsWith('index.html')) {
             // Se agrega el encabezado de la página web antes del contenido principal.
-            MAIN.insertAdjacentHTML('beforebegin', `
-
-`);
+            MAIN.insertAdjacentHTML('beforebegin', ``);
             // Se agrega el pie de la página web después del contenido principal.
-            MAIN.insertAdjacentHTML('afterend', `
-
-`);
+            MAIN.insertAdjacentHTML('afterend', ``);
         } else {
             location.href = 'index.html';
         }

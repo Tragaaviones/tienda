@@ -109,12 +109,9 @@ ORDER BY
        dp.precio_producto AS PRECIO,
        ROUND(dp.precio_producto * dp.cantidad_producto, 2) AS TOTAL
         FROM tb_detalle_pedidos dp
-        JOIN tb_detalle_productos dpd ON dp.id_detalle_producto = dpd.id_detalle_producto
-        JOIN tb_productos p ON dpd.id_producto = p.id_producto
-        WHERE dp.id_pedido = (SELECT id_pedido FROM tb_pedidos WHERE id_cliente = ? AND estado_pedido = "Pendiente" LIMIT 1);SELECT dp.id_detalle_pedido AS ID,
-        p.nombre_producto AS NOMBRE,
-        dp.cantidad_producto AS CANTIDAD, dp.precio_producto AS PRECIO,
-        ROUND(dp.precio_producto * dp.cantidad_producto, 2) AS TOTAL FROM  tb_detalle_pedidos dp JOIN  tb_productos p ON dp.id_producto = p.id_producto
+        INNER JOIN tb_detalle_productos USING(id_detalle_producto)
+        INNER JOIN tb_productos p USING(id_producto)
+        WHERE dp.id_pedido = (SELECT id_pedido FROM tb_pedidos WHERE id_cliente = ?    AND estado_pedido = "Pendiente" LIMIT 1);
         WHERE dp.id_pedido = (SELECT id_pedido FROM tb_pedidos WHERE id_cliente = ? AND estado_pedido = "Pendiente" LIMIT 1);';
         $params = array($_SESSION['idCliente'], $_SESSION['idCliente']);
         return Database::getRows($sql, $params);

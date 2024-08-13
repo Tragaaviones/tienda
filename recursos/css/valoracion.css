@@ -1,0 +1,36 @@
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    position: relative;
+    margin: 0.1em;
+    width: 1em;
+    font-size: 2rem;
+    color: #333; /* Contorno de la estrella en negro */
+    cursor: pointer;
+}
+
+.rating label::before {
+    content: "★";
+    position: absolute;
+    opacity: 1;
+    color: #333; /* Contorno de la estrella en negro */
+}
+
+.rating label:hover::before,
+.rating label:hover ~ label::before,
+.rating input:checked ~ label::before {
+    color: #FFD700; /* Color de la estrella al pasar el mouse o seleccionar */
+}
+
+.rating input:checked ~ label::before {
+    background-color: transparent;
+    color: #FFD700; /* Color amarillo cuando está seleccionado */
+}

@@ -9,14 +9,14 @@ if (isset($_GET['action'])) {
     // Se instancia la clase correspondiente.
     $pedido = new PedidoData;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
-    $result = array('status' => 0, 'session' => 0, 'cliente' => 0 , 'recaptcha' => 0, 'message' => null, 'error' => null, 'exception' => null, 'username' => null);
+    $result = array('status' => 0, 'session' => 0, 'cliente' => 0, 'recaptcha' => 0, 'message' => null, 'error' => null, 'exception' => null, 'username' => null);
     // Se verifica si existe una sesión iniciada como cliente para realizar las acciones correspondientes.
     if (isset($_SESSION['idCliente'])) {
         $result['session'] = 1;
         $result['cliente'] = $_SESSION['idCliente'];
         // Se compara la acción a realizar cuando un cliente ha iniciado sesión.
         switch ($_GET['action']) {
-            // Acción para obtener los productos agregados en el carrito de compras.
+                // Acción para obtener los productos agregados en el carrito de compras.
             case 'readDetail':
                 if ($result['dataset'] = $pedido->readDetail()) {
                     $result['status'] = 1;
@@ -111,15 +111,14 @@ if (isset($_GET['action'])) {
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }
     } else {
-         // Se compara la acción a realizar cuando un cliente no ha iniciado sesión.
-         switch ($_GET['action']) {
+        // Se compara la acción a realizar cuando un cliente no ha iniciado sesión.
+        switch ($_GET['action']) {
             case 'manipulateDetail':
                 $result['error'] = 'Debe iniciar sesión para agregar el producto al carrito';
                 break;
             default:
                 $result['error'] = 'Acción no disponible fuera de la sesión';
         }
-        print(json_encode('Acceso denegado'));
     }
     // Se obtiene la excepción del servidor de base de datos por si ocurrió un problema.
     $result['exception'] = Database::getException();

@@ -77,7 +77,7 @@ ORDER BY
     mes;';
         return Database::getRows($sql);
     }
-    
+
 
     //Función para cambiar el estado de un pedido.
     public function changeState()
@@ -130,7 +130,7 @@ ORDER BY
         $params = array($_SESSION['idCliente']);
         return Database::getRows($sql, $params);
     }
-    
+
     // Método para finalizar un pedido por parte del cliente.
     //Finalizar el carrito
     public function finishOrder()
@@ -189,4 +189,31 @@ ORDER BY
         return Database::getRow($sql, $params);
     }
 
+    public function history()
+    {
+        $sql = 'SELECT fecha_venta, cantidad_producto, nombre_producto, descripcion, nombre_cliente, imagen
+        FROM tb_pedidos 
+        INNER JOIN tb_detalle_pedidos ON tb_detalle_pedidos.id_pedido = tb_pedidos.id_pedido 
+        INNER JOIN tb_detalle_productos ON tb_detalle_pedidos.id_detalle_producto = tb_detalle_productos.id_detalle_producto 
+        INNER JOIN tb_productos ON tb_detalle_productos.id_producto = tb_productos.id_producto 
+        INNER JOIN tb_clientes ON tb_pedidos.id_cliente = tb_clientes.id_cliente WHERE tb_clientes.id_cliente = ?
+        ORDER BY fecha_venta DESC;';
+        $params = array($_SESSION['idCliente']);
+        return Database::getRows($sql, $params);
+    }
+
+    public function searchHistory()
+    {
+        $value = '%' . Validator::getSearchValue() . '%';
+        $sql = 'SELECT fecha_venta, cantidad_producto, nombre_producto, descripcion, nombre_cliente, imagen
+        FROM tb_pedidos 
+        INNER JOIN tb_detalle_pedidos ON tb_detalle_pedidos.id_pedido = tb_pedidos.id_pedido 
+        INNER JOIN tb_detalle_productos ON tb_detalle_pedidos.id_detalle_producto = tb_detalle_productos.id_detalle_producto 
+        INNER JOIN tb_productos ON tb_detalle_productos.id_producto = tb_productos.id_producto 
+        INNER JOIN tb_clientes ON tb_pedidos.id_cliente = tb_clientes.id_cliente WHERE tb_clientes.id_cliente = ? AND
+        nombre_producto LIKE ?
+        ORDER BY fecha_venta;';
+        $params = array($_SESSION['idCliente'], $value);
+        return Database::getRows($sql, $params);
+    }
 }

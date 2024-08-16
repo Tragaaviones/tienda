@@ -9,7 +9,7 @@ if (isset($_GET['action'])) {
     // Se instancia la clase correspondiente.
     $pedido = new PedidoData;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
-    $result = array('status' => 0, 'session' => 0, 'cliente' => 0, 'recaptcha' => 0, 'message' => null, 'error' => null, 'exception' => null, 'username' => null);
+    $result = array('status' => 0, 'session' => 0, 'cliente' => 0, 'recaptcha' => 0, 'message' => null, 'error' => null, 'exception' => null, 'username' => null, 'dataset' => null);
     // Se verifica si existe una sesión iniciada como cliente para realizar las acciones correspondientes.
     if (isset($_SESSION['idCliente'])) {
         $result['session'] = 1;
@@ -92,6 +92,26 @@ if (isset($_GET['action'])) {
                     $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
                 } else {
                     $result['error'] = 'No hay pedidos registrados';
+                }
+                break;
+                //Accion para leer las compras lado del cliente
+            case 'history':
+                if ($result['dataset'] = $pedido->history()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Tienes ' . count($result['dataset']) . ' compras registradas';
+                } else {
+                    $result['error'] = 'No hay compras registrados';
+                }
+                break;
+                //Buscar en el historial de las compras lado del cliente
+            case 'searchHistory':
+                if (!Validator::validateSearch($_POST['search'])) {
+                    $result['error'] = Validator::getSearchError();
+                } elseif ($result['dataset'] = $pedido->searchHistory()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Existen ' . count($result['dataset']) . ' coincidencias';
+                } else {
+                    $result['error'] = 'No hay coincidencias';
                 }
                 break;
                 // Estado

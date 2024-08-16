@@ -6,7 +6,6 @@
     <link rel="website icon" type="png" href="../../recursos/imagenes/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/recursos/css/publico.css">
     <link rel="stylesheet" href="../../recursos/css/pantallainicio.css">
     <link rel="website icon" type="png" href="/recursos/imagenes/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -18,69 +17,56 @@
     <main>
         <!-- Esta sección contiene el cuerpo principal de la página, con el historial de compras. -->
         <section class="container margen">
-            <div class="container">
-                <div class="row">
+            <div class="container mb-3">
+                <div class="row text-center">
                     <!-- Título de la sección -->
-                    <div class="col-10 text-center">
-                        <h1>
-                            Historial de compras
-                        </h1>
+                    <div class="col-12">
+                        <h1 id="mainTitle"></h1>
                     </div>
                 </div>
             </div>
-
-            <!-- Primera carta de producto en el historial -->
-            <div class="card mb-3 d-flex">
-                <div class="row g-0">
-                    <!-- Imagen del producto -->
-                    <div class="col-md-5">
-                        <img src="/recursos/imagenes/camisazidane.svg" class="d-block w-100" height="200"
-                            data-bs-toggle="modal" data-bs-target="#imageModal" alt="Imagen 1">
-                    </div>
-                    <!-- Detalles del producto -->
-                    <div class="col-md-7">
-                        <div class="card-body">
-                            <h5 class="letra2 text-center">Descripción del producto</h5>
-                            <p class="letra1 text-center">Camisa de la selección Francesa de 1998 ortgada al jugador
-                                Zinedine Zidane campeón del mundo </p>
-                            <!-- Fecha y hora de entrega -->
-                            <div>
-                                <p class="text-primary text-center">Fecha y hora de la entrega</p>
-                                <p class=" text-center">13-2-2024/ 3:55 pm</p>
-                            </div>
+            <div class="row">
+                <!-- Formulario de búsqueda -->
+                <form class="col-sm-12 col-md-6" id="searchForm">
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="search" class="form-control" name="search" placeholder="Buscar por fecha o producto"
+                                required>
+                        </div>
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-search"> Buscar</i>
+                            </button>
+                            <button type="reset" class="btn btn-secondary" onclick="fillTable()">
+                                <i class="bi bi-x-square-fill"> Recargar tabla</i>
+                            </button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
-
-            <!-- Segunda carta de producto en el historial -->
-            <div class="card mb-3 d-flex">
-                <div class="row g-0">
-                    <!-- Imagen del producto -->
-                    <div class="col-md-5">
-                        <img src="/recursos/imagenes/camisanazario.svg" class="d-block w-100" height="200"
-                            data-bs-toggle="modal" data-bs-target="#imageModal" alt="Imagen 1">
-                    </div>
-                    <!-- Detalles del producto -->
-                    <div class="col-md-7">
-                        <div class="card-body">
-                            <h5 class="letra2 text-center">Descripción del producto</h5>
-                            <p class="letra1 text-center">
-                                Camisa del inter de milan de 1996, ganador de la UEFA Champions League
-                                y ortogada por el jugador Ronaldo Nazario (El Fenmeno)</p>
-                            <!-- Fecha y hora de entrega -->
-                            <div>
-                                <p class="text-primary text-center">Fecha y hora de la entrega</p>
-                                <p class=" text-center">9-1-2024/ 12:00 pm</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Tabla para mostrar los registros existentes -->
+            <table class="table table-striped table-hover">
+                <!-- Cabeza de la tabla para mostrar la cantidad de registros y los títulos de las columnas -->
+                <thead>
+                    <tr>
+                        <td colspan="6" id="rowsFound"></td>
+                    </tr>
+                    <tr>
+                        <th>FECHA DE COMPRA</th>
+                        <th>PRODUCTO</th>
+                        <th>DESCRIPCIÓN</th>
+                        <th>CANTIDAD</th>
+                        <th>IMAGEN</th>
+                    </tr>
+                </thead>
+                <!-- Cuerpo de la tabla para mostrar un registro por fila -->
+                <tbody id="tableBody"></tbody>
+            </table>
         </section>
     </main>
 
     <script type="text/javascript" src="../../recursos/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="../../recursos/js/sweetalert.min.js"></script>
     <script type="text/javascript" src="../../controladores/utilidades/publico.js"></script>
     <script type="text/javascript" src="../../controladores/publico/historial.js"></script>
     <script type="text/javascript" src="../../controladores/utilidades/componentes.js"></script>

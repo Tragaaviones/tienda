@@ -28,7 +28,7 @@ CREATE TABLE tb_productos (
 CREATE TABLE tb_pedidos (
   id_pedido INT AUTO_INCREMENT PRIMARY KEY,
   id_cliente INT,
-  fecha_venta DATETIME DEFAULT NOW(),
+  fecha_venta DATE DEFAULT NOW(),
   estado_pedido ENUM('Pendiente','Entregado','En camino','Cancelado') DEFAULT 'Pendiente',
   direccion_pedido VARCHAR(255) NOT NULL
 );
@@ -66,7 +66,7 @@ CREATE TABLE tb_comentarios (
   calificacion_producto INT NOT NULL,
   fecha_comentario DATETIME DEFAULT NOW(),
   estado_comentario BOOLEAN NOT NULL,
-  id_detalle_pedidos INT
+  id_producto INT
 );
 
 CREATE TABLE tb_administradores (
@@ -98,7 +98,7 @@ ALTER TABLE tb_productos ADD FOREIGN KEY (id_marca) REFERENCES tb_marcas (id_mar
 
 ALTER TABLE tb_detalle_pedidos ADD FOREIGN KEY (id_pedido) REFERENCES tb_pedidos (id_pedido);
 
-ALTER TABLE tb_comentarios ADD FOREIGN KEY (id_detalle_pedidos) REFERENCES tb_detalle_pedidos (id_detalle_pedido);
+ALTER TABLE tb_comentarios ADD FOREIGN KEY (id_producto) REFERENCES tb_productos (id_producto);
 
 ALTER TABLE tb_productos ADD FOREIGN KEY (id_administrador) REFERENCES tb_administradores (id_administrador);
 
@@ -369,12 +369,12 @@ INSERT INTO tb_detalle_productos (id_producto, id_talla, stock_producto) VALUES
 (1, 1, 50),
 (2, 1, 30);
 
-INSERT INTO tb_comentarios (comentario, calificacion_producto, fecha_comentario, estado_comentario, id_detalle_pedidos) VALUES
-('Producto excelente, muy recomendado', '5', '2023-05-01 14:30:00', TRUE, 21),
-('El producto llegó dañado, no lo recomiendo', '1', '2023-05-02 10:45:00', FALSE, 22),
-('Buena relación calidad-precio', '4', '2023-05-03 09:20:00', TRUE, 23),
-('El producto es aceptable, pero tardó en llegar', '3', '2023-05-04 13:15:00', TRUE, 24),
-('No estoy satisfecho con la compra', '2', '2023-05-05 16:40:00', FALSE, 25);
+INSERT INTO tb_comentarios (comentario, calificacion_producto, fecha_comentario, estado_comentario, id_producto) VALUES
+('Producto excelente, muy recomendado', '5', '2023-05-01 14:30:00', TRUE, 1),
+('El producto llegó dañado, no lo recomiendo', '1', '2023-05-02 10:45:00', FALSE, 1),
+('Buena relación calidad-precio', '4', '2023-05-03 09:20:00', TRUE, 1),
+('El producto es aceptable, pero tardó en llegar', '3', '2023-05-04 13:15:00', TRUE, 1),
+('No estoy satisfecho con la compra', '2', '2023-05-05 16:40:00', FALSE, 1);
 
 
 SELECT dp.id_detalle_pedido AS ID,

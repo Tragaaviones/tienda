@@ -10,7 +10,12 @@ class ComentarioHandler
      *  Declaración de atributos para el manejo de datos.
      */
     protected $id = null;
-
+    protected $comentario = null;
+    protected $calificacion_producto = null;
+    protected $estado_comentario = null;
+    protected $id_producto = null;
+    protected $fecha_comentario = null;
+    
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
      */
@@ -46,4 +51,13 @@ class ComentarioHandler
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+        // Función para crear un comentarios.
+        public function createRow()
+        {
+            $sql = 'INSERT INTO tb_comentarios (comentario, calificacion_producto, fecha_comentario, estado_comentario, id_producto)
+                    VALUES(?, ?, ?, 1, ?)';
+            $params = array($this->comentario, $this->calificacion_producto, $this->fecha_comentario, $this->id_producto);
+            return Database::executeRow($sql, $params);
+        }
 }

@@ -34,3 +34,13 @@
     background-color: transparent;
     color: #FFD700; /* Color amarillo cuando está seleccionado */
 }
+
+.stars {
+    font-size: 1.5rem; /* Tamaño de las estrellas */
+    color: #f8ce0b;    /* Color de las estrellas llenas */
+}
+
+.stars .empty-star {
+    color: #e4e5e9;    /* Color de las estrellas vacías */
+}
+

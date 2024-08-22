@@ -62,4 +62,14 @@ class ComentarioHandler
         $params = array($this->comentario, $this->calificacion_producto, $_SESSION['idCliente']);
         return Database::executeRow($sql, $params);
     }
+
+        // Función para leer todos los comentarios en el sitio publico
+        public function readAllPublic()
+        {
+            $sql = 'SELECT comentario, calificacion_producto, fecha_comentario, nombre_cliente 
+            FROM tb_comentarios 
+            INNER JOIN tb_clientes USING(id_cliente)
+            WHERE estado_comentario = 1;';
+            return Database::getRows($sql);
+        }
 }

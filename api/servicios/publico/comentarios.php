@@ -15,32 +15,54 @@ if (isset($_GET['action'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
                 // Acción para agregar un comentario al producto.
-                case 'createRow':
-                    $_POST = Validator::validateForm($_POST);
-                    if (
-                        !$comentario->setCalificacion($_POST['VALORACION']) or
-                        !$comentario->setComentario($_POST['comentario'])
-                    ) {
-                        $result['error'] = $comentario->getDataError();
-                    } elseif ($comentario->createRow()) {
-                        $result['status'] = 1;
-                        $result['message'] = 'Comentario agregado correctamente';
-                    } else {
-                        $result['error'] = 'Ocurrió un problema al agregar el comentario';
-                    }
-                    break;
+            case 'createRow':
+                $_POST = Validator::validateForm($_POST);
+                if (
+                    !$comentario->setCalificacion($_POST['VALORACION']) or
+                    !$comentario->setComentario($_POST['comentario'])
+                ) {
+                    $result['error'] = $comentario->getDataError();
+                } elseif ($comentario->createRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Comentario agregado correctamente';
+                } else {
+                    $result['error'] = 'Ocurrió un problema al agregar el comentario';
+                }
+                break;
+                // Leer todos
+            case 'readAllPublic':
+                if ($result['dataset'] = $comentario->readAllPublic()) {
+                    $result['status'] = 1;
+                    // $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
+                } else {
+                    $result['error'] = 'No hay comentarios registrados';
+                }
+                break;
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }
-        // Se obtiene la excepción del servidor de base de datos por si ocurrió un problema.
-        $result['exception'] = Database::getException();
-        // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
-        header('Content-type: application/json; charset=utf-8');
-        // Se imprime el resultado en formato JSON y se retorna al controlador.
-        print(json_encode($result));
     } else {
-        print(json_encode('Acceso denegado'));
+        // Se compara la acción a realizar cuando el cliente no ha iniciado sesión.
+        switch ($_GET['action']) {
+                // Leer todos
+            case 'readAllPublic':
+                if ($result['dataset'] = $comentario->readAllPublic()) {
+                    $result['status'] = 1;
+                    // $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
+                } else {
+                    $result['error'] = 'No hay comentarios registrados';
+                }
+                break;
+            default:
+                $result['error'] = 'Acción no disponible fuera de la sesión';
+        }
     }
+    // Se obtiene la excepción del servidor de base de datos por si ocurrió un problema.
+    $result['exception'] = Database::getException();
+    // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
+    header('Content-type: application/json; charset=utf-8');
+    // Se imprime el resultado en formato JSON y se retorna al controlador.
+    print(json_encode($result));
 } else {
     print(json_encode('Recurso no disponible'));
 }

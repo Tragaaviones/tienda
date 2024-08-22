@@ -11,10 +11,13 @@ const SHOPPING_FORM = document.getElementById('shoppingForm'),
     COMENTARIO = document.getElementById('comentario'),
     VALORACION = document.getElementById('valoracion');
 
+const COMENTARIOS_SECCION = document.getElementById('comentarios_section');
+
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
     loadTemplate();
+    fillComments();
     // Constante tipo objeto con los datos del producto seleccionado.
     const FORM = new FormData();
     FORM.append('id_producto', PARAMS.get('id'));
@@ -92,10 +95,10 @@ COMENTARIO_FORM.addEventListener('submit', async (event) => {
     }
 
     console.log(ID_COMENTARIO.value);
-    
+
     // Se verifica la acción a realizar.
     (ID_COMENTARIO.value) ? action = 'updateRow' : action = 'createRow';
-    
+
     // Petición para guardar los datos del formulario.
     const DATA = await fetchData(COMENTARIOS_API, action, FORM);
     try {
@@ -103,6 +106,7 @@ COMENTARIO_FORM.addEventListener('submit', async (event) => {
         if (DATA.status) {
             sweetAlert(1, DATA.message, false);
             COMENTARIO_FORM.reset();
+            fillComments();
         } else if (!DATA.exception) {
             sweetAlert(3, DATA.error, true);
         } else {
@@ -112,4 +116,40 @@ COMENTARIO_FORM.addEventListener('submit', async (event) => {
         sweetAlert(3, "Debe iniciar sesión para hacer un comentario al producto", true);
     }
 });
+
+const fillComments = async () => {
+    // Se inicializa el contenido de la sección de comentarios.
+    COMENTARIOS_SECCION.innerHTML = '';
+    // Se define la acción para obtener los comentarios públicos de un producto específico.
+    action = 'readAllPublic';
+
+    // Petición para obtener los comentarios disponibles para el producto.
+    const DATA = await fetchData(COMENTARIOS_API, action);
+
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+    if (DATA.status) {
+        // Se recorre el conjunto de comentarios fila por fila.
+        DATA.dataset.forEach(row => {
+            // Se crean y concatenan las filas de la sección de comentarios con los datos de cada comentario.
+            COMENTARIOS_SECCION.innerHTML += `
+            <div class="comentario border rounded p-3 mb-3 shadow-sm">
+                <p class="mb-1"><strong>Cliente: ${row.nombre_cliente}</strong></p>
+                <p class="mb-2 text-muted">Comentario:</p>
+                <h5><p class="mb-2">${row.comentario}</p></h5>
+                <p class="mb-2"><strong>Calificación:</strong>
+                    <span class="stars">
+                        ${'★'.repeat(row.calificacion_producto)}${'☆'.repeat(5 - row.calificacion_producto)}
+                    </span>
+                </p>
+                <p class="mb-0 text-secondary"><small>Fecha: ${row.fecha_comentario}</small></p>
+            </div>
+
+            `;
+        });
+    } else {
+        COMENTARIOS_SECCION.innerHTML = `<p>No hay comentarios registrados.</p>`;
+    }
+}
+
+
 

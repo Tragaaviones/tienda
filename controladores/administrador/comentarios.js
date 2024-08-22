@@ -54,6 +54,7 @@ const fillTable = async (form = null) => {
                     <td>${row.CALIFICACION}</td>
                     <td>${row.FECHA}</td>
                     <td>${row.ESTADO}</td>
+                    <td>${row.CLIENTE}</td>
                     <td>
                         <button type="button" class="btn btn-outline-primary" onclick="openState(${row.ID})">
                         <i class="bi bi-exclamation-octagon"></i>

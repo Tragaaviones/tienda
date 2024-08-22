@@ -12,7 +12,7 @@ class ComentarioData extends ComentarioHandler
     private $data_error = null;
     // Atributo para almacenar el nombre del archivo de imagen.
     private $filename = null;
-     /*
+    /*
      *  Métodos para validar y asignar valores de los atributos.
      */
     // Validación y asignación del ID de Pedido.
@@ -27,7 +27,32 @@ class ComentarioData extends ComentarioHandler
         }
     }
 
-    
+    // Validación y asignación de la descripción del material.
+    public function setComentario($value, $min = 2, $max = 250)
+    {
+        if (!Validator::validateString($value)) {
+            $this->data_error = 'El comentario contiene caracteres prohibidos';
+            return false;
+        } elseif (Validator::validateLength($value, $min, $max)) {
+            $this->comentario = $value;
+            return true;
+        } else {
+            $this->data_error = 'La descripción debe tener una longitud entre ' . $min . ' y ' . $max;
+            return false;
+        }
+    }
+
+    // Validación y asignación del ID de la valoración.
+    public function setCalificacion($value)
+    {
+        if (Validator::validateNaturalNumber($value)) {
+            $this->calificacion_producto = $value;
+            return true;
+        } else {
+            $this->data_error = 'La calificación es invalida';
+            return false;
+        }
+    }
 
     // Método para obtener el error de los datos.
     public function getDataError()
@@ -40,5 +65,4 @@ class ComentarioData extends ComentarioHandler
     {
         return $this->filename;
     }
-    
 }

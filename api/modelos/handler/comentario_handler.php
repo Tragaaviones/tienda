@@ -13,9 +13,8 @@ class ComentarioHandler
     protected $comentario = null;
     protected $calificacion_producto = null;
     protected $estado_comentario = null;
-    protected $id_producto = null;
     protected $fecha_comentario = null;
-    
+
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
      */
@@ -24,22 +23,25 @@ class ComentarioHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id_comentario AS ID, comentario AS COMENTARIO, calificacion_producto AS CALIFICACION, fecha_comentario AS FECHA,  CASE 
+        $sql = 'SELECT id_comentario AS ID, comentario AS COMENTARIO, calificacion_producto AS CALIFICACION, fecha_comentario AS FECHA, nombre_cliente AS CLIENTE,  CASE 
         WHEN estado_comentario = 1 THEN "Activo"
         WHEN estado_comentario = 0 THEN "Bloqueado"
         END AS ESTADO FROM tb_comentarios
-                WHERE comentario LIKE ?
-                ORDER BY COMENTARIO;';
+        INNER JOIN tb_clientes USING(id_cliente)
+        WHERE comentario LIKE ?
+        ORDER BY COMENTARIO;';
         $params = array($value);
         return Database::getRows($sql, $params);
     }
     // Función para leer todos los comentarios.
     public function readAll()
     {
-        $sql = 'SELECT id_comentario AS ID, comentario AS COMENTARIO, calificacion_producto AS CALIFICACION, fecha_comentario AS FECHA,  CASE 
+        $sql = 'SELECT id_comentario AS ID, comentario AS COMENTARIO, calificacion_producto AS CALIFICACION, fecha_comentario AS FECHA, nombre_cliente AS CLIENTE,  CASE 
         WHEN estado_comentario = 1 THEN "Activo"
         WHEN estado_comentario = 0 THEN "Bloqueado"
-        END AS ESTADO FROM tb_comentarios
+        END AS ESTADO
+        FROM tb_comentarios
+        INNER JOIN tb_clientes USING(id_cliente)
         ORDER BY COMENTARIO;';
         return Database::getRows($sql);
     }
@@ -52,12 +54,12 @@ class ComentarioHandler
         return Database::executeRow($sql, $params);
     }
 
-        // Función para crear un comentarios.
-        public function createRow()
-        {
-            $sql = 'INSERT INTO tb_comentarios (comentario, calificacion_producto, fecha_comentario, estado_comentario, id_producto)
-                    VALUES(?, ?, ?, 1, ?)';
-            $params = array($this->comentario, $this->calificacion_producto, $this->fecha_comentario, $this->id_producto);
-            return Database::executeRow($sql, $params);
-        }
+    // Función para crear un comentarios.
+    public function createRow()
+    {
+        $sql = 'INSERT INTO tb_comentarios (comentario, calificacion_producto, estado_comentario, id_cliente)
+        VALUES(?, ?, 1, ?)';
+        $params = array($this->comentario, $this->calificacion_producto, $_SESSION['idCliente']);
+        return Database::executeRow($sql, $params);
+    }
 }

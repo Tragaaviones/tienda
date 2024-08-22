@@ -1,10 +1,16 @@
 const PRODUCTOS_API = "servicios/publico/producto.php"
 const PEDIDOS_API = "servicios/publico/pedido.php"
+const COMENTARIOS_API = "servicios/publico/comentarios.php"
 // Constante tipo objeto para obtener los parámetros disponibles en la URL.
 const PARAMS = new URLSearchParams(location.search);
 
 // Constante para establecer el formulario de agregar un producto al carrito de compras.
-const SHOPPING_FORM = document.getElementById('shoppingForm');
+const SHOPPING_FORM = document.getElementById('shoppingForm'),
+    COMENTARIO_FORM = document.getElementById('saveForm'),
+    ID_COMENTARIO = document.getElementById('idComentario'),
+    COMENTARIO = document.getElementById('comentario'),
+    VALORACION = document.getElementById('valoracion');
+
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
@@ -65,3 +71,45 @@ SHOPPING_FORM.addEventListener('submit', async (event) => {
         sweetAlert(3, DATA.error, true, 'login.html');
     }
 });
+
+// Método del evento para cuando se envía el formulario de agregar un producto al carrito.
+COMENTARIO_FORM.addEventListener('submit', async (event) => {
+    // Se evita recargar la página web después de enviar el formulario.
+    event.preventDefault();
+
+    // Constante tipo objeto con los datos del formulario.
+    const FORM = new FormData(COMENTARIO_FORM);
+
+    // Capturar la calificación seleccionada
+    const VALORACION = document.querySelector('input[name="star"]:checked');
+    if (VALORACION) {
+        // Agregar la calificación al objeto FormData
+        FORM.append('VALORACION', VALORACION.id.replace('star', ''));
+    } else {
+        // Si no se seleccionó ninguna calificación, puedes manejarlo aquí
+        sweetAlert(3, "Por favor selecciona una calificación.", true);
+        return;
+    }
+
+    console.log(ID_COMENTARIO.value);
+    
+    // Se verifica la acción a realizar.
+    (ID_COMENTARIO.value) ? action = 'updateRow' : action = 'createRow';
+    
+    // Petición para guardar los datos del formulario.
+    const DATA = await fetchData(COMENTARIOS_API, action, FORM);
+    try {
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se constata si el cliente ha iniciado sesión.
+        if (DATA.status) {
+            sweetAlert(1, DATA.message, false);
+            COMENTARIO_FORM.reset();
+        } else if (!DATA.exception) {
+            sweetAlert(3, DATA.error, true);
+        } else {
+            sweetAlert(3, DATA.exception, true);
+        }
+    } catch (error) {
+        sweetAlert(3, "Debe iniciar sesión para hacer un comentario al producto", true);
+    }
+});
+

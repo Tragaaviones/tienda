@@ -66,7 +66,7 @@ CREATE TABLE tb_comentarios (
   calificacion_producto INT NOT NULL,
   fecha_comentario DATETIME DEFAULT NOW(),
   estado_comentario BOOLEAN NOT NULL,
-  id_producto INT
+  id_cliente INT NOT NULL
 );
 
 CREATE TABLE tb_administradores (
@@ -98,7 +98,7 @@ ALTER TABLE tb_productos ADD FOREIGN KEY (id_marca) REFERENCES tb_marcas (id_mar
 
 ALTER TABLE tb_detalle_pedidos ADD FOREIGN KEY (id_pedido) REFERENCES tb_pedidos (id_pedido);
 
-ALTER TABLE tb_comentarios ADD FOREIGN KEY (id_producto) REFERENCES tb_productos (id_producto);
+ALTER TABLE tb_comentarios ADD FOREIGN KEY (id_cliente) REFERENCES tb_clientes (id_cliente);
 
 ALTER TABLE tb_productos ADD FOREIGN KEY (id_administrador) REFERENCES tb_administradores (id_administrador);
 
@@ -369,12 +369,20 @@ INSERT INTO tb_detalle_productos (id_producto, id_talla, stock_producto) VALUES
 (1, 1, 50),
 (2, 1, 30);
 
-INSERT INTO tb_comentarios (comentario, calificacion_producto, fecha_comentario, estado_comentario, id_producto) VALUES
+INSERT INTO tb_comentarios (comentario, calificacion_producto, fecha_comentario, estado_comentario, id_cliente) VALUES
 ('Producto excelente, muy recomendado', '5', '2023-05-01 14:30:00', TRUE, 1),
 ('El producto llegó dañado, no lo recomiendo', '1', '2023-05-02 10:45:00', FALSE, 1),
 ('Buena relación calidad-precio', '4', '2023-05-03 09:20:00', TRUE, 1),
 ('El producto es aceptable, pero tardó en llegar', '3', '2023-05-04 13:15:00', TRUE, 1),
 ('No estoy satisfecho con la compra', '2', '2023-05-05 16:40:00', FALSE, 1);
+
+SELECT id_comentario AS ID, comentario AS COMENTARIO, calificacion_producto AS CALIFICACION, fecha_comentario AS FECHA, nombre_cliente AS CLIENTE,  CASE 
+        WHEN estado_comentario = 1 THEN "Activo"
+        WHEN estado_comentario = 0 THEN "Bloqueado"
+        END AS ESTADO
+        FROM tb_comentarios
+        INNER JOIN tb_clientes USING(id_cliente)
+        ORDER BY COMENTARIO;
 
 
 SELECT dp.id_detalle_pedido AS ID,

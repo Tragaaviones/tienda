@@ -41,15 +41,6 @@
                             <p id="existenciasProducto"></p>
                         </div>
                     </div>
-                    <!-- Sección de valoración de estrellas -->
-                    <p>Califica el producto:</p>
-                    <div class="rating">
-                        <input class="d-none" type="radio" name="star" id="star1" ><label for="star1" class="star"></label>
-                        <input class="d-none" type="radio" name="star" id="star2" ><label for="star2" class="star"></label>
-                        <input class="d-none" type="radio" name="star" id="star3" ><label for="star3" class="star"></label>
-                        <input class="d-none" type="radio" name="star" id="star4" ><label for="star4" class="star"></label>
-                        <input class="d-none" type="radio" name="star" id="star5" ><label for="star5" class="star"></label>
-                    </div>
                 </div>
             </div>
         </section>
@@ -84,11 +75,23 @@
             <p class="carrito">
                 Escriba su comentario sobre este producto
             </p>
-            <form id="saveForm">
-                <!-- Campo oculto para asignar el id del producto -->
-                <input type="number" class="d-none" id="producto" name="producto">
-                <textarea name="" id="comentario" class="col-12"></textarea>
+            <form class="row" id="saveForm">
                 <div>
+                    <!-- Campo oculto para asignar el id del producto -->
+                    <input type="number" class="d-none" id="producto" name="producto">
+                    <input type="number" class="d-none" id="idComentario" name="idComentario">
+                    <textarea name="comentario" id="comentario" class="col-12"></textarea>
+                </div>
+                                <!-- Sección de valoración de estrellas -->
+                                <p>Califica el producto:</p>
+                                <div class="rating" id="valoracion">
+                                    <input class="d-none" type="radio" name="star" id="star5"><label for="star5" class="star"></label>
+                                    <input class="d-none" type="radio" name="star" id="star4"><label for="star4" class="star"></label>
+                                    <input class="d-none" type="radio" name="star" id="star3"><label for="star3" class="star"></label>
+                                    <input class="d-none" type="radio" name="star" id="star2"><label for="star2" class="star"></label>
+                                    <input class="d-none" type="radio" name="star" id="star1"><label for="star1" class="star"></label>
+                                </div>
+                <div class="mt-5">
                     <button class="button_comentario botines btn btn-outline-primary">
                         Agregar comentario
                     </button>

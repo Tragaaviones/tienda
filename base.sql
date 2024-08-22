@@ -64,7 +64,7 @@ CREATE TABLE tb_comentarios (
   id_comentario INT AUTO_INCREMENT PRIMARY KEY,
   comentario VARCHAR(255) NOT NULL,
   calificacion_producto INT NOT NULL,
-  fecha_comentario DATETIME DEFAULT NOW(),
+  fecha_comentario DATE DEFAULT NOW(),
   estado_comentario BOOLEAN NOT NULL,
   id_cliente INT NOT NULL
 );

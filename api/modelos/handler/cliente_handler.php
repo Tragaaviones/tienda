@@ -139,7 +139,7 @@ class ClientesHandler
     public function checkUser($mail, $password)
     {
         //Consulta sql para ejecutar la consulta (se pide un parametro identificado como ?, para verificar el correo)
-        $sql = 'SELECT id_cliente, correo_cliente, clave_cliente, estado_cliente
+        $sql = 'SELECT id_cliente, nombre_cliente, correo_cliente, clave_cliente, estado_cliente
                 FROM tb_clientes
                 WHERE correo_cliente = ?';
         //arreglo que inserta todas los parametros que se van a utilizar
@@ -153,6 +153,7 @@ class ClientesHandler
             //inicio de sesión sea exitoso.
             $this->id = $data['id_cliente'];
             $this->correo = $data['correo_cliente'];
+            $this->nombre = $data['nombre_cliente'];
             $this->estado = $data['estado_cliente'];
             //se retorna true si es exitoso la verificación
             return true;
@@ -172,6 +173,7 @@ class ClientesHandler
             //se crea variable de sesión llamada correoCliente para alguna verificación que se pueda utilizar con esta
             //ya sea para el perfil o alguna otra cosa mas
             $_SESSION['correoCliente'] = $this->correo;
+            $_SESSION['nombreCliente'] = $this->nombre;
             //se retorna true si es correcta la verificación del estado
             return true;
         }

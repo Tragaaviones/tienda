@@ -19,7 +19,7 @@ if (isset($_GET['action'])) {
                 if (isset($_SESSION['correoCliente'])) {
                     $result['status'] = 1;
                     $result['username'] = $_SESSION['correoCliente'];
-                    // $result['name'] = $cliente->readOneCorreo($_SESSION['nombreCliente']);
+                    $result['name'] = $_SESSION['nombreCliente'];
                 } else {
                     $result['error'] = 'Correo de usuario indefinido';
                 }

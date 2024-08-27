@@ -11,7 +11,8 @@ CREATE TABLE tb_clientes (
   correo_cliente VARCHAR(50) UNIQUE NOT NULL,
   telefono_cliente VARCHAR(50) NOT NULL,
   direccion_cliente VARCHAR(100) NOT NULL,
-  estado_cliente BOOLEAN NOT NULL
+  estado_cliente BOOLEAN NOT NULL,
+  token_cliente VARCHAR (100) DEFAULT '464134'
 );
 
 CREATE TABLE tb_productos (

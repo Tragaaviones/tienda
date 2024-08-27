@@ -17,6 +17,7 @@ class ClientesHandler
     protected $direccion = null;
     protected $clave = null;
     protected $estado = null;
+    protected $token = null;
 
 
     /*
@@ -71,9 +72,9 @@ class ClientesHandler
     //Funcion para poder registrarse (crear un cliente)
     public function createRow()
     {
-        $sql = 'INSERT INTO tb_clientes(clave_cliente, nombre_cliente, apellido_cliente, correo_cliente, telefono_cliente, direccion_cliente, estado_cliente)
-                VALUES(?, ?, ?, ?, ?, ?, 1)';
-        $params = array($this->clave, $this->nombre, $this->apellido, $this->correo, $this->telefono, $this->direccion);
+        $sql = 'INSERT INTO tb_clientes(clave_cliente, nombre_cliente, apellido_cliente, correo_cliente, telefono_cliente, direccion_cliente, estado_cliente, token_cliente)
+                VALUES(?, ?, ?, ?, ?, ?, 1 ,?)';
+        $params = array($this->clave, $this->nombre, $this->apellido, $this->correo, $this->telefono, $this->direccion, $this->token);
         return Database::executeRow($sql, $params);
     }
 
@@ -189,6 +190,23 @@ class ClientesHandler
         $params = array($this->clave, $_SESSION['idCliente']);
         return Database::executeRow($sql, $params);
     }
+    public function changePassword2()
+    {
+        $sql = 'UPDATE tb_clientes
+                SET clave_cliente = ?
+                WHERE id_cliente = ?';
+        $params = array($this->clave, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+    function generarCodigoAleatorio($longitud = 10)
+    {
+        $codigo = '';
+        for ($i = 0; $i < $longitud; $i++) {
+            $codigo .= mt_rand(0, 9);
+        }
+        return $codigo;
+    }
+
 
     // Función para comprobar la contraseña.
     public function checkPassword($password)
@@ -206,5 +224,20 @@ class ClientesHandler
         }
     }
 
-
+    public function checkToken($mail, $token)
+    {
+        $sql = 'SELECT id_cliente, correo_cliente, token_cliente, estado_cliente
+                FROM tb_clientes
+                WHERE correo_cliente = ?';
+        $params = array($mail);
+        $data = Database::getRow($sql, $params);
+        if (password_verify($token, $data['token_cliente'])) {
+            $this->id = $data['id_cliente'];
+            $this->correo = $data['correo_cliente'];
+            $this->estado = $data['estado_cliente'];
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

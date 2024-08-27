@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase del modelo.
-require_once ('../../modelos/data/cliente_data.php');
+require_once('../../modelos/data/cliente_data.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -78,8 +78,24 @@ if (isset($_GET['action'])) {
     } else {
         // Se compara la acción a realizar cuando el cliente no ha iniciado sesión.
         switch ($_GET['action']) {
+            case 'recovery':
+                $_POST = Validator::validateForm($_POST);
+                if (!$cliente->checkToken($_POST['correo_cliente'], $_POST['token'])) {
+                    $result['error'] = 'Verificación incorrecta';
+                } elseif (
+                    !$cliente->setClave($_POST['contra_cliente'])
+                ) {
+                    $result['error'] = $cliente->getDataError();
+                } elseif ($cliente->changePassword2()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Contraseña cambiada correctamente';
+                } else {
+                    $result['error'] = 'La cuenta ha sido desactivada';
+                }
+                break;
             case 'signUp':
                 $_POST = Validator::validateForm($_POST);
+                $token = $cliente->generarCodigoAleatorio();
                 if (
                     !$cliente->setNombre($_POST['nombre_cliente']) or
                     !$cliente->setApellido($_POST['apellido_cliente']) or
@@ -93,27 +109,30 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Contraseñas diferentes';
                 } elseif ($cliente->createRow()) {
                     $result['status'] = 1;
-                    $result['message'] = 'Cuenta registrada correctamente';
+                    $result['message'] = 'Cuenta registrada correctamente su token es: ' . $token;
                 } else {
                     $result['error'] = 'Ocurrió un problema al registrar la cuenta';
                 }
                 break;
+
                 case 'signUpMovil':
+                    $token = $cliente->generarCodigoAleatorio();
                     $_POST = Validator::validateForm($_POST);
-                if (
+                    if (
                         !$cliente->setNombre($_POST['nombre_cliente']) or
                         !$cliente->setApellido($_POST['apellido_cliente']) or
                         !$cliente->setCorreo($_POST['correo_cliente']) or
                         !$cliente->setDireccion($_POST['direccion_cliente']) or
                         !$cliente->setTelefono($_POST['telefono_cliente']) or
-                        !$cliente->setClave($_POST['contra_cliente'])
+                        !$cliente->setClave($_POST['contra_cliente']) or
+                        !$cliente->setToken($token)
                     ) {
                         $result['error'] = $cliente->getDataError();
                     } elseif ($_POST['contra_cliente'] != $_POST['confirmar_contra']) {
                         $result['error'] = 'Contraseñas diferentes';
                     } elseif ($cliente->createRow()) {
                         $result['status'] = 1;
-                        $result['message'] = 'Cuenta registrada correctamente';
+                        $result['message'] = 'Cuenta registrada correctamente su token es: ' . $token;
                     } else {
                         $result['error'] = 'Ocurrió un problema al registrar la cuenta';
                     }
@@ -138,7 +157,7 @@ if (isset($_GET['action'])) {
     // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
     header('Content-type: application/json; charset=utf-8');
     // Se imprime el resultado en formato JSON y se retorna al controlador.
-    print (json_encode($result));
+    print(json_encode($result));
 } else {
-    print (json_encode('Recurso no disponible'));
+    print(json_encode('Recurso no disponible'));
 }

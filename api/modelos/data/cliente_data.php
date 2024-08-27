@@ -41,6 +41,18 @@ class ClientesData extends ClientesHandler
         }
     }
 
+
+    public function setToken($value)
+    {
+        if (Validator::validatePassword($value)) {
+            $this->token = password_hash($value, PASSWORD_DEFAULT);
+            return true;
+        } else {
+            $this->data_error = Validator::getPasswordError();
+            return false;
+        }
+    }
+    
     public function setApellido($value, $min = 2, $max = 50)
     {
         if (!Validator::validateAlphabetic($value)) {
